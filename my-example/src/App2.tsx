@@ -32,6 +32,10 @@ export default function Form() {
         Hi, {firstName} {lastName}
       </h1>
       <button onClick={handleReset}>Reset</button>
+      <br />
+      <br />
+      <br />
+      <br />
     </form>
   );
 }
