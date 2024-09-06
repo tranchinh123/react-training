@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import App2 from "./App2.tsx";
 import App5 from "./App5.tsx";
 import ToDoList from "./App3.tsx";
+import App6 from "./useRef.tsx";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
@@ -12,5 +13,6 @@ createRoot(document.getElementById("root")!).render(
     <App2 />
     <ToDoList />
     <App5 />
+    <App6 />
   </StrictMode>
 );
