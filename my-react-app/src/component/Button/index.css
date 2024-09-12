@@ -1,0 +1,33 @@
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.button.primary {
+  background-color: green;
+}
+
+.button.primary:hover {
+  background-color: #0056b3;
+}
+
+.button.secondary {
+  background-color: red;
+}
+
+.button.secondary:hover {
+  background-color: #5a6268;
+}
+
+.button.warning {
+  color: black;
+  background-color: yellow;
+}
+
+.button.warning:hover {
+  background-color: #5a6268;
+}
