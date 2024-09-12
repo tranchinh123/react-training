@@ -5,10 +5,19 @@ function App6() {
   const [isCounted, setIsCounted] = useState(true);
   const timerId = useRef<number>();
   const prevCount = useRef<number>();
+  const h1Ele = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
     prevCount.current = count;
   }, [count]);
+
+  useEffect(() => {
+    console.log(h1Ele.current);
+    if (h1Ele.current) {
+      h1Ele.current.textContent = "hello";
+      h1Ele.current.style.color = "red";
+    }
+  }, []);
 
   const handleStart = () => {
     setIsCounted(!isCounted);
@@ -30,10 +39,11 @@ function App6() {
 
   return (
     <div>
-      <h1>{count}</h1>
+      <h1 ref={h1Ele}>{count}</h1>
       {isCounted && <button onClick={handleStart}>Start</button>}
       {!isCounted && <button onClick={handleStop}>Stop</button>}
     </div>
   );
 }
+
 export default App6;

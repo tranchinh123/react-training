@@ -1,0 +1,12 @@
+.heading {
+  color: red;
+  font-size: 29px;
+  font-weight: 700;
+}
+.heading .heading2 {
+  color: blue;
+}
+
+.headingText {
+  color: green;
+}/*# sourceMappingURL=app.css.map */

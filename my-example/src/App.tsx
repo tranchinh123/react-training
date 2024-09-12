@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./app.scss";
 const sculptureList = [
   {
     name: "Homenaje a la Neurocirugía",
@@ -124,11 +124,11 @@ export default function Gallery() {
       <button onClick={handleNextClick} disabled={!hasNext}>
         Next
       </button>
-      <h2>
-        <i>{sculpture.name} </i>
+      <h2 className="heading">
+        <i className="heading2">{sculpture.name} </i>
         by {sculpture.artist}
       </h2>
-      <h3>
+      <h3 className="headingText">
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>

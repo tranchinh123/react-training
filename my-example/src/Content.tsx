@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./app.scss";
 const Content = () => {
   interface Post {
     userId: number;
@@ -50,7 +50,7 @@ const Content = () => {
 
   return (
     <div>
-      <h1>{countdown}</h1>
+      <h1 className="heading">{countdown}</h1>
       {tabs.map((tab) => (
         <button
           key={tab}
