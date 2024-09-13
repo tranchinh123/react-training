@@ -4,7 +4,7 @@
 
 ## OVERVIEW
 
-- This document provides requirements, technical stack, and estimation for TypeScript Practice.
+- This document provides requirements, technical stack, and estimation for React Basic Practice.
 - Design [Figma](https://www.figma.com/design/K53tONfNCdHH5ukLs5IcPp/bookshelter---React-practice?node-id=2314-32&node-type=frame&t=xu6nbwioznKB9eb8-0)
 
 ## TARGETS
