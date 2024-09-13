@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# training-react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# REACT BASIC PRACTICE
 
-Currently, two official plugins are available:
+## OVERVIEW
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This document provides requirements, technical stack, and estimation for React Basic Practice.
+- Design [Figma](https://www.figma.com/design/K53tONfNCdHH5ukLs5IcPp/bookshelter---React-practice?node-id=2314-32&node-type=frame&t=xu6nbwioznKB9eb8-0)
 
-## Expanding the ESLint configuration
+## TARGETS
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Understand and apply knowledge of HTML5, CSS3, JavaScript (with ES6 syntax).
+- Understand and apply TypeScript in React.
+- Get familiar with JSX syntax and be able to implement React components based on real UI design
+- Understanding how React hooks work
+- Learn to debug with React developer tools
+- Set up and build Storybook to manage components
 
-- Configure the top-level `parserOptions` property like this:
+## TECHNICAL STACK
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React
+- React router
+- Vite
+- HTML5/CSS3/Typescript
+- Vercel
+- Prettier
+- MockAPI
+- Storybook
+
+## REQUIREMENTS
+
+- Build a Book Web Application that follows the design.
+- Build a storybook for components in the app.
+
+## PREREQUISITE
+
+- Nodejs version v18.18.0
+- React 18.2.0 (or latest version)
+- Vercel
+
+## How to run
+
+- Clone source
+
+```
+git clone https://github.com/tranchinh123/react-training.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Git checkout
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```
+git checkout feat/practice
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```
+cd bookshelter-app
+```
+
+- Install packages
+
+```
+pnpm install
+```
+
+- Run project
+
+```
+pnpm run dev
 ```
