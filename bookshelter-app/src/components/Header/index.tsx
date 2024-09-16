@@ -4,7 +4,6 @@ import Input from '../Input';
 const Header = () => {
   return (
     <>
-      <></>
       <header className={styles.header}>
         <Logo />
         <Input />
