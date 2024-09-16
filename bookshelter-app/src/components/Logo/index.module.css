@@ -1,0 +1,11 @@
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.logoText {
+  margin-left: 20px;
+  color: black;
+  font-family: var(--tertiary-font-family);
+  font-size: 36px;
+}
