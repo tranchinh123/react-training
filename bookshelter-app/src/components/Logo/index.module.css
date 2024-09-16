@@ -6,6 +6,6 @@
 .logoText {
   margin-left: 20px;
   color: black;
-  font-family: 'Dancing Script';
+  font-family: var(--tertiary-font-family);
   font-size: 36px;
 }

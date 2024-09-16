@@ -4,10 +4,11 @@ import Input from '../Input';
 const Header = () => {
   return (
     <>
-      <div className={styles.header}>
+      <></>
+      <header className={styles.header}>
         <Logo />
         <Input />
-      </div>
+      </header>
     </>
   );
 };

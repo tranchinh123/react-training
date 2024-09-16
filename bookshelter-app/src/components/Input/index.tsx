@@ -1,8 +1,16 @@
 import styles from './index.module.css';
+import glass from '../../assets/images/magnifyingGlass.svg';
 const Input = () => {
   return (
     <>
-      <input className={styles.input} type="text" placeholder="Search books" />
+      <div className={styles.input}>
+        <img src={glass} alt="" />
+        <input
+          className={styles.searchInput}
+          type="text"
+          placeholder="Search books"
+        />
+      </div>
     </>
   );
 };
