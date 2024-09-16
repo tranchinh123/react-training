@@ -1,15 +1,13 @@
 import logo from '../../assets/images/Logo.svg';
-import './index.css';
+import styles from './index.module.css';
 const Logo = () => {
   return (
-    <>
-      <div>
-        <a className="logo" href="/">
-          <img src={logo} alt="Logo page" />
-          <p className="logoText">BookShelter</p>
-        </a>
-      </div>
-    </>
+    <div>
+      <a className={styles.logo} href="/">
+        <img src={logo} alt="Logo page" />
+        <p className={styles.logoText}>BookShelter</p>
+      </a>
+    </div>
   );
 };
 
