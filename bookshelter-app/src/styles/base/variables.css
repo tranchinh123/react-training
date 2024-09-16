@@ -4,9 +4,17 @@
   --secondary-font-family: 'Noto Sans';
   --tertiary-font-family: 'Dancing Script';
   /* font-weight */
-
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
   /* font-size */
-
+  --font-size-sm: 12px;
+  --font-size-md: 13px;
+  --font-size-lg: 14px;
+  --font-size-xl: 16px;
+  --font-size-2xl: 18px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 36px;
   /* color */
 
   /* background-color */
