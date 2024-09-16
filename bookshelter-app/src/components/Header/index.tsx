@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 import Logo from '../Logo';
-import Input from '../Input';
+import Input from '../SearchInput';
 const Header = () => {
   return (
     <>
