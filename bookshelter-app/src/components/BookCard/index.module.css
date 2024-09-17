@@ -4,3 +4,52 @@
   border-radius: 5px;
   background-color: var(--background-color-primary);
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 282px;
+  height: 369px;
+  border-radius: 5px;
+  background-color: var(--background-color-primary);
+}
+.card:hover {
+  opacity: 0.9;
+}
+
+.imageCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 249px;
+  height: 238px;
+  border-radius: 5px 0px 0px 0px;
+  background-color: var(--background-color-secondary);
+  margin: 13px 15px 0px 18px;
+}
+
+.imageBook {
+  width: 201px;
+  height: 202px;
+  border-radius: 5px 0px 0px 0px;
+  opacity: 0px;
+}
+
+.bookInform {
+  padding-top: 20px;
+  padding-left: 21px;
+}
+
+.nameBook {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--primary-font-family);
+}
+
+.published,
+.author {
+  font-family: var(--secondary-font-family);
+  font-size: var(--font-size-md);
+  line-height: 17px;
+  color: #757881;
+}
