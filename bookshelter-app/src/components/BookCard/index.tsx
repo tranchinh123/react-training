@@ -4,11 +4,21 @@ interface BookCardProps {
   author: string;
   published: number;
   url: string;
+  handleClick: () => void;
 }
 
-const BookCard = ({ name, author, published, url }: BookCardProps) => {
+const BookCard = ({
+  name,
+  author,
+  published,
+  url,
+  handleClick,
+}: BookCardProps) => {
+  const handleCardClick = () => {
+    handleClick();
+  };
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleCardClick}>
       <div className={styles.imageCard}>
         <img className={styles.imageBook} src={url} alt="" />
       </div>
