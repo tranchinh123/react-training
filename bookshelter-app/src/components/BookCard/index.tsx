@@ -4,11 +4,18 @@ interface BookCardProps {
   author: string;
   published: number;
   url: string;
+  onHandleClick: () => void;
 }
 
-const BookCard = ({ name, author, published, url }: BookCardProps) => {
+const BookCard = ({
+  name,
+  author,
+  published,
+  url,
+  onHandleClick,
+}: BookCardProps) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onHandleClick}>
       <div className={styles.imageCard}>
         <img className={styles.imageBook} src={url} alt="" />
       </div>
@@ -20,5 +27,4 @@ const BookCard = ({ name, author, published, url }: BookCardProps) => {
     </div>
   );
 };
-
 export default BookCard;
