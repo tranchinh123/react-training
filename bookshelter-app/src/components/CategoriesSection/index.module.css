@@ -1,0 +1,9 @@
+.CategoriesSection {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffff;
+  border-bottom: 3px solid var(--background-color-secondary);
+  font-family: var(--primary-font-family);
+}

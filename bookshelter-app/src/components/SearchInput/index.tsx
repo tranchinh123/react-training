@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 import glass from '../../assets/images/magnifyingGlass.svg';
-const Input = () => {
+const SearchInput = () => {
   return (
     <>
       <div className={styles.input}>
@@ -15,4 +15,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default SearchInput;
