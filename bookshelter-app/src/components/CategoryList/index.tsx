@@ -1,10 +1,14 @@
 import styles from './index.module.css';
+import CateGoryItem from '../CategoryItem';
 const CategoryList = () => {
   return (
     <>
-      <div className={styles.categoryList}>
-        <p>A curated list of every book ever written</p>
-      </div>
+      <section className={styles.categoryList}>
+        <p className={styles.curatedList}>
+          A curated list of every book ever written
+        </p>
+        <CateGoryItem category="Adventure" quantity={345} />
+      </section>
     </>
   );
 };
