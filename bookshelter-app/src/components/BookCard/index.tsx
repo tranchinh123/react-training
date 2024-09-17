@@ -14,11 +14,8 @@ const BookCard = ({
   url,
   onHandleClick,
 }: BookCardProps) => {
-  const HandleCardClick = () => {
-    onHandleClick();
-  };
   return (
-    <div className={styles.card} onClick={HandleCardClick}>
+    <div className={styles.card} onClick={onHandleClick}>
       <div className={styles.imageCard}>
         <img className={styles.imageBook} src={url} alt="" />
       </div>
