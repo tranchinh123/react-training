@@ -4,7 +4,7 @@ interface BookCardProps {
   author: string;
   published: number;
   url: string;
-  onHandleClick: () => void;
+  onHandleClick?: () => void;
 }
 
 const BookCard = ({
