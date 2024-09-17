@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import CateGoryItem from '../CategoryItem';
+import CategoryItem from '../CategoryItem';
 const CategoryList = () => {
   return (
     <>
@@ -7,7 +7,7 @@ const CategoryList = () => {
         <p className={styles.curatedList}>
           A curated list of every book ever written
         </p>
-        <CateGoryItem category="Adventure" quantity={345} />
+        <CategoryItem category="Adventure" quantity={345} />
       </section>
     </>
   );
