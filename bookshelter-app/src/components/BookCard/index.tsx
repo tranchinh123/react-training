@@ -1,13 +1,22 @@
 import styles from './index.module.css';
-const BookCard = () => {
+interface BookCardProps {
+  name: string;
+  author: string;
+  published: number;
+  url: string;
+}
+
+const BookCard = ({ name, author, published, url }: BookCardProps) => {
   return (
     <div className={styles.card}>
-      <div>
-        <img src="" alt="" />
+      <div className={styles.imageCard}>
+        <img className={styles.imageBook} src={url} alt="" />
       </div>
-      <h2>Angles and demons</h2>
-      <p>Stuart Matt</p>
-      <p>2021</p>
+      <div className={styles.bookInform}>
+        <h2 className={styles.nameBook}>{name}</h2>
+        <p className={styles.author}>{author}</p>
+        <p className={styles.published}>{published}</p>
+      </div>
     </div>
   );
 };
