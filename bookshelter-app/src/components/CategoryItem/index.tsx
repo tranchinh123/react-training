@@ -1,11 +1,11 @@
 import styles from './index.module.css';
 
-interface CateGoryItemProps {
+interface BookCategoryProps {
   category: string;
   quantity: number;
 }
 
-const CategoryItem = ({ category, quantity }: CateGoryItemProps) => {
+const BookCategory = ({ category, quantity }: BookCategoryProps) => {
   return (
     <div className={styles.categoryItem}>
       <div className={styles.initials}>{category.slice(0, 2)}</div>
@@ -15,4 +15,4 @@ const CategoryItem = ({ category, quantity }: CateGoryItemProps) => {
   );
 };
 
-export default CategoryItem;
+export default BookCategory;
