@@ -1,16 +1,18 @@
 import styles from './index.module.css';
-import BookCategory from '../CategoryItem';
-const CategoryList = () => {
+
+interface BookCategoryProps {
+  category: string;
+  quantity: number;
+}
+
+const BookCategory = ({ category, quantity }: BookCategoryProps) => {
   return (
-    <>
-      <section className={styles.categoryList}>
-        <p className={styles.curatedList}>
-          A curated list of every book ever written
-        </p>
-        <BookCategory category="Adventure" quantity={345} />
-      </section>
-    </>
+    <div className={styles.categoryItem}>
+      <div className={styles.initials}>{category.slice(0, 2)}</div>
+      <p className={styles.category}>{category}</p>
+      <p className={styles.bookQuantity}>{quantity}</p>
+    </div>
   );
 };
 
-export default CategoryList;
+export default BookCategory;

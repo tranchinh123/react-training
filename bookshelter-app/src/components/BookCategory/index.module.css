@@ -1,14 +1,31 @@
-.categoryList {
+.categoryItem {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  width: 268px;
-  height: 936px;
-  background-color: var(--background-color-primary);
+  width: 236px;
+  height: 56px;
+  border-radius: 10px;
+  margin-top: 23px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ff6231;
 }
 
-.curatedList {
-  margin-top: 20px;
-  padding-left: 25px;
-  padding-right: 34px;
+.category {
+  font-size: var(--font-size-xl);
+}
+
+.bookQuantity {
+  font-size: var(--font-size-lg);
+  color: #58667e;
+  margin-right: 30px;
 }
