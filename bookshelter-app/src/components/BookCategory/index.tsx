@@ -4,7 +4,7 @@ interface CateGoryItemProps {
   quantity: number;
   color: string;
 }
-const CateGoryItem = ({ category, quantity, color }: CateGoryItemProps) => {
+const BookCategory = ({ category, quantity, color }: CateGoryItemProps) => {
   return (
     <>
       <div className={styles.categoryItem}>
@@ -18,4 +18,4 @@ const CateGoryItem = ({ category, quantity, color }: CateGoryItemProps) => {
   );
 };
 
-export default CateGoryItem;
+export default BookCategory;
