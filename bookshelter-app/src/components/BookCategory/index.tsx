@@ -3,7 +3,7 @@ import styles from './index.module.css';
 interface BookCategoryProps {
   category: string;
   quantity: number;
-  onHandleClick: () => void;
+  onHandleClick?: () => void;
 }
 
 const BookCategory = ({
