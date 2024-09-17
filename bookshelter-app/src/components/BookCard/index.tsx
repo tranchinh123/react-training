@@ -4,7 +4,7 @@ interface BookCardProps {
   author: string;
   published: number;
   url: string;
-  handleClick: () => void;
+  onHandleClick: () => void;
 }
 
 const BookCard = ({
@@ -12,13 +12,13 @@ const BookCard = ({
   author,
   published,
   url,
-  handleClick,
+  onHandleClick,
 }: BookCardProps) => {
-  const handleCardClick = () => {
-    handleClick();
+  const HandleCardClick = () => {
+    onHandleClick();
   };
   return (
-    <div className={styles.card} onClick={handleCardClick}>
+    <div className={styles.card} onClick={HandleCardClick}>
       <div className={styles.imageCard}>
         <img className={styles.imageBook} src={url} alt="" />
       </div>
