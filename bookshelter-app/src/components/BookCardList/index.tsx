@@ -9,29 +9,27 @@ const BookCardList = () => {
   const [books, setBooks] = useState<Books[]>([]);
 
   useEffect(() => {
-    const loadBookList = async (): Promise<void> => {
-      const fetchBooks = await get<Books[]>(API.BOOKS_ENDPOINT);
-      if (fetchBooks) {
-        setBooks(fetchBooks);
+    const fetchBookList = async (): Promise<void> => {
+      const listBooks = await get<Books[]>(API.BOOKS_ENDPOINT);
+      if (listBooks) {
+        setBooks(listBooks);
       }
     };
-    loadBookList();
+    fetchBookList();
   }, []);
 
   return (
-    <>
-      <div className={styles.bookList}>
-        {books.map((book) => (
-          <BookCard
-            key={book.id}
-            name={book.author}
-            author={book.author}
-            published={book.publishedYear}
-            url="https://i.imgur.com/Mx7dA2Y.jpg"
-          />
-        ))}
-      </div>
-    </>
+    <div className={styles.bookList}>
+      {books.map((book) => (
+        <BookCard
+          key={book.id}
+          name={book.author}
+          author={book.author}
+          published={book.publishedYear}
+          url="https://i.imgur.com/Mx7dA2Y.jpg"
+        />
+      ))}
+    </div>
   );
 };
 

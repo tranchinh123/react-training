@@ -10,12 +10,12 @@ const CategoryList = () => {
   const [categories, setCategories] = useState<Categories[]>([]);
 
   useEffect(() => {
-    const loadCategoriesList = async (): Promise<void> => {
-      const fetchCategories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
-      if (fetchCategories) setCategories(fetchCategories);
+    const fetchCategoriesList = async (): Promise<void> => {
+      const Categories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
+      if (Categories) setCategories(Categories);
     };
 
-    loadCategoriesList();
+    fetchCategoriesList();
   }, []);
 
   return (
