@@ -19,10 +19,7 @@ const CategoryList = () => {
 
   useEffect(() => {
     const loadCategoriesList = async (): Promise<void> => {
-      const fetchCategories = await get<Categories[]>(
-        'categories',
-        API.CATEGORIES_ENDPOINT
-      );
+      const fetchCategories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
       if (fetchCategories) setCategories(fetchCategories);
     };
 

@@ -1,10 +1,7 @@
 import { Books } from '../types/index';
 import { API } from '../constants/api';
 
-const get = async <T>(
-  endPoint: string,
-  datatype: string
-): Promise<T | void> => {
+const get = async <T>(endPoint: string): Promise<T | void> => {
   try {
     const response = await fetch(`${API.BASE_URL}${endPoint}`, {
       method: 'GET',
@@ -12,11 +9,7 @@ const get = async <T>(
     });
     if (response.ok) {
       const data = await response.json();
-      if (datatype === 'books') {
-        return data as T;
-      } else if (datatype === 'categories') {
-        return data as T;
-      }
+      return data as T;
     }
   } catch (error) {
     console.error('Failed to fetch data ', error);
