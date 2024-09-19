@@ -1,18 +1,12 @@
 .card {
-  width: 282px;
-  height: 369px;
-  border-radius: 5px;
-  background-color: var(--background-color-primary);
-}
-.card {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  width: 282px;
-  height: 369px;
   border-radius: 5px;
   background-color: var(--background-color-primary);
+  padding-bottom: 25px;
 }
+
 .card:hover {
   opacity: 0.9;
 }
