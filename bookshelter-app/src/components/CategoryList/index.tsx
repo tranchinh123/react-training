@@ -4,15 +4,7 @@ import BookCategory from '../BookCategory';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 import { Categories } from '../../types';
-
-const getRandomColor = (): string => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
+import getRandomColor from '../../utils/randomColor';
 
 const CategoryList = () => {
   const [categories, setCategories] = useState<Categories[]>([]);
