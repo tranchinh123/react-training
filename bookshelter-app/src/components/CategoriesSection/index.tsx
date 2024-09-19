@@ -1,14 +1,22 @@
 import arrow from '../../assets/images/Arrow.svg';
 import styles from './index.module.css';
-const CategoriesSection = () => {
+
+interface CategoriesSectionProps {
+  currentCategory: string | null;
+}
+const CategoriesSection = ({ currentCategory }: CategoriesSectionProps) => {
   return (
     <section className={styles.CategoriesSection}>
       <p className={styles.categories}>Categories</p>
-      <div className={styles.wrapped}>
-        <div className={styles.category}>Romance</div>
-        <img src={arrow} alt="" />
-        <p>Showing 6 Result(s)</p>
-      </div>
+      {currentCategory ? (
+        <div className={styles.wrapped}>
+          <div className={styles.category}>{currentCategory}</div>
+          <img src={arrow} alt="" />
+          <p>Showing 6 Result(s)</p>
+        </div>
+      ) : (
+        <p></p>
+      )}
     </section>
   );
 };

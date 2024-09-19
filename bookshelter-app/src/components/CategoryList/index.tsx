@@ -1,39 +1,33 @@
-import { useEffect, useState } from 'react';
 import styles from './index.module.css';
 import BookCategory from '../BookCategory';
-import { get } from '../../services/api';
-import { API } from '../../constants/api';
-import { Categories } from '../../types';
 import getRandomColor from '../../utils/randomColor';
+interface Category {
+  id: number;
+  name: string;
+  totalBooks: number;
+}
 
-const CategoryList = () => {
-  const [categories, setCategories] = useState<Categories[]>([]);
+interface CategoryListProps {
+  categories: Category[]; // Mảng các danh mục
+  onCategoryClick: (categoryName: string) => void; // Hàm callback khi nhấp vào danh mục
+}
 
-  useEffect(() => {
-    const fetchCategoriesList = async (): Promise<void> => {
-      const Categories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
-      if (Categories) setCategories(Categories);
-    };
-
-    fetchCategoriesList();
-  }, []);
-
+const CategoryList = ({ categories, onCategoryClick }: CategoryListProps) => {
   return (
-    <>
-      <section className={styles.categoryList}>
-        <p className={styles.curatedList}>
-          A curated list of every book ever written
-        </p>
-        {categories.map((category) => (
-          <BookCategory
-            key={category.id}
-            category={category.name}
-            quantity={category.totalBooks}
-            color={getRandomColor()}
-          />
-        ))}
-      </section>
-    </>
+    <section className={styles.categoryList}>
+      <p className={styles.curatedList}>
+        A curated list of every book ever written
+      </p>
+      {categories.map((category) => (
+        <BookCategory
+          key={category.id}
+          category={category.name}
+          quantity={category.totalBooks}
+          color={getRandomColor()}
+          onHandleClick={() => onCategoryClick(category.name)}
+        />
+      ))}
+    </section>
   );
 };
 
