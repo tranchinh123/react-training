@@ -1,9 +1,19 @@
+import styles from './index.module.css';
 import Header from '../components/Header';
-const DefaultLayout = () => {
+import CategoriesSection from '../components/CategoriesSection';
+import CategoryList from '../components/CategoryList';
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+const DefaultLayout = ({ children }: LayoutProps) => {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <CategoriesSection />
+      <CategoryList />
+      <section className={styles.content}>{children}</section>
+    </>
   );
 };
 

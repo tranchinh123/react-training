@@ -1,24 +1,45 @@
+import { useEffect, useState } from 'react';
 import styles from './index.module.css';
 import BookCategory from '../BookCategory';
+import { get } from '../../services/api';
+import { API } from '../../constants/api';
+import { Categories } from '../../types';
+
+const getRandomColor = (): string => {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
 const CategoryList = () => {
+  const [categories, setCategories] = useState<Categories[]>([]);
+
+  useEffect(() => {
+    const loadCategoriesList = async (): Promise<void> => {
+      const fetchCategories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
+      if (fetchCategories) setCategories(fetchCategories);
+    };
+
+    loadCategoriesList();
+  }, []);
+
   return (
     <>
       <section className={styles.categoryList}>
         <p className={styles.curatedList}>
           A curated list of every book ever written
         </p>
-        <BookCategory
-          category="Adventure"
-          quantity={345}
-          color=" #0DA8FF;
-
-        "
-        />
-        <BookCategory category="Contemporary" quantity={314} color="#F388B5" />
-        <BookCategory category="Romance" quantity={134} color="#770DFF" />
-        <BookCategory category="Fantasy" quantity={234} color="#4F85AC" />
-        <BookCategory category="Dystopian" quantity={384} color="#14282F" />
-        <BookCategory category="Mystery" quantity={1344} color="#F1121F" />
+        {categories.map((category) => (
+          <BookCategory
+            key={category.id}
+            category={category.name}
+            quantity={category.totalBooks}
+            color={getRandomColor()}
+          />
+        ))}
       </section>
     </>
   );
