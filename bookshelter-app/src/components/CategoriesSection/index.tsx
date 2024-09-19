@@ -3,8 +3,9 @@ import styles from './index.module.css';
 const CategoriesSection = () => {
   return (
     <section className={styles.CategoriesSection}>
-      <p>Categories</p>
-      <div>
+      <p className={styles.categories}>Categories</p>
+      <div className={styles.wrapped}>
+        <div className={styles.category}>Romance</div>
         <img src={arrow} alt="" />
         <p>Showing 6 Result(s)</p>
       </div>
