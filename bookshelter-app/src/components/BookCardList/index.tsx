@@ -12,8 +12,6 @@ const BookCardList = () => {
     const loadBookList = async (): Promise<void> => {
       const fetchBooks = await get<Books[]>(API.BOOKS_ENDPOINT);
       if (fetchBooks) {
-        console.log(fetchBooks);
-
         setBooks(fetchBooks);
       }
     };
