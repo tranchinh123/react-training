@@ -2,14 +2,14 @@ import DefaultLayout from '../../layouts';
 import BookCardList from '../../components/BookCardList';
 import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
-import { Books } from '../../types/index';
+import { Book } from '../../types/index';
 import { API } from '../../constants/api';
 const HomePage = () => {
-  const [books, setBooks] = useState<Books[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      const listBooks = await get<Books[]>(API.BOOKS_ENDPOINT);
+      const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
       if (listBooks) {
         setBooks(listBooks);
       }

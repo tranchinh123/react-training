@@ -1,11 +1,11 @@
-export interface Categories {
+export interface Category {
   id: number;
   name: string;
   totalBooks: number;
-  slug: string;
+  slug?: string;
 }
 
-export interface Books {
+export interface Book {
   id: string;
   title: string;
   author: string;
