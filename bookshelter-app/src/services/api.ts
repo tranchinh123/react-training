@@ -1,4 +1,4 @@
-import { Books } from '../types/index';
+import { Book } from '../types/index';
 import { API } from '../constants/api';
 
 const get = async <T>(endPoint: string): Promise<T | void> => {
@@ -16,7 +16,7 @@ const get = async <T>(endPoint: string): Promise<T | void> => {
   }
 };
 
-const getByID = async (endPoint: string, id: string): Promise<Books | void> => {
+const getByID = async (endPoint: string, id: string): Promise<Book | void> => {
   try {
     const response = await fetch(`${API.BASE_URL}${endPoint}/${id}`, {
       method: 'GET',
