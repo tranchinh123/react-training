@@ -1,26 +1,26 @@
 import styles from './index.module.css';
 interface BookCardProps {
-  name: string;
+  title: string;
   author: string;
   published: number;
-  url: string;
+  cover: string;
   onHandleClick?: () => void;
 }
 
 const BookCard = ({
-  name,
+  title,
   author,
   published,
-  url,
+  cover,
   onHandleClick,
 }: BookCardProps) => {
   return (
     <div className={styles.card} onClick={onHandleClick}>
       <div className={styles.imageCard}>
-        <img className={styles.imageBook} src={url} alt="" />
+        <img className={styles.imageBook} src={cover} alt="" />
       </div>
       <div className={styles.bookInform}>
-        <h2 className={styles.nameBook}>{name}</h2>
+        <h2 className={styles.nameBook}>{title}</h2>
         <p className={styles.author}>{author}</p>
         <p className={styles.published}>{published}</p>
       </div>
