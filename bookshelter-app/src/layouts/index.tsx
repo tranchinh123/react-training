@@ -16,8 +16,8 @@ const DefaultLayout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
-      const Categories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
-      if (Categories) setCategories(Categories);
+      const categories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
+      if (categories) setCategories(categories);
     };
 
     fetchCategoriesList();
