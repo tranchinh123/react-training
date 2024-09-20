@@ -1,11 +1,7 @@
 import styles from './index.module.css';
 import BookCategory from '../BookCategory';
 import getRandomColor from '../../utils/randomColor';
-interface Category {
-  id: number;
-  name: string;
-  totalBooks: number;
-}
+import { Category } from '../../types';
 
 interface CategoryListProps {
   categories: Category[];

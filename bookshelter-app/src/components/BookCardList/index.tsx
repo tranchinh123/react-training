@@ -1,16 +1,9 @@
 import BookCard from '../BookCard';
 import styles from './index.module.css';
-
-interface book {
-  id: string;
-  title: string;
-  author: string;
-  publishedYear: number;
-  cover: string;
-}
+import { Book } from '../../types';
 
 interface booksProps {
-  books: book[];
+  books: Book[];
 }
 const BookCardList = ({ books }: booksProps) => {
   return (
@@ -22,7 +15,6 @@ const BookCardList = ({ books }: booksProps) => {
           author={book.author}
           published={book.publishedYear}
           cover={book.cover}
-
         />
       ))}
     </div>
