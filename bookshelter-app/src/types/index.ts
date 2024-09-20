@@ -13,4 +13,5 @@ export interface Books {
   publishedYear: number;
   publisher: string;
   description: string;
+  cover: string;
 }
