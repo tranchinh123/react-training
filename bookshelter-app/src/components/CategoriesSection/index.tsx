@@ -1,5 +1,5 @@
-import arrow from '../../assets/images/Arrow.svg';
 import styles from './index.module.css';
+import Arrow from '../Icons/Arrow';
 
 interface CategoriesSectionProps {
   currentCategory: string | null;
@@ -11,7 +11,7 @@ const CategoriesSection = ({ currentCategory }: CategoriesSectionProps) => {
       {currentCategory && (
         <div className={styles.wrapped}>
           <div className={styles.category}>{currentCategory}</div>
-          <img src={arrow} alt="" />
+          <Arrow />
           <p>Showing 6 Result(s)</p>
         </div>
       )}

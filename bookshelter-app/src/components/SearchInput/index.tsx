@@ -1,10 +1,11 @@
 import styles from './index.module.css';
-import glass from '../../assets/images/magnifyingGlass.svg';
+
+import Glass from '../Icons/Glass';
 const SearchInput = () => {
   return (
     <>
       <div className={styles.input}>
-        <img src={glass} alt="" />
+        <Glass />
         <input
           className={styles.searchInput}
           type="text"
