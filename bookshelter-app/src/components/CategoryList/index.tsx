@@ -9,10 +9,10 @@ interface Category {
 
 interface CategoryListProps {
   categories: Category[];
-  onCategoryClick: (categoryName: string) => void;
+  onClick: (categoryName: string) => void;
 }
 
-const CategoryList = ({ categories, onCategoryClick }: CategoryListProps) => {
+const CategoryList = ({ categories, onClick }: CategoryListProps) => {
   return (
     <section className={styles.categoryList}>
       <p className={styles.curatedList}>
@@ -24,7 +24,7 @@ const CategoryList = ({ categories, onCategoryClick }: CategoryListProps) => {
           category={category.name}
           quantity={category.totalBooks}
           color={getRandomColor()}
-          onHandleClick={() => onCategoryClick(category.name)}
+          onClick={() => onClick(category.name)}
         />
       ))}
     </section>

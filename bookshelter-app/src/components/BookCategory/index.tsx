@@ -3,17 +3,17 @@ interface CateGoryItemProps {
   category: string;
   quantity: number;
   color: string;
-  onHandleClick?: () => void;
+  onClick?: () => void;
 }
 const BookCategory = ({
   category,
   quantity,
   color,
-  onHandleClick,
+  onClick,
 }: CateGoryItemProps) => {
   return (
     <>
-      <div className={styles.categoryItem} onClick={onHandleClick}>
+      <div className={styles.categoryItem} onClick={onClick}>
         <div style={{ backgroundColor: color }} className={styles.initials}>
           {category.slice(0, 2)}
         </div>
