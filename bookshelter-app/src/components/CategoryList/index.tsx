@@ -4,26 +4,18 @@ import BookCategory from '../BookCategory';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 import { Categories } from '../../types';
-
-const getRandomColor = (): string => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-};
+import getRandomColor from '../../utils/randomColor';
 
 const CategoryList = () => {
   const [categories, setCategories] = useState<Categories[]>([]);
 
   useEffect(() => {
-    const loadCategoriesList = async (): Promise<void> => {
-      const fetchCategories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
-      if (fetchCategories) setCategories(fetchCategories);
+    const fetchCategoriesList = async (): Promise<void> => {
+      const Categories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);
+      if (Categories) setCategories(Categories);
     };
 
-    loadCategoriesList();
+    fetchCategoriesList();
   }, []);
 
   return (
