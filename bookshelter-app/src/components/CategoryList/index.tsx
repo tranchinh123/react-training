@@ -5,7 +5,7 @@ import { Category } from '../../types';
 
 interface CategoryListProps {
   categories: Category[];
-  onClick: (categoryName: string) => void;
+  onClick: (categoryName: string, currentTotalBook: number) => void;
 }
 
 const CategoryList = ({ categories, onClick }: CategoryListProps) => {
@@ -20,7 +20,7 @@ const CategoryList = ({ categories, onClick }: CategoryListProps) => {
           category={category.name}
           quantity={category.totalBooks}
           color={getRandomColor()}
-          onClick={() => onClick(category.name)}
+          onClick={() => onClick(category.name, category.totalBooks)}
         />
       ))}
     </section>

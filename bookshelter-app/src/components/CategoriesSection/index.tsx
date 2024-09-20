@@ -3,8 +3,12 @@ import Arrow from '../Icons/Arrow';
 
 interface CategoriesSectionProps {
   currentCategory: string | null;
+  currentTotalBook: number | null;
 }
-const CategoriesSection = ({ currentCategory }: CategoriesSectionProps) => {
+const CategoriesSection = ({
+  currentCategory,
+  currentTotalBook,
+}: CategoriesSectionProps) => {
   return (
     <section className={styles.CategoriesSection}>
       <p className={styles.categories}>Categories</p>
@@ -12,7 +16,7 @@ const CategoriesSection = ({ currentCategory }: CategoriesSectionProps) => {
         <div className={styles.wrapped}>
           <div className={styles.category}>{currentCategory}</div>
           <Arrow />
-          <p>Showing 6 Result(s)</p>
+          <p>Showing {currentTotalBook} Result(s)</p>
         </div>
       )}
     </section>
