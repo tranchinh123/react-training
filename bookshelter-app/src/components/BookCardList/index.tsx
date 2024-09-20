@@ -26,7 +26,7 @@ const BookCardList = () => {
           name={book.author}
           author={book.author}
           published={book.publishedYear}
-          url="https://i.imgur.com/Mx7dA2Y.jpg"
+          url={book.cover}
         />
       ))}
     </div>
