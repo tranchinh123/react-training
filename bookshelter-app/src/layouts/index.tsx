@@ -13,6 +13,7 @@ interface LayoutProps {
 const DefaultLayout = ({ children }: LayoutProps) => {
   const [categories, setCategories] = useState<Categories[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
+  
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
       const Categories = await get<Categories[]>(API.CATEGORIES_ENDPOINT);

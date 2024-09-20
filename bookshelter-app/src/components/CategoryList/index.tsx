@@ -8,8 +8,8 @@ interface Category {
 }
 
 interface CategoryListProps {
-  categories: Category[]; // Mảng các danh mục
-  onCategoryClick: (categoryName: string) => void; // Hàm callback khi nhấp vào danh mục
+  categories: Category[];
+  onCategoryClick: (categoryName: string) => void;
 }
 
 const CategoryList = ({ categories, onCategoryClick }: CategoryListProps) => {
