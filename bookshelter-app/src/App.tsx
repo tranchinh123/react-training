@@ -1,9 +1,16 @@
 import HomePage from './pages/Home';
+import DetailPage from './pages/Detail';
+import NotFound from './pages/NotFound';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/detail" element={<DetailPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
