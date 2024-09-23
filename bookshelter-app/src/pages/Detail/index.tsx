@@ -2,7 +2,24 @@ import DefaultLayout from '../../layouts';
 import styles from './index.module.css';
 import Arrow2 from '../../components/Icons/Arrow2';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getByID } from '../../services/api';
+import { Book } from '../../types';
+import { API } from '../../constants/api';
 const DetailPage = () => {
+  const { id } = useParams<{ id: string }>();
+  const [book, setBook] = useState<Book | null>(null);
+
+  useEffect(() => {
+    const fetchBookList = async (): Promise<void> => {
+      const book = await getByID(API.BOOKS_ENDPOINT, id!);
+      if (book) {
+        setBook(book);
+      }
+    };
+    fetchBookList();
+  }, [id]);
   return (
     <DefaultLayout>
       <div className={styles.detailContentPage}>
@@ -21,27 +38,19 @@ const DetailPage = () => {
             <p className={styles.textInfoItem}>Publisher:</p>
           </div>
           <div className={styles.infoBook}>
-            <p className={styles.infoBookItem}>Jamel John</p>
-            <p className={styles.infoBookItem}>1996</p>
-            <p className={styles.infoBookItem}>Henry Mari</p>
+            <p className={styles.infoBookItem}>{book?.author}</p>
+            <p className={styles.infoBookItem}>{book?.publishedYear}</p>
+            <p className={styles.infoBookItem}>{book?.publisher}</p>
           </div>
         </div>
 
         <div className={styles.mainContent}>
           <img
             className={styles.imgBook}
-            src="https://i.ibb.co/ZSRxJHH/book-1.png"
-            alt=""
+            src={book?.cover}
+            alt="image of the book "
           />
-          <span className={styles.description}>
-            Deserunt dolor eiusmod consectetur nisi. Nulla eu sit deserunt
-            voluptate voluptate id nisi cillum officia voluptate dolore
-            consequat est. Nostrud cupidatat mollit deserunt ea magna anim
-            officia anim amet ex pariatur. Proident laborum deserunt tempor aute
-            ut est dolor ut nostrud aliquip elit. Excepteur laboris esse sunt
-            proident tempor sit. Enim fugiat voluptate et consequat in excepteur
-            ut commodo.
-          </span>
+          <p className={styles.description}>{book?.description}</p>
         </div>
       </div>
     </DefaultLayout>
