@@ -17,7 +17,8 @@ const Header = () => {
             setResults={setResults}
             onFocusChange={setInputFocused}
           />
-          {isInputFocused && <SearchBookItem results={results} />}
+          {/* {isInputFocused && <SearchBookItem results={results} />} */}
+          <SearchBookItem results={results} />
         </div>
       </header>
     </>

@@ -1,14 +1,22 @@
 import styles from './index.module.css';
 import { Book } from '../../types';
-interface SearchBookItem {
+import { useNavigate } from 'react-router-dom';
+interface SearchBookItemProps {
   results: Book[];
 }
 
-const SearchBookItem = ({ results }: SearchBookItem) => {
+const SearchBookItem = ({ results }: SearchBookItemProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.resultList}>
       {results.map((result, id) => (
-        <div key={id} className={styles.bookItem} onClick={alert}>
+        <div
+          key={id}
+          className={styles.bookItem}
+          id={result.id}
+          onClick={() => navigate(`/detail/${result.id}`)}
+        >
           <img className={styles.image} src={result.cover} alt="" />
           <p>{result.title}</p>
         </div>
