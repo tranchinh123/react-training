@@ -1,11 +1,16 @@
 .resultList {
   width: 670px;
+  max-height: 300px;
   display: flex;
   flex-direction: column;
+  position: absolute;
   background-color: var(--background-color-secondary);
   border-radius: 5px;
   margin-left: 170px;
+  top: 74px;
   z-index: 99;
+  overflow-y: scroll;
+  cursor: pointer;
 }
 
 .image {

@@ -1,31 +1,18 @@
 import styles from './index.module.css';
-const SearchBookItem = () => {
+import { Book } from '../../types';
+interface SearchBookItem {
+  results: Book[];
+}
+
+const SearchBookItem = ({ results }: SearchBookItem) => {
   return (
     <div className={styles.resultList}>
-      <div className={styles.bookItem}>
-        <img
-          className={styles.image}
-          src="https://i.ibb.co/ZSRxJHH/book-1.png"
-          alt=""
-        />
-        <p>Angles and demons 1</p>
-      </div>
-      <div className={styles.bookItem}>
-        <img
-          className={styles.image}
-          src="https://i.ibb.co/ZSRxJHH/book-1.png"
-          alt=""
-        />
-        <p>Angles and demons 1</p>
-      </div>
-      <div className={styles.bookItem}>
-        <img
-          className={styles.image}
-          src="https://i.ibb.co/ZSRxJHH/book-1.png"
-          alt=""
-        />
-        <p>Angles and demons 1</p>
-      </div>
+      {results.map((result, id) => (
+        <div key={id} className={styles.bookItem} onClick={alert}>
+          <img className={styles.image} src={result.cover} alt="" />
+          <p>{result.title}</p>
+        </div>
+      ))}
     </div>
   );
 };
