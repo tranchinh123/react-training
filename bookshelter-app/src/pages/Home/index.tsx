@@ -16,6 +16,7 @@ const HomePage = () => {
     };
     fetchBookList();
   }, []);
+
   return (
     <DefaultLayout>
       <BookCardList books={books} />

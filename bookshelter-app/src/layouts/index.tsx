@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import CategoriesSection from '../components/CategoriesSection';
 import CategoryList from '../components/CategoryList';
 import { useState, useEffect } from 'react';
-import { Category } from '../types';
+import { Category, Book } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
 interface LayoutProps {
@@ -26,10 +26,23 @@ const DefaultLayout = ({ children }: LayoutProps) => {
 
   const handleCategoryClick = (
     categoryName: string,
-    categoryTotalBook: number
+    categoryTotalBook: number,
+    categorySlug: string
   ) => {
     setCurrentCategory(categoryName);
     setCurrentTotalBook(categoryTotalBook);
+    const fetchBookList = async (): Promise<void> => {
+      const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
+      if (listBooks) {
+        {
+          const booksWithSameSlug = listBooks.filter(
+            (books) => books.category === categorySlug
+          );
+          console.log(booksWithSameSlug);
+        }
+      }
+    };
+    fetchBookList();
   };
 
   return (
