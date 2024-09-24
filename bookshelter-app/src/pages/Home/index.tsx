@@ -17,11 +17,9 @@ const HomePage = () => {
     fetchBookList();
   }, []);
   return (
-    <>
-      <DefaultLayout>
-        <BookCardList books={books} />
-      </DefaultLayout>
-    </>
+    <DefaultLayout>
+      <BookCardList books={books} />
+    </DefaultLayout>
   );
 };
 export default HomePage;

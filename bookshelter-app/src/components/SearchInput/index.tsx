@@ -5,7 +5,7 @@ const SearchInput = () => {
   return (
     <>
       <div className={styles.input}>
-        <Glass />
+        <Glass size={20} />
         <input
           className={styles.searchInput}
           type="text"

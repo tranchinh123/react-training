@@ -1,0 +1,17 @@
+.mainContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: max-content;
+  background-color: #ffff;
+  padding: 30px 0px 50px 50px;
+}
+
+.imgBook {
+  width: 430px;
+  height: 230px;
+}
+
+.description {
+  padding: 50px 75px 0px 75px;
+}
