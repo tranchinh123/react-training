@@ -9,7 +9,7 @@ interface CategoryListProps {
   onClick: (
     categoryName: string,
     currentTotalBook: number,
-    categorySlug?: string
+    categorySlug: string
   ) => void;
 }
 
