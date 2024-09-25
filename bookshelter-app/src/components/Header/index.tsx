@@ -21,7 +21,11 @@ const Header = () => {
       <header className={styles.header}>
         <Logo />
         <div className={styles.searchBarContainer}>
-          <SearchInput setResults={setResults} onOpen={handleOpen} />
+          <SearchInput
+            setResults={setResults}
+            onOpen={handleOpen}
+            onclose={handleClose}
+          />
 
           {isSearchOpen && (
             <SearchBookItem results={results} onClose={handleClose} />

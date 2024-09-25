@@ -34,7 +34,7 @@ const DefaultLayout = ({ children }: LayoutProps) => {
   ) => {
     setCurrentCategory(categoryName);
     setCurrentTotalBook(categoryTotalBook);
-    navigate(`/category/${categorySlug}`);
+    navigate(`/${categorySlug}`);
   };
 
   return (
