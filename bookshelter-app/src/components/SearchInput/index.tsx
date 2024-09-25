@@ -7,10 +7,10 @@ import { Book } from '../../types';
 
 interface SearchInputProps {
   setResults: (results: Book[]) => void;
-  onFocusChange?: (isFocused: boolean) => void;
+  onOpen: () => void;
 }
 
-const SearchInput = ({ setResults }: SearchInputProps) => {
+const SearchInput = ({ setResults, onOpen }: SearchInputProps) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -45,10 +45,9 @@ const SearchInput = ({ setResults }: SearchInputProps) => {
           value={searchTerm}
           placeholder="Search books"
           onChange={(e) => {
+            onOpen();
             handleChange(e.target.value);
           }}
-          // onFocus={() => onFocusChange(true)}
-          // onBlur={() => onFocusChange(false)}
         />
       </div>
     </>
