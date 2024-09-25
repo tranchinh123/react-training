@@ -6,7 +6,11 @@ import { useState, useEffect } from 'react';
 
 interface CategoryListProps {
   categories: Category[];
-  onClick: (categoryName: string, currentTotalBook: number) => void;
+  onClick: (
+    categoryName: string,
+    currentTotalBook: number,
+    categorySlug?: string
+  ) => void;
 }
 
 const CategoryList = ({ categories, onClick }: CategoryListProps) => {
@@ -29,7 +33,9 @@ const CategoryList = ({ categories, onClick }: CategoryListProps) => {
           category={category.name}
           quantity={category.totalBooks}
           color={colors[index]}
-          onClick={() => onClick(category.name, category.totalBooks)}
+          onClick={() =>
+            onClick(category.name, category.totalBooks, category.slug)
+          }
         />
       ))}
     </section>
