@@ -18,7 +18,7 @@ const SearchBookItem = ({ results }: SearchBookItemProps) => {
           onClick={() => navigate(`/detail/${result.id}`)}
         >
           <img className={styles.image} src={result.cover} alt="" />
-          <p>{result.title}</p>
+          <p className={styles.title}>{result.title}</p>
         </div>
       ))}
     </div>

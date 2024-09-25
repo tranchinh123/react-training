@@ -20,6 +20,7 @@ const DetailPage = () => {
     };
     fetchBookList();
   }, [id]);
+
   return (
     <DefaultLayout>
       <div className={styles.detailContentPage}>

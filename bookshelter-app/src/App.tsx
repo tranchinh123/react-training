@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/detail/:id" element={<DetailPage />} />
+        <Route path="/category/:slug" element={<HomePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
