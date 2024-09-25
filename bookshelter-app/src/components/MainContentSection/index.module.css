@@ -14,4 +14,6 @@
 
 .description {
   padding: 50px 75px 0px 75px;
+  font-family: var(--primary-font-family);
+  color: #58667e;
 }

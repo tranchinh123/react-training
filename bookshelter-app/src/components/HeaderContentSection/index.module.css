@@ -3,6 +3,7 @@
   align-items: center;
   background-color: var(--background-color-secondary);
   padding: 15px 0px 15px 20px;
+  font-family: var(--primary-font-family);
 }
 
 .backLink {
@@ -16,6 +17,8 @@
 .backText {
   color: #0d75ff;
   margin-left: 7px;
+  font-family: var(--primary-font-family);
+  font-size: var(--font-size-lg);
 }
 
 .nameBook {
