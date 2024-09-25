@@ -9,7 +9,7 @@ interface CategoryListProps {
   onClick: (
     categoryName: string,
     currentTotalBook: number,
-    categorySlug: string
+    categorySlug?: string
   ) => void;
 }
 
@@ -33,7 +33,9 @@ const CategoryList = ({ categories, onClick }: CategoryListProps) => {
           category={category.name}
           quantity={category.totalBooks}
           color={colors[index]}
-          onClick={() => onClick(category.name, category.totalBooks)}
+          onClick={() =>
+            onClick(category.name, category.totalBooks, category.slug)
+          }
         />
       ))}
     </section>
