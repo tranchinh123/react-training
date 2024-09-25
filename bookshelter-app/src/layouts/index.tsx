@@ -17,6 +17,17 @@ const DefaultLayout = ({ children }: LayoutProps) => {
   const [currentTotalBook, setCurrentTotalBook] = useState<number | null>(null);
   const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
   const [isCategorySelected, setIsCategorySelected] = useState<boolean>(false);
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    const fetchBookList = async (): Promise<void> => {
+      const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
+      if (listBooks) {
+        setBooks(listBooks);
+      }
+    };
+    fetchBookList();
+  }, []);
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
@@ -64,7 +75,7 @@ const DefaultLayout = ({ children }: LayoutProps) => {
         {isCategorySelected && filteredBooks.length > 0 ? (
           <BookCardList books={filteredBooks} />
         ) : (
-          <div></div>
+          <BookCardList books={books} />
         )}
         {children}
       </section>

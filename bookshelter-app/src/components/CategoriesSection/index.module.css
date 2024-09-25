@@ -10,7 +10,7 @@
 
 .wrapped {
   display: flex;
-  width: 325px;
+  width: 370px;
   align-items: center;
   justify-content: space-around;
 }
@@ -30,4 +30,8 @@
   font-size: 18px;
   margin-left: 45px;
   margin-right: 180px;
+}
+
+.showQuantity {
+  font-weight: 500;
 }

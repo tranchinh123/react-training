@@ -16,7 +16,9 @@ const CategoriesSection = ({
         <div className={styles.wrapped}>
           <div className={styles.category}>{currentCategory}</div>
           <Arrow />
-          <p>Showing {currentTotalBook} Result(s)</p>
+          <p className={styles.showQuantity}>
+            Showing {currentTotalBook} Result(s)
+          </p>
         </div>
       )}
     </section>
