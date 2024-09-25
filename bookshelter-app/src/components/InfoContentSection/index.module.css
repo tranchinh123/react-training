@@ -1,0 +1,26 @@
+.infoContentSection {
+  display: flex;
+  padding: 30px 0px 50px 70px;
+}
+
+.textInfoItem {
+  font-family: var(--primary-font-family);
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+
+.infoBookItem {
+  width: max-content;
+  height: max-content;
+  border-radius: 30px;
+  background-color: var(--background-color-secondary);
+  color: #0d75ff;
+  font-size: var(--font-size-lg);
+  font-family: var(--primary-font-family);
+  padding: 2px 18px 2px 18px;
+  margin-bottom: 14px;
+}
+
+.infoBook {
+  padding-left: 20px;
+}
