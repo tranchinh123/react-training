@@ -23,20 +23,25 @@ const HomePage = () => {
           let filteredBooks: Book[] = listBooks;
 
           if (slug) {
-            filteredBooks = filteredBooks.filter(
-              (book) => book.category === slug
+            const Books = await get<Book[]>(
+              API.BOOKS_ENDPOINT,
+              'category',
+              `${slug}`
             );
+            filteredBooks = Books || [];
           } else if (name) {
-            filteredBooks = filteredBooks.filter((book) =>
-              book.title?.toLowerCase().includes(name.toLowerCase())
+            const Books = await get<Book[]>(
+              API.BOOKS_ENDPOINT,
+              'title',
+              `${name}`
             );
+            filteredBooks = Books || [];
           }
           if (filteredBooks.length === 0) {
             navigate('*');
           } else {
             setBooks(filteredBooks);
           }
-          console.log(filteredBooks.length);
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);

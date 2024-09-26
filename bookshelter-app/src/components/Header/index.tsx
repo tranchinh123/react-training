@@ -21,7 +21,6 @@ const Header = () => {
         'title',
         `${searchTerm}`
       );
-
       setResults(books || []);
     };
 
