@@ -1,13 +1,15 @@
 import Logo from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
 
 export default {
   title: 'Components/Logo',
   component: Logo,
-} as Meta;
-
-type Story = StoryObj<typeof Logo>;
-
-export const Primary: Story = {
-  args: {},
 };
+
+const Template = () => (
+  <MemoryRouter>
+    <Logo />
+  </MemoryRouter>
+);
+
+export const Default = Template.bind({});

@@ -4,6 +4,7 @@ import SearchInput from '../SearchInput';
 import SearchBookItem from '../SearchBookItem';
 import { useState } from 'react';
 import { Book } from '../../types';
+
 const Header = () => {
   const [results, setResults] = useState<Book[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(true);
