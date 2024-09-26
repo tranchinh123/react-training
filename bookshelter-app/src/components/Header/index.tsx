@@ -16,13 +16,13 @@ const Header = () => {
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      const books = await get<Book[]>(API.BOOKS_ENDPOINT);
-      if (books && searchTerm.trim() !== '') {
-        const results = books.filter((books) => {
-          return books.title && books.title.toLowerCase().includes(searchTerm);
-        });
-        setResults(results);
-      }
+      const books = await get<Book[]>(
+        API.BOOKS_ENDPOINT,
+        'title',
+        `${searchTerm}`
+      );
+
+      setResults(books || []);
     };
 
     const timeoutId = setTimeout(() => {
@@ -34,6 +34,10 @@ const Header = () => {
 
   const handleChange = (value: string) => {
     setSearchTerm(value);
+    if (value.trim() === '') {
+      setResults([]);
+      handleClose();
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
