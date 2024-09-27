@@ -1,6 +1,5 @@
 import DefaultLayout from '../../layouts';
 import BookCardList from '../../components/BookCardList';
-import Spinner from '../../components/Spin';
 import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
@@ -15,7 +14,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      setLoading(true);
+
       try {
         const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
 

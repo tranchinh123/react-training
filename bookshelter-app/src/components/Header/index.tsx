@@ -2,12 +2,50 @@ import styles from './index.module.css';
 import Logo from '../Logo';
 import SearchInput from '../SearchInput';
 import SearchBookItem from '../SearchBookItem';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Book } from '../../types';
+import { useNavigate } from 'react-router-dom';
+import { get } from '../../services/api';
+import { API } from '../../constants/api';
+
 
 const Header = () => {
   const [results, setResults] = useState<Book[]>([]);
-  const [isSearchOpen, setIsSearchOpen] = useState(true);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchBookList = async (): Promise<void> => {
+      const books = await get<Book[]>(
+        API.BOOKS_ENDPOINT,
+        'title',
+        `${searchTerm}`
+      );
+      setResults(books || []);
+    };
+
+    const timeoutId = setTimeout(() => {
+      fetchBookList();
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, setResults]);
+
+  const handleChange = (value: string) => {
+    setSearchTerm(value);
+    if (value.trim() === '') {
+      setResults([]);
+      handleClose();
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleClose();
+      navigate(`/name/${searchTerm}`);
+    }
+  };
 
   const handleOpen = () => {
     setIsSearchOpen(true);
@@ -23,9 +61,10 @@ const Header = () => {
         <Logo />
         <div className={styles.searchBarContainer}>
           <SearchInput
-            setResults={setResults}
+            searchTerm={searchTerm}
             onOpen={handleOpen}
-            onclose={handleClose}
+            handleKeyDown={handleKeyDown}
+            handleChange={handleChange}
           />
 
           {isSearchOpen && (
