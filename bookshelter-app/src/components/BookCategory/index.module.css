@@ -8,6 +8,7 @@
   margin-top: 23px;
   margin-right: 10px;
   cursor: pointer;
+  font-size: var(--font-size-md);
 }
 
 .categoryItem:hover {
@@ -25,12 +26,12 @@
 }
 
 .category {
-  font-size: var(--font-size-xl);
   flex-grow: 1;
+  font-size: var(--font-size-md);
 }
 
 .bookQuantity {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-sm);
   color: #58667e;
   padding-right: 10px;
   text-align: right;

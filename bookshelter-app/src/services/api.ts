@@ -1,9 +1,16 @@
 import { Book } from '../types/index';
 import { API } from '../constants/api';
 
-const get = async <T>(endPoint: string): Promise<T | void> => {
+const get = async <T>(
+  endPoint: string,
+  param: string = '',
+  value: string = ''
+): Promise<T | void> => {
+  const url = new URL(`${API.BASE_URL}${endPoint}`);
+  if (param) url.searchParams.append(param, value);
+
   try {
-    const response = await fetch(`${API.BASE_URL}${endPoint}`, {
+    const response = await fetch(url.toString(), {
       method: 'GET',
       headers: { 'content-type': 'application/json' },
     });

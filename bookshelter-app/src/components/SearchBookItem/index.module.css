@@ -1,0 +1,39 @@
+.resultList {
+  width: 670px;
+  max-height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--background-color-secondary);
+  border-radius: 5px;
+  margin-left: 170px;
+  top: 74px;
+  z-index: 99;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+
+.image {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+}
+
+.bookItem {
+  display: flex;
+  align-items: center;
+  width: 650px;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 8px 0 8px 8px;
+}
+
+.bookItem:hover {
+  background-color: rgba(227, 230, 235, 1);
+}
+
+.title {
+  font-family: var(--primary-font-family);
+  font-size: var(--font-size-2xl);
+  font-weight: 500;
+}

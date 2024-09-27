@@ -38,6 +38,10 @@
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
   font-family: var(--primary-font-family);
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .published,

@@ -2,7 +2,7 @@ export interface Category {
   id: number;
   name: string;
   totalBooks: number;
-  slug?: string;
+  slug: string;
 }
 
 export interface Book {

@@ -6,14 +6,17 @@ import { useState, useEffect } from 'react';
 import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
+import { useNavigate } from 'react-router-dom';
+
 interface LayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const DefaultLayout = ({ children }: LayoutProps) => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const [currentTotalBook, setCurrentTotalBook] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
@@ -26,10 +29,12 @@ const DefaultLayout = ({ children }: LayoutProps) => {
 
   const handleCategoryClick = (
     categoryName: string,
-    categoryTotalBook: number
+    categoryTotalBook: number,
+    categorySlug: string
   ) => {
     setCurrentCategory(categoryName);
     setCurrentTotalBook(categoryTotalBook);
+    navigate(`/${categorySlug}`);
   };
 
   return (
