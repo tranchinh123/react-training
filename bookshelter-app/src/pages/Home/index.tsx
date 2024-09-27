@@ -9,13 +9,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
-  const [loading, setLoading] = useState(true);
   const { slug, name } = useParams<{ slug: string; name: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      setLoading(true);
       try {
         const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
 
@@ -45,17 +43,11 @@ const HomePage = () => {
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchBookList();
   }, [slug, name, navigate]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   return <DefaultLayout>{<BookCardList books={books} />}</DefaultLayout>;
 };

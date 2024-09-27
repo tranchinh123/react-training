@@ -10,7 +10,7 @@ import { API } from '../../constants/api';
 
 const Header = () => {
   const [results, setResults] = useState<Book[]>([]);
-  const [isSearchOpen, setIsSearchOpen] = useState(true);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
