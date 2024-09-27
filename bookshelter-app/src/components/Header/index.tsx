@@ -2,7 +2,7 @@ import styles from './index.module.css';
 import Logo from '../Logo';
 import SearchInput from '../SearchInput';
 import SearchBookItem from '../SearchBookItem';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
@@ -13,7 +13,7 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
-
+  const searchRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
       const books = await get<Book[]>(
@@ -30,6 +30,22 @@ const Header = () => {
 
     return () => clearTimeout(timeoutId);
   }, [searchTerm, setResults]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleChange = (value: string) => {
     setSearchTerm(value);
@@ -58,7 +74,7 @@ const Header = () => {
     <>
       <header className={styles.header}>
         <Logo />
-        <div className={styles.searchBarContainer}>
+        <div className={styles.searchBarContainer} ref={searchRef}>
           <SearchInput
             searchTerm={searchTerm}
             onOpen={handleOpen}
