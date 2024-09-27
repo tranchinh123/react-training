@@ -1,13 +1,14 @@
 import Header from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
 
 export default {
   title: 'Components/Header',
   component: Header,
-} as Meta;
-
-type Story = StoryObj<typeof Header>;
-
-export const Primary: Story = {
-  args: {},
 };
+
+const Template = () => (
+  <MemoryRouter>
+    <Header />
+  </MemoryRouter>
+);
+export const Default = Template.bind({});

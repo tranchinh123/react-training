@@ -17,10 +17,9 @@ const CategoryList = ({ categories, onClick }: CategoryListProps) => {
   const [colors, setColors] = useState<string[]>([]);
 
   useEffect(() => {
-    // Generate colors only once when the component mounts
     const generatedColors = categories.map(() => getRandomColor());
     setColors(generatedColors);
-  }, [categories]); // Dependency array ensures this runs when categories change
+  }, [categories]);
 
   return (
     <section className={styles.categoryList}>
