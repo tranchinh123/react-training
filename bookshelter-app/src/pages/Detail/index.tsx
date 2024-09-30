@@ -23,7 +23,7 @@ const DetailPage = () => {
   }, [id]);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout isFilteredSlug={false} isFilteredName={false} books={[]}>
       <div className={styles.ContentSection}>
         <HeaderContentSection book={book} />
         <InfoContentSection book={book} />
