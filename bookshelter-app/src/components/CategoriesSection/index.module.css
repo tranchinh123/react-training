@@ -6,6 +6,7 @@
   background-color: #ffff;
   border-bottom: 3px solid var(--background-color-secondary);
   font-family: var(--primary-font-family);
+  box-shadow: 0px 0px 2px 0px #00000026;
 }
 
 .wrapped {
@@ -34,4 +35,5 @@
 
 .showQuantity {
   font-weight: 500;
+  font-size: var(--font-size-lg);
 }

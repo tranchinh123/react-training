@@ -17,7 +17,7 @@
   align-items: center;
   width: 249px;
   height: 238px;
-  border-radius: 5px 0px 0px 0px;
+  border-radius: 5px;
   background-color: var(--background-color-secondary);
   margin: 13px 15px 0px 18px;
 }

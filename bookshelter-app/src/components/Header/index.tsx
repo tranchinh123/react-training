@@ -14,6 +14,7 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
       const books = await get<Book[]>(

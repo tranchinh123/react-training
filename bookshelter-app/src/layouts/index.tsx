@@ -46,8 +46,6 @@ const DefaultLayout = ({
     navigate(`/${categorySlug}`);
   };
 
-  console.log(currentCategory);
-
   return (
     <>
       <Header />

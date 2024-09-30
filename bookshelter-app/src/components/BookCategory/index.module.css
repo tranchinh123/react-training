@@ -22,7 +22,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #ff6231;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
 }
 
 .category {
