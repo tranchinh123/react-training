@@ -17,7 +17,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      const books = await get<Book[]>(
+      const books = await get<Book>(
         API.BOOKS_ENDPOINT,
         'title',
         `${searchTerm}`

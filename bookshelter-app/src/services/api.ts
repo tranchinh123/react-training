@@ -5,7 +5,7 @@ const get = async <T>(
   endPoint: string,
   param: string = '',
   value: string = ''
-): Promise<T | void> => {
+): Promise<T[]> => {
   const url = new URL(`${API.BASE_URL}${endPoint}`);
   if (param) url.searchParams.append(param, value);
 
@@ -16,10 +16,12 @@ const get = async <T>(
     });
     if (response.ok) {
       const data = await response.json();
-      return data as T;
+      return data as T[];
     }
+    return [];
   } catch (error) {
     console.error('Failed to fetch data ', error);
+    return [];
   }
 };
 

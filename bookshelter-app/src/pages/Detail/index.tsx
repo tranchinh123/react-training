@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { getByID } from '../../services/api';
 import { Book } from '../../types';
 import { API } from '../../constants/api';
+
 const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [book, setBook] = useState<Book | null>(null);

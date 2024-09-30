@@ -17,31 +17,27 @@ const HomePage = () => {
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
       try {
-        const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
+        let filteredBooks: Book[];
 
-        if (listBooks) {
-          let filteredBooks: Book[] = listBooks;
+        if (slug) {
+          const Books = await get<Book>(
+            API.BOOKS_ENDPOINT,
+            'category',
+            `${slug}`
+          );
+          filteredBooks = Books || [];
+        } else if (name) {
+          const Books = await get<Book>(API.BOOKS_ENDPOINT, 'title', `${name}`);
+          filteredBooks = Books || [];
+        } else {
+          const Books = await get<Book>(API.BOOKS_ENDPOINT);
+          filteredBooks = Books || [];
+        }
 
-          if (slug) {
-            const Books = await get<Book[]>(
-              API.BOOKS_ENDPOINT,
-              'category',
-              `${slug}`
-            );
-            filteredBooks = Books || [];
-          } else if (name) {
-            const Books = await get<Book[]>(
-              API.BOOKS_ENDPOINT,
-              'title',
-              `${name}`
-            );
-            filteredBooks = Books || [];
-          }
-          if (filteredBooks.length === 0) {
-            navigate('*');
-          } else {
-            setBooks(filteredBooks);
-          }
+        if (filteredBooks.length === 0) {
+          navigate('*');
+        } else {
+          setBooks(filteredBooks);
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);

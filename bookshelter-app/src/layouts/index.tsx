@@ -29,7 +29,7 @@ const DefaultLayout = ({
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
-      const categories = await get<Category[]>(API.CATEGORIES_ENDPOINT);
+      const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
       if (categories) setCategories(categories);
     };
 
