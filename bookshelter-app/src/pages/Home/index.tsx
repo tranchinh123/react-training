@@ -9,6 +9,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [isFilteredSlug, setIsFilteredSlug] = useState(false);
+  const [isFilteredName, setIsFilteredName] = useState(false);
   const { slug, name } = useParams<{ slug: string; name: string }>();
   const navigate = useNavigate();
 
@@ -49,6 +51,24 @@ const HomePage = () => {
     fetchBookList();
   }, [slug, name, navigate]);
 
-  return <DefaultLayout>{<BookCardList books={books} />}</DefaultLayout>;
+  useEffect(() => {
+    if (slug) setIsFilteredSlug(true);
+    else setIsFilteredSlug(false);
+  }, [slug]);
+
+  useEffect(() => {
+    if (name) setIsFilteredName(true);
+    else setIsFilteredName(false);
+  }, [name]);
+
+  return (
+    <DefaultLayout
+      isFilteredSlug={isFilteredSlug}
+      isFilteredName={isFilteredName}
+      books={books}
+    >
+      {<BookCardList books={books} />}
+    </DefaultLayout>
+  );
 };
 export default HomePage;
