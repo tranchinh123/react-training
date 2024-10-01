@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 import Logo from '../Logo';
 import SearchInput from '../SearchInput';
-import SearchBookItem from '../SearchBookItem';
+import SearchResults from '../SearchResults';
 import { useState, useEffect, useRef } from 'react';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
@@ -84,7 +84,7 @@ const Header = () => {
           />
 
           {isSearchOpen && (
-            <SearchBookItem results={results} onClose={handleClose} />
+            <SearchResults results={results} onClose={handleClose} />
           )}
         </div>
       </header>

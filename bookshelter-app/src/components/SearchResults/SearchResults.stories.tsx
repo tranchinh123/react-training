@@ -1,13 +1,13 @@
-import SearchBookItem from '.';
+import SearchResults from '.';
 import { MemoryRouter } from 'react-router-dom';
 import { StoryFn, Meta } from '@storybook/react';
 import { Book } from '../../types';
 export default {
-  title: 'Components/SearchBookItem',
-  component: SearchBookItem,
+  title: 'Components/SearchResults',
+  component: SearchResults,
 } as Meta;
 
-interface SearchBookItemArgs {
+interface SearchResultsArgs {
   results: Book[];
   onClose: () => void;
 }
@@ -46,9 +46,9 @@ const mockBooks: Book[] = [
 ];
 
 // Create a Template of type Story
-const Template: StoryFn<SearchBookItemArgs> = (args) => (
+const Template: StoryFn<SearchResultsArgs> = (args) => (
   <MemoryRouter>
-    <SearchBookItem {...args} />
+    <SearchResults {...args} />
   </MemoryRouter>
 );
 

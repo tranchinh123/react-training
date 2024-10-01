@@ -1,12 +1,12 @@
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
-interface SearchBookItemProps {
+interface SearchResultsProps {
   results: Book[];
   onClose: () => void;
 }
 
-const SearchBookItem = ({ results, onClose }: SearchBookItemProps) => {
+const SearchResults = ({ results, onClose }: SearchResultsProps) => {
   const navigate = useNavigate();
 
   return (
@@ -28,4 +28,4 @@ const SearchBookItem = ({ results, onClose }: SearchBookItemProps) => {
     </div>
   );
 };
-export default SearchBookItem;
+export default SearchResults;

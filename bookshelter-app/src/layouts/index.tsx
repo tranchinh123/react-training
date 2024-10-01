@@ -2,6 +2,7 @@ import styles from './index.module.css';
 import Header from '../components/Header';
 import CategoriesSection from '../components/CategoriesSection';
 import CategoryList from '../components/CategoryList';
+import Loading from '../components/Loading';
 import { Book } from '../types';
 import { useState, useEffect } from 'react';
 import { Category } from '../types';
@@ -25,12 +26,22 @@ const DefaultLayout = ({
   const [categories, setCategories] = useState<Category[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const [currentTotalBook, setCurrentTotalBook] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
-      const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
-      if (categories) setCategories(categories);
+      setLoading(true);
+      try {
+        const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
+        if (categories) {
+          setCategories(categories);
+        }
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchCategoriesList();
@@ -48,16 +59,22 @@ const DefaultLayout = ({
 
   return (
     <>
-      <Header />
-      <CategoriesSection
-        currentCategory={currentCategory}
-        currentTotalBook={currentTotalBook}
-        isFilteredSlug={isFilteredSlug}
-        isFilteredName={isFilteredName}
-        books={books}
-      />
-      <CategoryList categories={categories} onClick={handleCategoryClick} />
-      <section className={styles.content}>{children}</section>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Header />
+          <CategoriesSection
+            currentCategory={currentCategory}
+            currentTotalBook={currentTotalBook}
+            isFilteredSlug={isFilteredSlug}
+            isFilteredName={isFilteredName}
+            books={books}
+          />
+          <CategoryList categories={categories} onClick={handleCategoryClick} />
+          <section className={styles.content}>{children}</section>
+        </>
+      )}
     </>
   );
 };

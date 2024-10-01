@@ -25,9 +25,8 @@ const SearchInput = ({
           placeholder="Search books"
           onChange={(e) => {
             onOpen();
-            {
-              handleChange(e.target.value);
-            }
+
+            handleChange(e.target.value);
           }}
           onKeyDown={handleKeyDown}
         />
