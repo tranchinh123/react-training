@@ -1,6 +1,6 @@
 import DefaultLayout from '../../layouts';
 import BookCardList from '../../components/BookCardList';
-// import Spinner from '../../components/Spin';
+import Loading from '../../components/Loading';
 import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
@@ -11,11 +11,13 @@ const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [isFilteredSlug, setIsFilteredSlug] = useState(false);
   const [isFilteredName, setIsFilteredName] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { slug, name } = useParams<{ slug: string; name: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
+      setLoading(true);
       try {
         let filteredBooks: Book[];
 
@@ -41,6 +43,8 @@ const HomePage = () => {
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -63,7 +67,7 @@ const HomePage = () => {
       isFilteredName={isFilteredName}
       books={books}
     >
-      {<BookCardList books={books} />}
+      {loading ? <Loading /> : <BookCardList books={books} />}
     </DefaultLayout>
   );
 };
