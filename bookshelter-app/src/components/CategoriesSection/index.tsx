@@ -36,7 +36,7 @@ const CategoriesSection = ({
           </p>
         </div>
       )}
-      {books.length === 0 && (
+      {!isFilteredName && books.length === 0 && (
         <div className={styles.wrapped}>
           <p className={styles.showQuantity}>Showing 0 Result(s)</p>
         </div>
