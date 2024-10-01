@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import Arrow from '../Icons/Arrow';
+import RightArrow from '../Icons/RightArrow';
 import { Book } from '../../types';
 
 interface CategoriesSectionProps {
@@ -23,7 +23,7 @@ const CategoriesSection = ({
       {isFilteredSlug && (
         <div className={styles.wrapped}>
           <div className={styles.category}>{currentCategory}</div>
-          <Arrow />
+          <RightArrow />
           <p className={styles.showQuantity}>
             Showing {currentTotalBook} Result(s)
           </p>

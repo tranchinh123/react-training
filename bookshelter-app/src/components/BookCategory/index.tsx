@@ -1,16 +1,16 @@
 import styles from './index.module.css';
-interface CateGoryItemProps {
+interface BookCategoryProps {
   category: string;
   quantity: number;
   color: string;
-  onClick?: () => void;
+  onClick: () => void;
 }
 const BookCategory = ({
   category,
   quantity,
   color,
   onClick,
-}: CateGoryItemProps) => {
+}: BookCategoryProps) => {
   return (
     <div className={styles.categoryItem} onClick={onClick}>
       <div style={{ backgroundColor: color }} className={styles.initials}>
