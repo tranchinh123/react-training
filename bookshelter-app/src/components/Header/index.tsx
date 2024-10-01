@@ -7,31 +7,27 @@ import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
-import Loading from '../Loading';
 
 const Header = () => {
   const [results, setResults] = useState<Book[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      setLoading(true);
-      try {
-        const books = await get<Book>(
-          API.BOOKS_ENDPOINT,
-          'title',
-          `${searchTerm}`
-        );
-        setResults(books || []);
-      } catch (error) {
-        console.log('Failed to fetch book list:', error);
-      } finally {
-        setLoading(false);
+      if (searchTerm.trim() === '') {
+        setResults([]);
+        return;
       }
+
+      const books = await get<Book>(
+        API.BOOKS_ENDPOINT,
+        'title',
+        `${searchTerm}`
+      );
+      setResults(books || []);
     };
 
     const timeoutId = setTimeout(() => {
@@ -91,12 +87,8 @@ const Header = () => {
           onHandleKeyDown={onHandleKeyDown}
         />
 
-        {loading ? (
-          <Loading />
-        ) : (
-          isSearchOpen && (
-            <SearchResults results={results} onClose={handleClose} />
-          )
+        {isSearchOpen && (
+          <SearchResults results={results} onClose={handleClose} />
         )}
       </div>
     </header>
