@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import styles from './index.module.css';
 import RightArrow from '../Icons/RightArrow';
 import { Book } from '../../types';
@@ -17,9 +18,12 @@ const CategoriesSection = ({
   isFilteredName,
   books,
 }: CategoriesSectionProps) => {
+  const { id } = useParams<{ id: string }>();
+
   return (
     <section className={styles.CategoriesSection}>
       <p className={styles.categories}>Categories</p>
+
       {isFilteredSlug && (
         <div className={styles.wrapped}>
           <div className={styles.category}>{currentCategory}</div>
@@ -36,7 +40,7 @@ const CategoriesSection = ({
           </p>
         </div>
       )}
-      {!isFilteredName && books.length === 0 && (
+      {!isFilteredName && books.length === 0 && !id && (
         <div className={styles.wrapped}>
           <p className={styles.showQuantity}>Showing 0 Result(s)</p>
         </div>
