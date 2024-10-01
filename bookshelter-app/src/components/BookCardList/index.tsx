@@ -9,6 +9,10 @@ interface booksProps {
 const BookCardList = ({ books }: booksProps) => {
   const navigate = useNavigate();
 
+  const onHandleClick = (book: Book) => {
+    navigate(`/detail/${book.id}`);
+  };
+
   return (
     <div className={styles.bookList}>
       {books.map((book) => (
@@ -19,7 +23,7 @@ const BookCardList = ({ books }: booksProps) => {
           author={book.author}
           published={book.publishedYear}
           cover={book.cover}
-          onHandleClick={() => navigate(`/detail/${book.id}`)}
+          onHandleClick={() => onHandleClick(book)}
         />
       ))}
     </div>

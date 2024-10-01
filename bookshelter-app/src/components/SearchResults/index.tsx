@@ -9,6 +9,11 @@ interface SearchResultsProps {
 const SearchResults = ({ results, onClose }: SearchResultsProps) => {
   const navigate = useNavigate();
 
+  const handleClick = (result: Book) => {
+    onClose();
+    navigate(`/detail/${result.id}`);
+  };
+
   return (
     <div className={styles.resultList}>
       {results.map((result, id) => (
@@ -16,10 +21,7 @@ const SearchResults = ({ results, onClose }: SearchResultsProps) => {
           key={id}
           className={styles.bookItem}
           id={result.id}
-          onClick={() => {
-            onClose();
-            navigate(`/detail/${result.id}`);
-          }}
+          onClick={() => handleClick(result)}
         >
           <img className={styles.image} src={result.cover} alt="" />
           <p className={styles.title}>{result.title}</p>
