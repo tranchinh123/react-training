@@ -18,11 +18,7 @@ const BookCardList = ({ books }: booksProps) => {
       {books.map((book) => (
         <BookCard
           key={book.id}
-          id={book.id}
-          title={book.title}
-          author={book.author}
-          published={book.publishedYear}
-          cover={book.cover}
+          Book={book}
           onHandleClick={() => onHandleClick(book)}
         />
       ))}
