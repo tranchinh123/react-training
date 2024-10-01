@@ -72,23 +72,21 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className={styles.header}>
-        <Logo />
-        <div className={styles.searchBarContainer} ref={searchRef}>
-          <SearchInput
-            searchTerm={searchTerm}
-            onOpen={handleOpen}
-            handleKeyDown={handleKeyDown}
-            handleChange={handleChange}
-          />
+    <header className={styles.header}>
+      <Logo />
+      <div className={styles.searchBarContainer} ref={searchRef}>
+        <SearchInput
+          searchTerm={searchTerm}
+          onOpen={handleOpen}
+          handleKeyDown={handleKeyDown}
+          handleChange={handleChange}
+        />
 
-          {isSearchOpen && (
-            <SearchResults results={results} onClose={handleClose} />
-          )}
-        </div>
-      </header>
-    </>
+        {isSearchOpen && (
+          <SearchResults results={results} onClose={handleClose} />
+        )}
+      </div>
+    </header>
   );
 };
 

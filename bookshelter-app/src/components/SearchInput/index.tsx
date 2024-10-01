@@ -15,23 +15,21 @@ const SearchInput = ({
   handleChange,
 }: SearchInputProps) => {
   return (
-    <>
-      <div className={styles.input}>
-        <Glass size={20} />
-        <input
-          className={styles.searchInput}
-          type="text"
-          value={searchTerm}
-          placeholder="Search books"
-          onChange={(e) => {
-            onOpen();
+    <div className={styles.input}>
+      <Glass size={20} />
+      <input
+        className={styles.searchInput}
+        type="text"
+        value={searchTerm}
+        placeholder="Search books"
+        onChange={(e) => {
+          onOpen();
 
-            handleChange(e.target.value);
-          }}
-          onKeyDown={handleKeyDown}
-        />
-      </div>
-    </>
+          handleChange(e.target.value);
+        }}
+        onKeyDown={handleKeyDown}
+      />
+    </div>
   );
 };
 
