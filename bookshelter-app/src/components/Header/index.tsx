@@ -48,7 +48,7 @@ const Header = () => {
     };
   }, []);
 
-  const handleChange = (value: string) => {
+  const onHandleChange = (value: string) => {
     setSearchTerm(value);
     if (value.trim() === '') {
       setResults([]);
@@ -56,7 +56,7 @@ const Header = () => {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const onHandleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleClose();
       navigate(`/name/${searchTerm}`);
@@ -78,8 +78,8 @@ const Header = () => {
         <SearchInput
           searchTerm={searchTerm}
           onOpen={handleOpen}
-          handleKeyDown={handleKeyDown}
-          handleChange={handleChange}
+          onHandleChange={onHandleChange}
+          onHandleKeyDown={onHandleKeyDown}
         />
 
         {isSearchOpen && (

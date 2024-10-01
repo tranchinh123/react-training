@@ -4,15 +4,15 @@ import Glass from '../Icons/Glass';
 interface SearchInputProps {
   searchTerm: string;
   onOpen: () => void;
-  handleChange: (value: string) => void;
-  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onHandleChange: (value: string) => void;
+  onHandleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const SearchInput = ({
   onOpen,
   searchTerm,
-  handleKeyDown,
-  handleChange,
+  onHandleChange,
+  onHandleKeyDown,
 }: SearchInputProps) => {
   return (
     <div className={styles.input}>
@@ -25,9 +25,9 @@ const SearchInput = ({
         onChange={(e) => {
           onOpen();
 
-          handleChange(e.target.value);
+          onHandleChange(e.target.value);
         }}
-        onKeyDown={handleKeyDown}
+        onKeyDown={onHandleKeyDown}
       />
     </div>
   );
