@@ -1,13 +1,15 @@
 import styles from './index.module.css';
 import LogoPage from '../Icons/Logo';
+import { Link } from 'react-router-dom';
+
 const Logo = () => {
   return (
-    <div>
+    <Link to="/">
       <a className={styles.logo} href="/">
         <LogoPage />
         <p className={styles.logoText}>BookShelter</p>
       </a>
-    </div>
+    </Link>
   );
 };
 

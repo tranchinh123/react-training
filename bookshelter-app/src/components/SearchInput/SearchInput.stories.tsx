@@ -1,13 +1,31 @@
 import SearchInput from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { MemoryRouter } from 'react-router-dom';
+import { StoryFn, Meta } from '@storybook/react';
 
 export default {
   title: 'Components/SearchInput',
   component: SearchInput,
 } as Meta;
 
-type Story = StoryObj<typeof SearchInput>;
+interface SearchInputArgs {
+  onOpen: () => void;
+  searchTerm: string;
+  handleKeyDown: () => void;
+  handleChange: () => void;
+}
 
-export const Primary: Story = {
-  args: {},
+// Create a Template of type Story
+const Template: StoryFn<SearchInputArgs> = (args) => (
+  <MemoryRouter>
+    <SearchInput {...args} />
+  </MemoryRouter>
+);
+
+// Create the Default story
+export const Default = Template.bind({});
+Default.args = {
+  onOpen: () => console.log('Input opened'),
+  searchTerm: '',
+  handleKeyDown: () => {},
+  handleChange: () => {},
 };

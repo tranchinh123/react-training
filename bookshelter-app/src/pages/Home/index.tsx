@@ -9,37 +9,35 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [isFilteredSlug, setIsFilteredSlug] = useState(false);
+  const [isFilteredName, setIsFilteredName] = useState(false);
   const { slug, name } = useParams<{ slug: string; name: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
       try {
-        const listBooks = await get<Book[]>(API.BOOKS_ENDPOINT);
+        let filteredBooks: Book[];
 
-        if (listBooks) {
-          let filteredBooks: Book[] = listBooks;
+        if (slug) {
+          const Books = await get<Book>(
+            API.BOOKS_ENDPOINT,
+            'category',
+            `${slug}`
+          );
+          filteredBooks = Books || [];
+        } else if (name) {
+          const Books = await get<Book>(API.BOOKS_ENDPOINT, 'title', `${name}`);
+          filteredBooks = Books || [];
+        } else {
+          const Books = await get<Book>(API.BOOKS_ENDPOINT);
+          filteredBooks = Books || [];
+        }
 
-          if (slug) {
-            const Books = await get<Book[]>(
-              API.BOOKS_ENDPOINT,
-              'category',
-              `${slug}`
-            );
-            filteredBooks = Books || [];
-          } else if (name) {
-            const Books = await get<Book[]>(
-              API.BOOKS_ENDPOINT,
-              'title',
-              `${name}`
-            );
-            filteredBooks = Books || [];
-          }
-          if (filteredBooks.length === 0) {
-            navigate('*');
-          } else {
-            setBooks(filteredBooks);
-          }
+        if (filteredBooks.length === 0) {
+          navigate('*');
+        } else {
+          setBooks(filteredBooks);
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);
@@ -49,6 +47,24 @@ const HomePage = () => {
     fetchBookList();
   }, [slug, name, navigate]);
 
-  return <DefaultLayout>{<BookCardList books={books} />}</DefaultLayout>;
+  useEffect(() => {
+    if (slug) setIsFilteredSlug(true);
+    else setIsFilteredSlug(false);
+  }, [slug]);
+
+  useEffect(() => {
+    if (name) setIsFilteredName(true);
+    else setIsFilteredName(false);
+  }, [name]);
+
+  return (
+    <DefaultLayout
+      isFilteredSlug={isFilteredSlug}
+      isFilteredName={isFilteredName}
+      books={books}
+    >
+      {<BookCardList books={books} />}
+    </DefaultLayout>
+  );
 };
 export default HomePage;

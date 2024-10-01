@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { getByID } from '../../services/api';
 import { Book } from '../../types';
 import { API } from '../../constants/api';
+
 const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [book, setBook] = useState<Book | null>(null);
@@ -23,7 +24,7 @@ const DetailPage = () => {
   }, [id]);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout isFilteredSlug={false} isFilteredName={false} books={[]}>
       <div className={styles.ContentSection}>
         <HeaderContentSection book={book} />
         <InfoContentSection book={book} />
