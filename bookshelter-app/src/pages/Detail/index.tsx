@@ -13,7 +13,7 @@ const DetailPage = () => {
   const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
-    const fetchBookList = async (): Promise<void> => {
+    const fetchBookDetail = async (): Promise<void> => {
       if (id) {
         const book = await getByID(API.BOOKS_ENDPOINT, id);
         if (book) {
@@ -21,7 +21,7 @@ const DetailPage = () => {
         }
       }
     };
-    fetchBookList();
+    fetchBookDetail();
   }, [id]);
 
   return (

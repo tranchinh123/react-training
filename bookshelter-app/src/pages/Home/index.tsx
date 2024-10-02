@@ -50,6 +50,6 @@ const HomePage = () => {
     fetchBookList();
   }, [slug, name, navigate]);
 
-  return <>{loading ? <Loading /> : <BookCardList books={books} />}</>;
+  return loading ? <Loading /> : <BookCardList books={books} />;
 };
 export default HomePage;
