@@ -10,7 +10,7 @@ export default {
 } as Meta;
 
 interface BookCardArgs {
-  Book: Book;
+  book: Book;
   onHandleClick: () => void;
 }
 
@@ -22,7 +22,7 @@ const Template: StoryFn<BookCardArgs> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  Book: {
+  book: {
     id: '1',
     title: 'The Great Gatsby',
     author: 'F. Scott Fitzgerald',
