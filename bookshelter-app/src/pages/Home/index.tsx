@@ -1,21 +1,22 @@
-import DefaultLayout from '../../layouts';
 import BookCardList from '../../components/BookCardList';
-// import Spinner from '../../components/Spin';
+import Loading from '../../components/Loading';
 import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
-  const [isFilteredSlug, setIsFilteredSlug] = useState(false);
-  const [isFilteredName, setIsFilteredName] = useState(false);
-  const { slug, name } = useParams<{ slug: string; name: string }>();
+  const [loading, setLoading] = useState(true);
+  const { slug } = useParams<{ slug: string }>();
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get('query');
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
+      setLoading(true);
       try {
         let filteredBooks: Book[];
 
@@ -41,30 +42,14 @@ const HomePage = () => {
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchBookList();
   }, [slug, name, navigate]);
 
-  useEffect(() => {
-    if (slug) setIsFilteredSlug(true);
-    else setIsFilteredSlug(false);
-  }, [slug]);
-
-  useEffect(() => {
-    if (name) setIsFilteredName(true);
-    else setIsFilteredName(false);
-  }, [name]);
-
-  return (
-    <DefaultLayout
-      isFilteredSlug={isFilteredSlug}
-      isFilteredName={isFilteredName}
-      books={books}
-    >
-      {<BookCardList books={books} />}
-    </DefaultLayout>
-  );
+  return loading ? <Loading /> : <BookCardList books={books} />;
 };
 export default HomePage;

@@ -1,4 +1,3 @@
-import DefaultLayout from '../../layouts';
 import HeaderContentSection from '../../components/HeaderContentSection';
 import MainContentSection from '../../components/MainContentSection';
 import InfoContentSection from '../../components/InfoContentSection';
@@ -14,23 +13,27 @@ const DetailPage = () => {
   const [book, setBook] = useState<Book | null>(null);
 
   useEffect(() => {
-    const fetchBookList = async (): Promise<void> => {
-      const book = await getByID(API.BOOKS_ENDPOINT, id!);
-      if (book) {
-        setBook(book);
+    const fetchBookDetail = async (): Promise<void> => {
+      if (id) {
+        const book = await getByID(API.BOOKS_ENDPOINT, id);
+        if (book) {
+          setBook(book);
+        }
       }
     };
-    fetchBookList();
+    fetchBookDetail();
   }, [id]);
 
   return (
-    <DefaultLayout isFilteredSlug={false} isFilteredName={false} books={[]}>
-      <div className={styles.ContentSection}>
-        <HeaderContentSection book={book} />
-        <InfoContentSection book={book} />
-        <MainContentSection book={book} />
-      </div>
-    </DefaultLayout>
+    <>
+      {book && (
+        <div className={styles.ContentSection}>
+          <HeaderContentSection book={book} />
+          <InfoContentSection book={book} />
+          <MainContentSection book={book} />
+        </div>
+      )}
+    </>
   );
 };
 

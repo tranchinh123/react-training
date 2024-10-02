@@ -1,7 +1,7 @@
 import styles from './index.module.css';
 import Logo from '../Logo';
 import SearchInput from '../SearchInput';
-import SearchBookItem from '../SearchBookItem';
+import SearchResults from '../SearchResults';
 import { useState, useEffect, useRef } from 'react';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +17,11 @@ const Header = () => {
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
+      if (searchTerm.trim() === '') {
+        setResults([]);
+        return;
+      }
+
       const books = await get<Book>(
         API.BOOKS_ENDPOINT,
         'title',
@@ -48,7 +53,7 @@ const Header = () => {
     };
   }, []);
 
-  const handleChange = (value: string) => {
+  const onHandleChange = (value: string) => {
     setSearchTerm(value);
     if (value.trim() === '') {
       setResults([]);
@@ -56,10 +61,10 @@ const Header = () => {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const onHandleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleClose();
-      navigate(`/name/${searchTerm}`);
+      navigate(`/search?query=${searchTerm}`);
     }
   };
 
@@ -72,23 +77,21 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className={styles.header}>
-        <Logo />
-        <div className={styles.searchBarContainer} ref={searchRef}>
-          <SearchInput
-            searchTerm={searchTerm}
-            onOpen={handleOpen}
-            handleKeyDown={handleKeyDown}
-            handleChange={handleChange}
-          />
+    <header className={styles.header}>
+      <Logo />
+      <div className={styles.searchBarContainer} ref={searchRef}>
+        <SearchInput
+          searchTerm={searchTerm}
+          onOpen={handleOpen}
+          onHandleChange={onHandleChange}
+          onHandleKeyDown={onHandleKeyDown}
+        />
 
-          {isSearchOpen && (
-            <SearchBookItem results={results} onClose={handleClose} />
-          )}
-        </div>
-      </header>
-    </>
+        {isSearchOpen && (
+          <SearchResults results={results} onClose={handleClose} />
+        )}
+      </div>
+    </header>
   );
 };
 

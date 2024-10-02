@@ -1,26 +1,19 @@
 import styles from './index.module.css';
-interface CateGoryItemProps {
-  category: string;
-  quantity: number;
+import { Category } from '../../types';
+interface BookCategoryProps {
+  category: Category;
   color: string;
-  onClick?: () => void;
+  onClick: () => void;
 }
-const BookCategory = ({
-  category,
-  quantity,
-  color,
-  onClick,
-}: CateGoryItemProps) => {
+const BookCategory = ({ category, color, onClick }: BookCategoryProps) => {
   return (
-    <>
-      <div className={styles.categoryItem} onClick={onClick}>
-        <div style={{ backgroundColor: color }} className={styles.initials}>
-          {category.slice(0, 2)}
-        </div>
-        <p className={styles.category}>{category}</p>
-        <p className={styles.bookQuantity}>{quantity}</p>
+    <div className={styles.categoryItem} onClick={onClick}>
+      <div style={{ backgroundColor: color }} className={styles.initials}>
+        {category.name.slice(0, 2)}
       </div>
-    </>
+      <p className={styles.category}>{category.name}</p>
+      <p className={styles.bookQuantity}>{category.totalBooks}</p>
+    </div>
   );
 };
 

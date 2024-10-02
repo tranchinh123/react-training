@@ -10,8 +10,8 @@ export default {
 interface SearchInputArgs {
   onOpen: () => void;
   searchTerm: string;
-  handleKeyDown: () => void;
-  handleChange: () => void;
+  onHandleChange: () => void;
+  onHandleKeyDown: () => void;
 }
 
 // Create a Template of type Story
@@ -26,6 +26,6 @@ export const Default = Template.bind({});
 Default.args = {
   onOpen: () => console.log('Input opened'),
   searchTerm: '',
-  handleKeyDown: () => {},
-  handleChange: () => {},
+  onHandleKeyDown: () => {},
+  onHandleChange: () => {},
 };
