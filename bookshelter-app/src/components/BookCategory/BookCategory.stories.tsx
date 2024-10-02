@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 interface BookCategoryArgs {
-  Category: Category;
+  category: Category;
   color: string;
   onClick: () => void;
 }
@@ -22,7 +22,7 @@ const Template: StoryFn<BookCategoryArgs> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  Category: {
+  category: {
     id: 1,
     name: 'Adventure',
     totalBooks: 22,

@@ -29,7 +29,7 @@ const CategoryList = ({ categories, onClick }: CategoryListProps) => {
       {categories.map((category, index) => (
         <BookCategory
           key={category.id}
-          Category={category}
+          category={category}
           color={colors[index]}
           onClick={() =>
             onClick(category.name, category.totalBooks, category.slug)

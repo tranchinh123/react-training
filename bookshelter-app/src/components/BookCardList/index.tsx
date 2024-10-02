@@ -18,7 +18,7 @@ const BookCardList = ({ books }: booksProps) => {
       {books.map((book) => (
         <BookCard
           key={book.id}
-          Book={book}
+          book={book}
           onHandleClick={() => onHandleClick(book)}
         />
       ))}
