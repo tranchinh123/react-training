@@ -12,7 +12,7 @@ const HomePage = () => {
   const [isFilteredSlug, setIsFilteredSlug] = useState(false);
   const [isFilteredName, setIsFilteredName] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { slug } = useParams<{ slug: string; name: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
   const navigate = useNavigate();

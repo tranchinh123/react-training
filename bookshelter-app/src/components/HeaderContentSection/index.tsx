@@ -4,7 +4,7 @@ import styles from './index.module.css';
 import { Book } from '../../types';
 
 interface HeaderContentSectionProps {
-  book: Book | null;
+  book: Book;
 }
 const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
   return (
@@ -13,7 +13,7 @@ const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
         <LeftArrow />
         <span className={styles.backText}>Back</span>
       </Link>
-      <p className={styles.nameBook}>{book?.title}</p>
+      <p className={styles.nameBook}>{book.title}</p>
     </div>
   );
 };

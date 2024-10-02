@@ -15,9 +15,11 @@ const DetailPage = () => {
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
-      const book = await getByID(API.BOOKS_ENDPOINT, id!);
-      if (book) {
-        setBook(book);
+      if (id) {
+        const book = await getByID(API.BOOKS_ENDPOINT, id);
+        if (book) {
+          setBook(book);
+        }
       }
     };
     fetchBookList();
@@ -25,11 +27,13 @@ const DetailPage = () => {
 
   return (
     <DefaultLayout isFilteredSlug={false} isFilteredName={false} books={[]}>
-      <div className={styles.ContentSection}>
-        <HeaderContentSection book={book} />
-        <InfoContentSection book={book} />
-        <MainContentSection book={book} />
-      </div>
+      {book && (
+        <div className={styles.ContentSection}>
+          <HeaderContentSection book={book} />
+          <InfoContentSection book={book} />
+          <MainContentSection book={book} />
+        </div>
+      )}
     </DefaultLayout>
   );
 };
