@@ -7,33 +7,42 @@ import { useEffect, useState } from 'react';
 import { getByID } from '../../services/api';
 import { Book } from '../../types';
 import { API } from '../../constants/api';
+import Loading from '../../components/Loading';
 
 const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [book, setBook] = useState<Book | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBookDetail = async (): Promise<void> => {
-      if (id) {
-        const book = await getByID(API.BOOKS_ENDPOINT, id);
-        if (book) {
-          setBook(book);
+      setLoading(true);
+      try {
+        if (id) {
+          const book = await getByID(API.BOOKS_ENDPOINT, id);
+          if (book) {
+            setBook(book);
+          }
         }
+      } catch (error) {
+        console.error('Failed to fetch books:', error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchBookDetail();
   }, [id]);
 
-  return (
-    <>
-      {book && (
-        <div className={styles.ContentSection}>
-          <HeaderContentSection book={book} />
-          <InfoContentSection book={book} />
-          <MainContentSection book={book} />
-        </div>
-      )}
-    </>
+  return loading ? (
+    <Loading />
+  ) : (
+    book && (
+      <div className={styles.ContentSection}>
+        <HeaderContentSection book={book} />
+        <InfoContentSection book={book} />
+        <MainContentSection book={book} />
+      </div>
+    )
   );
 };
 
