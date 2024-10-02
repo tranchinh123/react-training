@@ -64,7 +64,7 @@ const Header = () => {
   const onHandleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleClose();
-      navigate(`/name/${searchTerm}`);
+      navigate(`/search?query=${searchTerm}`);
     }
   };
 

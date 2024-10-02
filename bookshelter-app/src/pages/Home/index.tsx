@@ -5,14 +5,16 @@ import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [isFilteredSlug, setIsFilteredSlug] = useState(false);
   const [isFilteredName, setIsFilteredName] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { slug, name } = useParams<{ slug: string; name: string }>();
+  const { slug } = useParams<{ slug: string; name: string }>();
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get('query');
   const navigate = useNavigate();
 
   useEffect(() => {
