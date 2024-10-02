@@ -8,26 +8,17 @@ import { useState, useEffect } from 'react';
 import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Outlet, useSearchParams } from 'react-router-dom';
 
-interface LayoutProps {
-  children?: React.ReactNode;
-  isFilteredSlug: boolean;
-  isFilteredName: boolean;
-  books: Book[];
-}
-
-const DefaultLayout = ({
-  children,
-  isFilteredSlug,
-  isFilteredName,
-  books,
-}: LayoutProps) => {
+const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string | null>(null);
   const [currentTotalBook, setCurrentTotalBook] = useState<number | null>(null);
+  const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const name = searchParams.get('query');
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
@@ -46,6 +37,16 @@ const DefaultLayout = ({
 
     fetchCategoriesList();
   }, []);
+
+  useEffect(() => {
+    const fetchBooks = async (): Promise<void> => {
+      if (name) {
+        const books = await get<Book>(API.BOOKS_ENDPOINT, 'title', `${name}`);
+        setBooks(books);
+      }
+    };
+    fetchBooks();
+  }, [name]);
 
   const handleCategoryClick = (
     categoryName: string,
@@ -67,12 +68,12 @@ const DefaultLayout = ({
           <CategoriesSection
             currentCategory={currentCategory}
             currentTotalBook={currentTotalBook}
-            isFilteredSlug={isFilteredSlug}
-            isFilteredName={isFilteredName}
             books={books}
           />
           <CategoryList categories={categories} onClick={handleCategoryClick} />
-          <section className={styles.content}>{children}</section>
+          <section className={styles.content}>
+            <Outlet />
+          </section>
         </>
       )}
     </>

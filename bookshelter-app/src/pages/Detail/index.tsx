@@ -1,4 +1,3 @@
-import DefaultLayout from '../../layouts';
 import HeaderContentSection from '../../components/HeaderContentSection';
 import MainContentSection from '../../components/MainContentSection';
 import InfoContentSection from '../../components/InfoContentSection';
@@ -26,7 +25,7 @@ const DetailPage = () => {
   }, [id]);
 
   return (
-    <DefaultLayout isFilteredSlug={false} isFilteredName={false} books={[]}>
+    <>
       {book && (
         <div className={styles.ContentSection}>
           <HeaderContentSection book={book} />
@@ -34,7 +33,7 @@ const DetailPage = () => {
           <MainContentSection book={book} />
         </div>
       )}
-    </DefaultLayout>
+    </>
   );
 };
 

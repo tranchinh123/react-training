@@ -1,4 +1,3 @@
-import DefaultLayout from '../../layouts';
 import BookCardList from '../../components/BookCardList';
 import Loading from '../../components/Loading';
 import { get } from '../../services/api';
@@ -9,8 +8,6 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
-  const [isFilteredSlug, setIsFilteredSlug] = useState(false);
-  const [isFilteredName, setIsFilteredName] = useState(false);
   const [loading, setLoading] = useState(true);
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
@@ -53,24 +50,6 @@ const HomePage = () => {
     fetchBookList();
   }, [slug, name, navigate]);
 
-  useEffect(() => {
-    if (slug) setIsFilteredSlug(true);
-    else setIsFilteredSlug(false);
-  }, [slug]);
-
-  useEffect(() => {
-    if (name) setIsFilteredName(true);
-    else setIsFilteredName(false);
-  }, [name]);
-
-  return (
-    <DefaultLayout
-      isFilteredSlug={isFilteredSlug}
-      isFilteredName={isFilteredName}
-      books={books}
-    >
-      {loading ? <Loading /> : <BookCardList books={books} />}
-    </DefaultLayout>
-  );
+  return <>{loading ? <Loading /> : <BookCardList books={books} />}</>;
 };
 export default HomePage;
