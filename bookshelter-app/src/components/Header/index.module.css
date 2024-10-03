@@ -1,4 +1,4 @@
-.Header {
+.header {
   display: flex;
   align-items: center;
   padding-top: 8px;
@@ -7,7 +7,7 @@
   border-bottom: 2px solid rgba(248, 250, 253, 1);
 }
 
-.SearchBarContainer {
+.searchBarContainer {
   display: flex;
   flex-direction: column;
   max-width: 870px;

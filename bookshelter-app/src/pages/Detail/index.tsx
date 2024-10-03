@@ -37,7 +37,7 @@ const DetailPage = () => {
     <Loading />
   ) : (
     book && (
-      <div className={styles.ContentSection}>
+      <div className={styles.contentSection}>
         <HeaderContentSection book={book} />
         <InfoContentSection book={book} />
         <MainContentSection book={book} />

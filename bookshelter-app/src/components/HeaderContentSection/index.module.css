@@ -1,4 +1,4 @@
-.HeaderContentSection {
+.headerContentSection {
   display: flex;
   align-items: center;
   background-color: var(--background-color-secondary);
@@ -6,22 +6,22 @@
   font-family: var(--primary-font-family);
 }
 
-.BackLink {
+.backLink {
   padding-right: 34px;
 }
 
-.BackLink:hover {
+.backLink:hover {
   opacity: 0.7;
 }
 
-.BackText {
+.backText {
   color: #0d75ff;
   margin-left: 7px;
   font-family: var(--primary-font-family);
   font-size: var(--font-size-lg);
 }
 
-.NameBook {
+.nameBook {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-medium);
 }

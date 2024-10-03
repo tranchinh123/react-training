@@ -1,4 +1,4 @@
-.Card {
+.card {
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -7,11 +7,11 @@
   padding-bottom: 25px;
 }
 
-.Card:hover {
+.card:hover {
   opacity: 0.9;
 }
 
-.ImageCard {
+.imageCard {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,19 +22,19 @@
   margin: 13px 15px 0px 18px;
 }
 
-.ImageBook {
+.imageBook {
   width: 201px;
   height: 202px;
   border-radius: 5px 0px 0px 0px;
   opacity: 0px;
 }
 
-.BookInform {
+.bookInform {
   padding-top: 20px;
   padding-left: 21px;
 }
 
-.NameBook {
+.nameBook {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
   font-family: var(--primary-font-family);
@@ -44,8 +44,8 @@
   text-overflow: ellipsis;
 }
 
-.Published,
-.Author {
+.published,
+.author {
   font-family: var(--secondary-font-family);
   font-size: var(--font-size-md);
   line-height: 17px;

@@ -9,12 +9,12 @@ interface BookCategoryProps {
 
 const BookCategory = ({ category, color, onClick }: BookCategoryProps) => {
   return (
-    <div className={styles.CategoryItem} onClick={onClick}>
-      <div style={{ backgroundColor: color }} className={styles.Initials}>
+    <div className={styles.categoryItem} onClick={onClick}>
+      <div style={{ backgroundColor: color }} className={styles.initials}>
         {category.name.slice(0, 2)}
       </div>
-      <p className={styles.Category}>{category.name}</p>
-      <p className={styles.BookQuantity}>{category.totalBooks}</p>
+      <p className={styles.category}>{category.name}</p>
+      <p className={styles.bookQuantity}>{category.totalBooks}</p>
     </div>
   );
 };

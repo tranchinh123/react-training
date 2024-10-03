@@ -1,4 +1,4 @@
-.CategoryItem {
+.categoryItem {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -11,11 +11,11 @@
   font-size: var(--font-size-md);
 }
 
-.CategoryItem:hover {
+.categoryItem:hover {
   background-color: var(--background-color-secondary);
 }
 
-.Initials {
+.initials {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,12 +27,12 @@
   font-weight: var(--font-weight-bold);
 }
 
-.Category {
+.category {
   flex-grow: 1;
   font-size: var(--font-size-md);
 }
 
-.BookQuantity {
+.bookQuantity {
   font-size: var(--font-size-sm);
   color: #58667e;
   padding-right: 10px;

@@ -58,24 +58,20 @@ const DefaultLayout = () => {
     navigate(`/${categorySlug}`);
   };
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <Header />
-          <CategoriesSection
-            currentCategory={currentCategory}
-            currentTotalBook={currentTotalBook}
-            books={books}
-          />
-          <CategoryList categories={categories} onClick={handleCategoryClick} />
-          <section className={styles.Content}>
-            <Outlet />
-          </section>
-        </>
-      )}
+      <Header />
+      <CategoriesSection
+        currentCategory={currentCategory}
+        currentTotalBook={currentTotalBook}
+        books={books}
+      />
+      <CategoryList categories={categories} onClick={handleCategoryClick} />
+      <section className={styles.content}>
+        <Outlet />
+      </section>
     </>
   );
 };

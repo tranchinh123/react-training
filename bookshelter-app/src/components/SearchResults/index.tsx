@@ -16,16 +16,16 @@ const SearchResults = ({ results, onClose }: SearchResultsProps) => {
   };
 
   return (
-    <div className={styles.ResultList}>
+    <div className={styles.resultList}>
       {results.map((result, id) => (
         <div
           key={id}
-          className={styles.BookItem}
+          className={styles.bookItem}
           id={result.id}
           onClick={() => handleClick(result)}
         >
-          <img className={styles.Image} src={result.cover} alt="" />
-          <p className={styles.Title}>{result.title}</p>
+          <img className={styles.image} src={result.cover} alt="" />
+          <p className={styles.title}>{result.title}</p>
         </div>
       ))}
     </div>

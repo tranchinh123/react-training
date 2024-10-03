@@ -21,28 +21,28 @@ const CategoriesSection = ({
   const isHomePage = location.pathname === '/';
 
   return (
-    <section className={styles.CategoriesSection}>
-      <p className={styles.Categories}>Categories</p>
+    <section className={styles.categoriesSection}>
+      <p className={styles.categories}>Categories</p>
 
       {slug && (
-        <div className={styles.Wrapped}>
-          <div className={styles.Category}>{currentCategory}</div>
+        <div className={styles.wrapped}>
+          <div className={styles.category}>{currentCategory}</div>
           <RightArrow />
-          <p className={styles.ShowQuantity}>
+          <p className={styles.showQuantity}>
             Showing {currentTotalBook} Result(s)
           </p>
         </div>
       )}
       {name && (
-        <div className={styles.Wrapped}>
-          <p className={styles.ShowQuantity}>
+        <div className={styles.wrapped}>
+          <p className={styles.showQuantity}>
             Showing {books.length} Result(s)
           </p>
         </div>
       )}
       {!name && books.length === 0 && !id && !slug && !isHomePage && (
-        <div className={styles.Wrapped}>
-          <p className={styles.ShowQuantity}>Showing 0 Result(s)</p>
+        <div className={styles.wrapped}>
+          <p className={styles.showQuantity}>Showing 0 Result(s)</p>
         </div>
       )}
     </section>

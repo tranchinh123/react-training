@@ -1,4 +1,4 @@
-.NotFoundPage {
+.notFoundPage {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   box-shadow: 0px 1px 4px 0px #00000040;
 }
 
-.Text {
+.text {
   color: rgba(0, 0, 0, 0.24);
   font-size: 32px;
   padding-top: 20px;

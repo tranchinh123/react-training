@@ -3,9 +3,9 @@ import styles from './index.module.css';
 
 const NotFound = () => {
   return (
-    <div className={styles.NotFoundPage}>
+    <div className={styles.notFoundPage}>
       <Glass size={39} />
-      <p className={styles.Text}>No results found</p>
+      <p className={styles.text}>No results found</p>
     </div>
   );
 };

@@ -7,13 +7,13 @@ interface MainContentSectionProp {
 
 const MainContentSection = ({ book }: MainContentSectionProp) => {
   return (
-    <div className={styles.MainContent}>
+    <div className={styles.mainContent}>
       <img
-        className={styles.ImgBook}
+        className={styles.imgBook}
         src={book.cover}
         alt="image of the book "
       />
-      <p className={styles.Description}>{book.description}</p>
+      <p className={styles.description}>{book.description}</p>
     </div>
   );
 };

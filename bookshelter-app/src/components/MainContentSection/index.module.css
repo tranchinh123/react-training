@@ -1,4 +1,4 @@
-.MainContent {
+.mainContent {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -7,12 +7,12 @@
   padding: 30px 0px 50px 50px;
 }
 
-.ImgBook {
+.imgBook {
   width: 430px;
   height: 230px;
 }
 
-.Description {
+.description {
   padding: 50px 75px 0px 75px;
   font-family: var(--primary-font-family);
   color: #58667e;

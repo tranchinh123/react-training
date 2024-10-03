@@ -77,9 +77,9 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.Header}>
+    <header className={styles.header}>
       <Logo />
-      <div className={styles.SearchBarContainer} ref={searchRef}>
+      <div className={styles.searchBarContainer} ref={searchRef}>
         <SearchInput
           searchTerm={searchTerm}
           onOpen={handleOpen}

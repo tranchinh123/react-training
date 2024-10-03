@@ -9,12 +9,12 @@ interface HeaderContentSectionProps {
 
 const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
   return (
-    <div className={styles.HeaderContentSection}>
-      <Link to="/" className={styles.BackLink}>
+    <div className={styles.headerContentSection}>
+      <Link to="/" className={styles.backLink}>
         <LeftArrow />
-        <span className={styles.BackText}>Back</span>
+        <span className={styles.backText}>Back</span>
       </Link>
-      <p className={styles.NameBook}>{book.title}</p>
+      <p className={styles.nameBook}>{book.title}</p>
     </div>
   );
 };

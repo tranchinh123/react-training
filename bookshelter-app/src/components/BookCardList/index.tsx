@@ -15,7 +15,7 @@ const BookCardList = ({ books }: BooksProps) => {
   };
 
   return (
-    <div className={styles.BookList}>
+    <div className={styles.bookList}>
       {books.map((book) => (
         <BookCard
           key={book.id}

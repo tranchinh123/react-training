@@ -1,4 +1,4 @@
-.CategoryList {
+.categoryList {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   background-color: var(--background-color-primary);
 }
 
-.CuratedList {
+.curatedList {
   font-size: var(--font-size-lg);
   margin-top: 20px;
   padding-left: 25px;

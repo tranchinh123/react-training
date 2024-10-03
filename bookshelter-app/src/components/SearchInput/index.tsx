@@ -15,10 +15,10 @@ const SearchInput = ({
   onHandleKeyDown,
 }: SearchInputProps) => {
   return (
-    <div className={styles.Input}>
+    <div className={styles.input}>
       <Glass size={20} />
       <input
-        className={styles.SearchInput}
+        className={styles.searchInput}
         type="text"
         value={searchTerm}
         placeholder="Search books"
