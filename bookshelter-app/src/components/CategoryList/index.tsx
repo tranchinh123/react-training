@@ -22,8 +22,8 @@ const CategoryList = ({ categories, onClick }: CategoryListProps) => {
   }, [categories]);
 
   return (
-    <section className={styles.categoryList}>
-      <p className={styles.curatedList}>
+    <section className={styles.CategoryList}>
+      <p className={styles.CuratedList}>
         A curated list of every book ever written
       </p>
       {categories.map((category, index) => (

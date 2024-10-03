@@ -4,15 +4,16 @@ import { Book } from '../../types';
 interface MainContentSectionProp {
   book: Book;
 }
+
 const MainContentSection = ({ book }: MainContentSectionProp) => {
   return (
-    <div className={styles.mainContent}>
+    <div className={styles.MainContent}>
       <img
-        className={styles.imgBook}
+        className={styles.ImgBook}
         src={book.cover}
         alt="image of the book "
       />
-      <p className={styles.description}>{book.description}</p>
+      <p className={styles.Description}>{book.description}</p>
     </div>
   );
 };

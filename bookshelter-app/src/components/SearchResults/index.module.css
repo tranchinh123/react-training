@@ -1,4 +1,4 @@
-.resultList {
+.ResultList {
   width: 675px;
   max-height: 300px;
   display: flex;
@@ -13,13 +13,13 @@
   cursor: pointer;
 }
 
-.image {
+.Image {
   width: 45px;
   height: 45px;
   margin-right: 10px;
 }
 
-.bookItem {
+.BookItem {
   display: flex;
   align-items: center;
   width: 650px;
@@ -28,11 +28,11 @@
   margin: 8px 0 8px 8px;
 }
 
-.bookItem:hover {
+.BookItem:hover {
   background-color: rgba(227, 230, 235, 1);
 }
 
-.title {
+.Title {
   font-family: var(--primary-font-family);
   font-size: var(--font-size-2xl);
   font-weight: 500;

@@ -1,6 +1,7 @@
 interface GlassProps {
   size: number;
 }
+
 const Glass = ({ size }: GlassProps) => {
   return (
     <svg

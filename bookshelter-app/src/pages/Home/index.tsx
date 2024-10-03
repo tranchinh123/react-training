@@ -48,4 +48,5 @@ const HomePage = () => {
 
   return loading ? <Loading /> : <BookCardList books={books} />;
 };
+
 export default HomePage;

@@ -71,7 +71,7 @@ const DefaultLayout = () => {
             books={books}
           />
           <CategoryList categories={categories} onClick={handleCategoryClick} />
-          <section className={styles.content}>
+          <section className={styles.Content}>
             <Outlet />
           </section>
         </>

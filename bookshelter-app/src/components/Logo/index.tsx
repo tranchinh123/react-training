@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Logo = () => {
   return (
     <Link to="/">
-      <a className={styles.logo} href="/">
+      <a className={styles.Logo} href="/">
         <LogoPage />
-        <p className={styles.logoText}>BookShelter</p>
+        <p className={styles.LogoText}>BookShelter</p>
       </a>
     </Link>
   );
