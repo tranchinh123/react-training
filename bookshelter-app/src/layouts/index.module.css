@@ -1,6 +1,5 @@
 .content {
-  max-height: 1200px;
-  min-height: 100vh;
+  height: 100vh;
   position: absolute;
   inset: 141px 0px 0 270px;
   overflow-y: scroll;
