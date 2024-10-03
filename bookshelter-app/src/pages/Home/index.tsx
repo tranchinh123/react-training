@@ -35,11 +35,7 @@ const HomePage = () => {
           filteredBooks = Books || [];
         }
 
-        if (filteredBooks.length === 0) {
-          navigate('*');
-        } else {
-          setBooks(filteredBooks);
-        }
+        setBooks(filteredBooks);
       } catch (error) {
         console.error('Failed to fetch books:', error);
       } finally {
