@@ -10,4 +10,6 @@
 .searchBarContainer {
   display: flex;
   flex-direction: column;
+  max-width: 870px;
+  width: 100%;
 }

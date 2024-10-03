@@ -11,7 +11,7 @@
 }
 
 .searchInput {
-  width: 670px;
+  max-width: 670px;
   border: none;
   outline: none;
   margin-left: 10px;
