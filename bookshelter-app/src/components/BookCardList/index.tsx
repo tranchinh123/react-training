@@ -3,10 +3,11 @@ import styles from './index.module.css';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 
-interface booksProps {
+interface BooksProps {
   books: Book[];
 }
-const BookCardList = ({ books }: booksProps) => {
+
+const BookCardList = ({ books }: BooksProps) => {
   const navigate = useNavigate();
 
   const onHandleClick = (book: Book) => {
@@ -14,7 +15,7 @@ const BookCardList = ({ books }: booksProps) => {
   };
 
   return (
-    <div className={styles.bookList}>
+    <div className={styles.BookList}>
       {books.map((book) => (
         <BookCard
           key={book.id}

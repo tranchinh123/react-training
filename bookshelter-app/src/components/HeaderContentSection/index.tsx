@@ -6,14 +6,15 @@ import { Book } from '../../types';
 interface HeaderContentSectionProps {
   book: Book;
 }
+
 const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
   return (
-    <div className={styles.headerContentSection}>
-      <Link to="/" className={styles.backLink}>
+    <div className={styles.HeaderContentSection}>
+      <Link to="/" className={styles.BackLink}>
         <LeftArrow />
-        <span className={styles.backText}>Back</span>
+        <span className={styles.BackText}>Back</span>
       </Link>
-      <p className={styles.nameBook}>{book.title}</p>
+      <p className={styles.NameBook}>{book.title}</p>
     </div>
   );
 };

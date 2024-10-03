@@ -22,27 +22,27 @@ const CategoriesSection = ({
 
   return (
     <section className={styles.CategoriesSection}>
-      <p className={styles.categories}>Categories</p>
+      <p className={styles.Categories}>Categories</p>
 
       {slug && (
-        <div className={styles.wrapped}>
-          <div className={styles.category}>{currentCategory}</div>
+        <div className={styles.Wrapped}>
+          <div className={styles.Category}>{currentCategory}</div>
           <RightArrow />
-          <p className={styles.showQuantity}>
+          <p className={styles.ShowQuantity}>
             Showing {currentTotalBook} Result(s)
           </p>
         </div>
       )}
       {name && (
-        <div className={styles.wrapped}>
-          <p className={styles.showQuantity}>
+        <div className={styles.Wrapped}>
+          <p className={styles.ShowQuantity}>
             Showing {books.length} Result(s)
           </p>
         </div>
       )}
       {!name && books.length === 0 && !id && !slug && !isHomePage && (
-        <div className={styles.wrapped}>
-          <p className={styles.showQuantity}>Showing 0 Result(s)</p>
+        <div className={styles.Wrapped}>
+          <p className={styles.ShowQuantity}>Showing 0 Result(s)</p>
         </div>
       )}
     </section>

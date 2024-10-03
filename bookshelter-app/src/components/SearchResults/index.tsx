@@ -1,6 +1,7 @@
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
+
 interface SearchResultsProps {
   results: Book[];
   onClose: () => void;
@@ -15,19 +16,20 @@ const SearchResults = ({ results, onClose }: SearchResultsProps) => {
   };
 
   return (
-    <div className={styles.resultList}>
+    <div className={styles.ResultList}>
       {results.map((result, id) => (
         <div
           key={id}
-          className={styles.bookItem}
+          className={styles.BookItem}
           id={result.id}
           onClick={() => handleClick(result)}
         >
-          <img className={styles.image} src={result.cover} alt="" />
-          <p className={styles.title}>{result.title}</p>
+          <img className={styles.Image} src={result.cover} alt="" />
+          <p className={styles.Title}>{result.title}</p>
         </div>
       ))}
     </div>
   );
 };
+
 export default SearchResults;
