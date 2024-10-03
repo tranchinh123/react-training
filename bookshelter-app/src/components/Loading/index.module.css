@@ -12,14 +12,12 @@
 
 .loader {
   margin: 10% 45%;
-  border: 16px solid #f3f3f3;
+  border: 5px solid #fff;
   border-radius: 50%;
-  border-top: 16px solid #2980b9;
-  border-right: 16px solid #2ecc71;
-  border-bottom: 16px solid #e62020;
-  border-left: 16px solid #f5ba1a;
-  width: 120px;
-  height: 120px;
+  border-bottom-color: #ff3d00;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
