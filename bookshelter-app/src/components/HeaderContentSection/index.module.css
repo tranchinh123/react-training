@@ -8,6 +8,8 @@
 
 .backLink {
   padding-right: 34px;
+  background: none;
+  border: none;
 }
 
 .backLink:hover {

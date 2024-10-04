@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LeftArrow from '../Icons/LeftArrow';
 import styles from './index.module.css';
 import { Book } from '../../types';
@@ -14,12 +14,10 @@ const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
   };
   return (
     <div className={styles.headerContentSection}>
-      <Link to="/" className={styles.backLink}>
+      <button className={styles.backLink} onClick={handleBackClick}>
         <LeftArrow />
-        <span className={styles.backText} onClick={handleBackClick}>
-          Back
-        </span>
-      </Link>
+        <span className={styles.backText}>Back</span>
+      </button>
       <p className={styles.nameBook}>{book.title}</p>
     </div>
   );
