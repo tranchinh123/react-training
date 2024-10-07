@@ -40,27 +40,34 @@
 
 ## How to run
 
-- Clone source
+1. Clone source:
 
 ```
 git clone https://github.com/tranchinh123/react-training.git
 ```
 
-- Git checkout
+2. Git checkout
 
 ```
-git checkout feat/practice
-```
-
-```
+git checkout feat/practice-one
 cd bookshelter-app
 ```
 
-- Install packages
+3. Install packages
 
 ```
 pnpm install
 ```
+
+4. Get endpoint [link](https://drive.google.com/file/d/1D2Wr2CGX0QCjkIbaEopMsWlPCEdLoZDi/view?usp=sharing)
+
+5. Setup env
+
+```
+cp .env.example .env
+```
+
+-Paste all the content you got in step 4
 
 - Run project
 

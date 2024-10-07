@@ -4,7 +4,7 @@ import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
-import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -12,7 +12,6 @@ const HomePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
@@ -44,7 +43,7 @@ const HomePage = () => {
     };
 
     fetchBookList();
-  }, [slug, name, navigate]);
+  }, [slug, name]);
 
   return loading ? <Loading /> : <BookCardList books={books} />;
 };
