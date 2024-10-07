@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const Logo = () => {
   return (
     <Link to="/">
-      <a className={styles.logo} href="/">
+      <div className={styles.logo}>
         <LogoPage />
         <p className={styles.logoText}>BookShelter</p>
-      </a>
+      </div>
     </Link>
   );
 };
