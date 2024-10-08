@@ -6,3 +6,16 @@
   row-gap: 45px;
   column-gap: 20px;
 }
+
+@media (max-width: 1324px) {
+  .bookList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 964px) {
+  .bookList {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
