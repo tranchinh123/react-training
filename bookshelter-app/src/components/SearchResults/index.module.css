@@ -1,5 +1,4 @@
 .resultList {
-  width: 675px;
   max-height: 300px;
   display: flex;
   flex-direction: column;
@@ -22,7 +21,7 @@
 .bookItem {
   display: flex;
   align-items: center;
-  width: 650px;
+  min-width: 650px;
   border-radius: 5px;
   padding: 10px;
   margin: 8px 0 8px 8px;

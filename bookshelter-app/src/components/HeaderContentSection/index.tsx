@@ -9,9 +9,11 @@ interface HeaderContentSectionProps {
 
 const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
   const navigate = useNavigate();
+
   const handleBackClick = () => {
     navigate(-1);
   };
+
   return (
     <div className={styles.headerContentSection}>
       <button className={styles.backLink} onClick={handleBackClick}>

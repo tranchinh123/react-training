@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  width: 212px;
-  height: 56px;
+  min-width: 212px;
   border-radius: 10px;
   margin-top: 23px;
   margin-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   cursor: pointer;
   font-size: var(--font-size-md);
 }
@@ -20,8 +21,7 @@
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  width: 40px;
-  height: 40px;
+  padding: 10px 10px;
   border-radius: 50%;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);

@@ -1,6 +1,6 @@
 .categoriesSection {
   display: flex;
-  height: 56px;
+  min-height: 56px;
   align-items: center;
   justify-content: flex-start;
   background-color: #ffff;
@@ -11,7 +11,6 @@
 
 .wrapped {
   display: flex;
-  width: 370px;
   align-items: center;
   justify-content: space-around;
 }
@@ -25,6 +24,7 @@
   font-size: var(--font-size-lg);
   font-weight: 500;
   padding: 12px 30px;
+  margin-right: 30px;
 }
 
 .categories {
@@ -36,4 +36,5 @@
 .showQuantity {
   font-weight: 500;
   font-size: var(--font-size-lg);
+  margin-left: 30px;
 }

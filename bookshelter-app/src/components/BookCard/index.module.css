@@ -15,8 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 249px;
-  height: 238px;
+  padding: 19px 24px;
   border-radius: 5px;
   background-color: var(--background-color-secondary);
   margin: 13px 15px 0px 18px;
@@ -38,7 +37,7 @@
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
   font-family: var(--primary-font-family);
-  width: 200px;
+  max-width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
