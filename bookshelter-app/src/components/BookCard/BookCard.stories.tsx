@@ -2,7 +2,6 @@
 import BookCard from '.';
 import { StoryFn, Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
-import { Book } from '../../types';
 
 export default {
   title: 'Components/BookCard',
@@ -10,7 +9,11 @@ export default {
 } as Meta;
 
 interface BookCardArgs {
-  book: Book;
+  id: string;
+  cover: string;
+  title: string;
+  author: string;
+  publishedYear: number;
   onHandleClick: () => void;
 }
 
@@ -22,16 +25,11 @@ const Template: StoryFn<BookCardArgs> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  book: {
-    id: '1',
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    publishedYear: 1925,
-    cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
-    category: 'Classic',
-    publisher: 'Scribner',
-    description: 'A novel set in the Roaring Twenties.',
-  },
+  id: '1',
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  publishedYear: 1925,
+  cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
 
   onHandleClick: () => console.log('Book card clicked!'),
 };
