@@ -12,8 +12,6 @@ import { useNavigate, Outlet, useSearchParams } from 'react-router-dom';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
-  const [currentTotalBook, setCurrentTotalBook] = useState<number | null>(null);
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -48,13 +46,7 @@ const DefaultLayout = () => {
     fetchBooks();
   }, [name]);
 
-  const handleCategoryClick = (
-    categoryName: string,
-    categoryTotalBook: number,
-    categorySlug: string
-  ) => {
-    setCurrentCategory(categoryName);
-    setCurrentTotalBook(categoryTotalBook);
+  const handleCategoryClick = (categorySlug: string) => {
     navigate(`/${categorySlug}`);
   };
 
@@ -63,11 +55,7 @@ const DefaultLayout = () => {
   ) : (
     <>
       <Header />
-      <CategoriesSection
-        currentCategory={currentCategory}
-        currentTotalBook={currentTotalBook}
-        books={books}
-      />
+      <CategoriesSection books={books} />
       <CategoryList categories={categories} onClick={handleCategoryClick} />
       <section className={styles.content}>
         <Outlet />
