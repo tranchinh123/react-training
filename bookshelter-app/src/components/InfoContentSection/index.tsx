@@ -1,11 +1,16 @@
 import styles from './index.module.css';
-import { Book } from '../../types';
 
 interface InfoContentSectionProp {
-  book: Book;
+  author: string;
+  publishedYear: number;
+  publisher: string;
 }
 
-const InfoContentSection = ({ book }: InfoContentSectionProp) => {
+const InfoContentSection = ({
+  author,
+  publishedYear,
+  publisher,
+}: InfoContentSectionProp) => {
   return (
     <div className={styles.infoContentSection}>
       <div className={styles.textInfo}>
@@ -14,9 +19,9 @@ const InfoContentSection = ({ book }: InfoContentSectionProp) => {
         <p className={styles.textInfoItem}>Publisher:</p>
       </div>
       <div className={styles.infoBook}>
-        <p className={styles.infoBookItem}>{book.author}</p>
-        <p className={styles.infoBookItem}>{book.publishedYear}</p>
-        <p className={styles.infoBookItem}>{book.publisher}</p>
+        <p className={styles.infoBookItem}>{author}</p>
+        <p className={styles.infoBookItem}>{publishedYear}</p>
+        <p className={styles.infoBookItem}>{publisher}</p>
       </div>
     </div>
   );

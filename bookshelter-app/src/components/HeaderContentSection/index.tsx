@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import LeftArrow from '../Icons/LeftArrow';
 import styles from './index.module.css';
-import { Book } from '../../types';
 
 interface HeaderContentSectionProps {
-  book: Book;
+  title: string;
 }
 
-const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
+const HeaderContentSection = ({ title }: HeaderContentSectionProps) => {
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -20,7 +19,7 @@ const HeaderContentSection = ({ book }: HeaderContentSectionProps) => {
         <LeftArrow />
         <span className={styles.backText}>Back</span>
       </button>
-      <p className={styles.nameBook}>{book.title}</p>
+      <p className={styles.nameBook}>{title}</p>
     </div>
   );
 };
