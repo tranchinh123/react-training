@@ -1,6 +1,7 @@
 import BookCategory from '.';
 import { MemoryRouter } from 'react-router-dom';
 import { StoryFn, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components/BookCategory',
@@ -25,7 +26,5 @@ Default.args = {
   name: 'Adventure',
   totalBooks: 22,
   color: 'blue',
-  onClick: () => {
-    console.log('abc');
-  },
+  onClick: action('bookCard-clicked'),
 };

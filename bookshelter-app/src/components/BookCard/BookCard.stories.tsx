@@ -3,6 +3,7 @@ import BookCard from '.';
 import { StoryFn, Meta } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Book } from '../../types';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components/BookCard',
@@ -32,5 +33,5 @@ Default.args = {
     publisher: 'Scribner',
     description: 'A novel set in the Roaring Twenties.',
   },
-  onHandleClick: () => console.log('Book card clicked!'),
+  onHandleClick: action('bookCard-clicked'),
 };
