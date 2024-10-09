@@ -11,7 +11,6 @@ export default {
 
 interface BookCardArgs {
   book: Book;
-  publishedYear: number;
   onHandleClick: () => void;
 }
 
