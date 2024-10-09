@@ -36,3 +36,24 @@
   font-size: var(--font-size-2xl);
   font-weight: 500;
 }
+
+@media (max-width: 1324px) {
+  .resultList {
+    max-width: 500px;
+  }
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bookItem {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 964px) {
+  .resultList {
+    max-width: 400px;
+    margin-left: 75px;
+  }
+}

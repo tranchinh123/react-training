@@ -7,7 +7,7 @@ import { get } from '../../services/api';
 import { API } from '../../constants/api';
 
 const CategoriesSection = () => {
-  const [categories, setCategories] = useState<Category[]>();
+  const [categories, setCategories] = useState<Category[]>([]);
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
@@ -34,16 +34,12 @@ const CategoriesSection = () => {
     <section className={styles.categoriesSection}>
       <p className={styles.categories}>Categories</p>
 
-      {slug && (
+      {slug && categories.length > 0 && (
         <div className={styles.wrapped}>
-          <div className={styles.category}>
-            {categories?.map((category) => category.name)}
-          </div>
+          <div className={styles.category}>{categories[0].name}</div>
           <RightArrow />
           <p className={styles.showQuantity}>
-            Showing{' '}
-            {categories?.map((category) => category.totalBooks).join(', ')}{' '}
-            Result(s)
+            Showing {categories[0].totalBooks} Result(s)
           </p>
         </div>
       )}
