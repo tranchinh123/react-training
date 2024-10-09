@@ -8,13 +8,12 @@ import { useState, useEffect } from 'react';
 import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
-import { useNavigate, Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
 
@@ -46,17 +45,13 @@ const DefaultLayout = () => {
     fetchBooks();
   }, [name]);
 
-  const handleCategoryClick = (categorySlug: string) => {
-    navigate(`/${categorySlug}`);
-  };
-
   return loading ? (
     <Loading />
   ) : (
     <>
       <Header />
       <CategoriesSection books={books} />
-      <CategoryList categories={categories} onClick={handleCategoryClick} />
+      <CategoryList categories={categories} />
       <section className={styles.content}>
         <Outlet />
       </section>
