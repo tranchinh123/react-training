@@ -8,12 +8,6 @@ export default {
   component: CategoriesSection,
 } as Meta;
 
-interface CategoriesSectionArgs {
-  currentCategory: string;
-  currentTotalBook: number;
-  books: Book[];
-}
-
 const books: Book[] = [
   {
     id: '63d7755f6ac4de76afd58e51',
@@ -27,7 +21,7 @@ const books: Book[] = [
     cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
   },
 ];
-const Template: StoryFn<CategoriesSectionArgs> = (args) => (
+const Template: StoryFn = (args) => (
   <MemoryRouter>
     <CategoriesSection {...args} />
   </MemoryRouter>
