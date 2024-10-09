@@ -10,9 +10,17 @@
   z-index: 2;
 }
 
-.searchBarContainer {
-  display: flex;
-  flex-direction: column;
-  max-width: 870px;
-  width: 100%;
+.Menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .Menu {
+    display: flex;
+    margin-left: 30px;
+  }
+  .Menu:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 }

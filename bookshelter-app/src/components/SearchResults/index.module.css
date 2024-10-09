@@ -36,3 +36,33 @@
   font-size: var(--font-size-2xl);
   font-weight: 500;
 }
+
+@media (min-width: 769px) and (max-width: 1440px) {
+  .resultList {
+    max-width: 450px;
+    margin-left: 40px;
+  }
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bookItem {
+    min-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .resultList {
+    max-width: 250px;
+    margin-left: 50px;
+  }
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bookItem {
+    min-width: 250px;
+  }
+}

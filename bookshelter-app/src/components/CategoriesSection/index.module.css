@@ -42,3 +42,15 @@
   font-size: var(--font-size-lg);
   margin-left: 30px;
 }
+
+@media (max-width: 768px) {
+  .categories {
+    display: none;
+  }
+  .categoriesSection {
+    justify-content: flex-start;
+  }
+  .wrapped {
+    margin-left: 30px;
+  }
+}

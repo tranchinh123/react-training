@@ -1,5 +1,6 @@
 import styles from './index.module.css';
 import Logo from '../Logo';
+import Menu from '../Icons/Menu';
 import SearchInput from '../SearchInput';
 import SearchResults from '../SearchResults';
 import { useState, useEffect, useRef } from 'react';
@@ -78,8 +79,11 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <div className={styles.Menu}>
+        <Menu />
+      </div>
       <Logo />
-      <div className={styles.searchBarContainer} ref={searchRef}>
+      <div ref={searchRef}>
         <SearchInput
           searchTerm={searchTerm}
           onOpen={handleOpen}
