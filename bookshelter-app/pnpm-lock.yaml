@@ -24,6 +24,9 @@ importers:
       '@eslint/js':
         specifier: ^9.9.0
         version: 9.10.0
+      '@storybook/addon-actions':
+        specifier: ^8.3.5
+        version: 8.3.5(storybook@8.3.0)
       '@storybook/addon-essentials':
         specifier: ^8.3.0
         version: 8.3.0(storybook@8.3.0)
@@ -513,6 +516,11 @@ packages:
     resolution: {integrity: sha512-HvAc3fW979JVw8CSKXZMouvgrJ2BNLNWaUB8jNokQb3Us00P6igVKLwg/pBV8GBgDr5Ng4pHYqi/ZH+xzEYFFw==}
     peerDependencies:
       storybook: ^8.3.0
+
+  '@storybook/addon-actions@8.3.5':
+    resolution: {integrity: sha512-t8D5oo+4XfD+F8091wLa2y/CDd/W2lExCeol5Vm1tp5saO+u6f2/d7iykLhTowWV84Uohi3D073uFeyTAlGebg==}
+    peerDependencies:
+      storybook: ^8.3.5
 
   '@storybook/addon-backgrounds@8.3.0':
     resolution: {integrity: sha512-qaV/QsXoviAmBYFszI/KN1CaI/LcACGX9RCBB54fMau3JuouIBU/zTl2jY2+BioCBk6oY8KqcnAS1coOZzlNXQ==}
@@ -2637,6 +2645,15 @@ snapshots:
     optional: true
 
   '@storybook/addon-actions@8.3.0(storybook@8.3.0)':
+    dependencies:
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      storybook: 8.3.0
+      uuid: 9.0.1
+
+  '@storybook/addon-actions@8.3.5(storybook@8.3.0)':
     dependencies:
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8

@@ -1,7 +1,7 @@
 import BookCategory from '.';
 import { MemoryRouter } from 'react-router-dom';
 import { StoryFn, Meta } from '@storybook/react';
-import { Category } from '../../types';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components/BookCategory',
@@ -9,7 +9,8 @@ export default {
 } as Meta;
 
 interface BookCategoryArgs {
-  category: Category;
+  name: string;
+  totalBooks: number;
   color: string;
   onClick: () => void;
 }
@@ -22,14 +23,8 @@ const Template: StoryFn<BookCategoryArgs> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  category: {
-    id: 1,
-    name: 'Adventure',
-    totalBooks: 22,
-    slug: 'adventure',
-  },
+  name: 'Adventure',
+  totalBooks: 22,
   color: 'blue',
-  onClick: () => {
-    console.log('abc');
-  },
+  onClick: action('bookCard-clicked'),
 };

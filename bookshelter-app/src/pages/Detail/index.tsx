@@ -38,9 +38,13 @@ const DetailPage = () => {
   ) : (
     book && (
       <div className={styles.contentSection}>
-        <HeaderContentSection book={book} />
-        <InfoContentSection book={book} />
-        <MainContentSection book={book} />
+        <HeaderContentSection title={book.title} />
+        <InfoContentSection
+          author={book.author}
+          publishedYear={book.publishedYear}
+          publisher={book.publisher}
+        />
+        <MainContentSection cover={book.cover} description={book.description} />
       </div>
     )
   );

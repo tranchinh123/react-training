@@ -5,6 +5,7 @@
   border-radius: 5px;
   background-color: var(--background-color-primary);
   padding-bottom: 25px;
+  max-width: 282px;
 }
 
 .card:hover {

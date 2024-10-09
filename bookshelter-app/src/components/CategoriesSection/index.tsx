@@ -1,24 +1,38 @@
 import { useParams, useSearchParams, useLocation } from 'react-router-dom';
 import styles from './index.module.css';
 import RightArrow from '../Icons/RightArrow';
-import { Book } from '../../types';
+import { Book, Category } from '../../types';
+import { useEffect, useState } from 'react';
+import { get } from '../../services/api';
+import { API } from '../../constants/api';
 
 interface CategoriesSectionProps {
-  currentCategory: string | null;
-  currentTotalBook: number | null;
   books: Book[];
 }
 
-const CategoriesSection = ({
-  currentCategory,
-  currentTotalBook,
-  books,
-}: CategoriesSectionProps) => {
+const CategoriesSection = ({ books }: CategoriesSectionProps) => {
+  const [categories, setCategories] = useState<Category[]>();
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+
+  useEffect(() => {
+    if (slug) {
+      const fetchCategory = async (): Promise<void> => {
+        const categories = await get<Category>(
+          API.CATEGORIES_ENDPOINT,
+          'slug',
+          `${slug}`
+        );
+        if (categories) {
+          setCategories(categories);
+        }
+      };
+      fetchCategory();
+    }
+  }, [slug]);
 
   return (
     <section className={styles.categoriesSection}>
@@ -26,10 +40,14 @@ const CategoriesSection = ({
 
       {slug && (
         <div className={styles.wrapped}>
-          <div className={styles.category}>{currentCategory}</div>
+          <div className={styles.category}>
+            {categories?.map((category) => category.name)}
+          </div>
           <RightArrow />
           <p className={styles.showQuantity}>
-            Showing {currentTotalBook} Result(s)
+            Showing{' '}
+            {categories?.map((category) => category.totalBooks).join(', ')}{' '}
+            Result(s)
           </p>
         </div>
       )}

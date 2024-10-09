@@ -1,20 +1,25 @@
 import styles from './index.module.css';
-import { Category } from '../../types';
 
 interface BookCategoryProps {
-  category: Category;
+  name: string;
+  totalBooks: number;
   color: string;
   onClick: () => void;
 }
 
-const BookCategory = ({ category, color, onClick }: BookCategoryProps) => {
+const BookCategory = ({
+  name,
+  totalBooks,
+  color,
+  onClick,
+}: BookCategoryProps) => {
   return (
     <div className={styles.categoryItem} onClick={onClick}>
       <div style={{ backgroundColor: color }} className={styles.initials}>
-        {category.name.slice(0, 2)}
+        {name.slice(0, 2)}
       </div>
-      <p className={styles.category}>{category.name}</p>
-      <p className={styles.bookQuantity}>{category.totalBooks}</p>
+      <p className={styles.category}>{name}</p>
+      <p className={styles.bookQuantity}>{totalBooks}</p>
     </div>
   );
 };

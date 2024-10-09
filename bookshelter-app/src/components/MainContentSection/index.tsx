@@ -1,19 +1,15 @@
 import styles from './index.module.css';
-import { Book } from '../../types';
 
 interface MainContentSectionProp {
-  book: Book;
+  cover: string;
+  description: string;
 }
 
-const MainContentSection = ({ book }: MainContentSectionProp) => {
+const MainContentSection = ({ cover, description }: MainContentSectionProp) => {
   return (
     <div className={styles.mainContent}>
-      <img
-        className={styles.imgBook}
-        src={book.cover}
-        alt="image of the book "
-      />
-      <p className={styles.description}>{book.description}</p>
+      <img className={styles.imgBook} src={cover} alt="image of the book " />
+      <p className={styles.description}>{description}</p>
     </div>
   );
 };
