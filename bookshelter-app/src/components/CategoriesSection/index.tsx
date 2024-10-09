@@ -1,16 +1,12 @@
 import { useParams, useSearchParams, useLocation } from 'react-router-dom';
 import styles from './index.module.css';
 import RightArrow from '../Icons/RightArrow';
-import { Book, Category } from '../../types';
+import { Category } from '../../types';
 import { useEffect, useState } from 'react';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 
-interface CategoriesSectionProps {
-  books: Book[];
-}
-
-const CategoriesSection = ({ books }: CategoriesSectionProps) => {
+const CategoriesSection = () => {
   const [categories, setCategories] = useState<Category[]>();
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
@@ -53,12 +49,10 @@ const CategoriesSection = ({ books }: CategoriesSectionProps) => {
       )}
       {name && (
         <div className={styles.wrapped}>
-          <p className={styles.showQuantity}>
-            Showing {books.length} Result(s)
-          </p>
+          <p className={styles.showQuantity}>Showing results for {name}</p>
         </div>
       )}
-      {!name && books.length === 0 && !id && !slug && !isHomePage && (
+      {!name && !id && !slug && !isHomePage && (
         <div className={styles.wrapped}>
           <p className={styles.showQuantity}>Showing 0 Result(s)</p>
         </div>

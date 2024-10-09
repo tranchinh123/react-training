@@ -3,19 +3,15 @@ import Header from '../components/Header';
 import CategoriesSection from '../components/CategoriesSection';
 import CategoryList from '../components/CategoryList';
 import Loading from '../components/Loading';
-import { Book } from '../types';
 import { useState, useEffect } from 'react';
 import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchParams] = useSearchParams();
-  const name = searchParams.get('query');
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
@@ -35,22 +31,12 @@ const DefaultLayout = () => {
     fetchCategoriesList();
   }, []);
 
-  useEffect(() => {
-    const fetchBooks = async (): Promise<void> => {
-      if (name) {
-        const books = await get<Book>(API.BOOKS_ENDPOINT, 'title', `${name}`);
-        setBooks(books);
-      }
-    };
-    fetchBooks();
-  }, [name]);
-
   return loading ? (
     <Loading />
   ) : (
     <>
       <Header />
-      <CategoriesSection books={books} />
+      <CategoriesSection />
       <CategoryList categories={categories} />
       <section className={styles.content}>
         <Outlet />
