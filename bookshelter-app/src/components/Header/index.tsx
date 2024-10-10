@@ -1,5 +1,6 @@
 import styles from './index.module.css';
 import Logo from '../Logo';
+import Menu from '../Icons/Menu';
 import SearchInput from '../SearchInput';
 import SearchResults from '../SearchResults';
 import { useState, useEffect, useRef } from 'react';
@@ -8,7 +9,11 @@ import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 
-const Header = () => {
+interface HeaderProps {
+  onToggleMenu: () => void;
+}
+
+const Header = ({ onToggleMenu }: HeaderProps) => {
   const [results, setResults] = useState<Book[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -78,6 +83,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <div className={styles.Menu} onClick={onToggleMenu}>
+        <Menu />
+      </div>
       <Logo />
       <div ref={searchRef}>
         <SearchInput

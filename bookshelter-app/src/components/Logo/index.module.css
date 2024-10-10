@@ -10,3 +10,9 @@
   font-family: var(--tertiary-font-family);
   font-size: var(--font-size-4xl);
 }
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}

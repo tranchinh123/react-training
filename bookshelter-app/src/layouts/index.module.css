@@ -3,3 +3,9 @@
   position: absolute;
   inset: 127px 0px 0 270px;
 }
+
+@media (max-width: 768px) {
+  .content {
+    inset: 127px 0px 0px 0px;
+  }
+}

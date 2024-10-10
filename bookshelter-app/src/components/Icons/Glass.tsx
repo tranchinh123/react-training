@@ -1,14 +1,11 @@
-interface GlassProps {
-  size: number;
-}
-
-const Glass = ({ size }: GlassProps) => {
+const Glass = () => {
   return (
     <svg
-      width={size}
-      height={size}
+      width="22"
+      height="22"
       viewBox="0 0 22 22"
       fill="none"
+      preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

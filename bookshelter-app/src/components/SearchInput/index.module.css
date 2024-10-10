@@ -1,5 +1,5 @@
 .input {
-  max-width: 670px;
+  width: 670px;
   display: flex;
   align-items: center;
   height: 53px;
@@ -11,7 +11,7 @@
 }
 
 .searchInput {
-  width: 670px;
+  flex: 1;
   border: none;
   outline: none;
   margin-left: 10px;
@@ -21,15 +21,16 @@
   font-size: var(--font-size-md);
 }
 
-@media (max-width: 1324px) {
+@media (min-width: 769px) and (max-width: 1440px) {
   .input {
-    max-width: 500px;
+    max-width: 450px;
+    margin-left: 40px;
   }
 }
 
-@media (max-width: 964px) {
+@media (max-width: 768px) {
   .input {
-    max-width: 400px;
-    margin-left: 75px;
+    max-width: 250px;
+    margin-left: 50px;
   }
 }
