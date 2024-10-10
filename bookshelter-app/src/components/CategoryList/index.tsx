@@ -41,8 +41,11 @@ const CategoryList = ({
 
   const handleCategoryClick = (categorySlug: string) => {
     navigate(`/${categorySlug}`);
-    setIsMenuOpen(false);
+    if (isMobile) {
+      setIsMenuOpen(false);
+    }
   };
+
   const handleClickClose = () => {
     setIsMenuOpen(false);
   };
@@ -51,6 +54,7 @@ const CategoryList = ({
       className={styles.categoryList}
       style={{
         display: isMenuOpen ? 'flex' : 'none',
+        top: isMobile ? 0 : '126px',
         zIndex: 99,
       }}
     >
