@@ -10,7 +10,8 @@ export default {
 
 interface CategoryListArgs {
   categories: Category[];
-  onClick: () => void;
+  isMenuOpen: boolean;
+  setIsMenuOpen: (open: boolean) => void;
 }
 
 // Create a Template of type Story
