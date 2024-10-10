@@ -17,8 +17,7 @@
   padding-right: 40px;
 }
 
-@media (max-width: 768px) {
-  .categoryList {
-    display: none;
-  }
+.iconClose {
+  margin-left: 210px;
+  margin-top: 15px;
 }
