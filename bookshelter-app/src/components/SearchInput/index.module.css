@@ -11,7 +11,7 @@
 }
 
 .searchInput {
-  width: 670px;
+  flex: 1;
   border: none;
   outline: none;
   margin-left: 10px;
@@ -32,6 +32,5 @@
   .input {
     max-width: 250px;
     margin-left: 50px;
-
   }
 }
