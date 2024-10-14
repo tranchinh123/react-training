@@ -22,12 +22,12 @@ const Header = () => {
         setResults([]);
         return;
       }
-
       const books = await get<Book>(
         API.BOOKS_ENDPOINT,
         'title',
         `${searchTerm}`
       );
+      if (books.length > 0) handleOpen();
       setResults(books || []);
     };
 
@@ -55,11 +55,11 @@ const Header = () => {
   }, []);
 
   const onHandleChange = (value: string) => {
-    setSearchTerm(value);
     if (value.trim() === '') {
       setResults([]);
       handleClose();
     }
+    setSearchTerm(value);
   };
 
   const onHandleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -76,6 +76,7 @@ const Header = () => {
   const handleClose = () => {
     setIsSearchOpen(false);
   };
+  console.log(isSearchOpen);
 
   return (
     <header className={styles.header}>

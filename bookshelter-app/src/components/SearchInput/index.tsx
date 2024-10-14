@@ -9,7 +9,6 @@ interface SearchInputProps {
 }
 
 const SearchInput = ({
-  onOpen,
   searchTerm,
   onHandleChange,
   onHandleKeyDown,
@@ -23,7 +22,6 @@ const SearchInput = ({
         value={searchTerm}
         placeholder="Search books"
         onChange={(e) => {
-          onOpen();
           onHandleChange(e.target.value);
         }}
         onKeyDown={onHandleKeyDown}
