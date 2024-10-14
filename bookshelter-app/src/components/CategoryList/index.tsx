@@ -2,7 +2,7 @@ import styles from './index.module.css';
 import BookCategory from '../BookCategory';
 import getRandomColor from '../../utils/randomColor';
 import { Category } from '../../types';
-import { useState, useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 
 interface CategoryListProps {
@@ -10,13 +10,9 @@ interface CategoryListProps {
 }
 
 const CategoryList = ({ categories }: CategoryListProps) => {
-  const [colors, setColors] = useState<string[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const generatedColors = categories.map(() => getRandomColor());
-    setColors(generatedColors);
-  }, [categories]);
+  const colors = categories.map(() => getRandomColor());
 
   const handleCategoryClick = (categorySlug: string) => {
     navigate(`/${categorySlug}`);
