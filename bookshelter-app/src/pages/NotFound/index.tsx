@@ -4,7 +4,7 @@ import styles from './index.module.css';
 const NotFound = () => {
   return (
     <div className={styles.notFoundPage}>
-      <Glass size={39} />
+      <Glass />
       <p className={styles.text}>No results found</p>
     </div>
   );

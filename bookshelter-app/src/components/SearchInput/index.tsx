@@ -15,7 +15,7 @@ const SearchInput = ({
 }: SearchInputProps) => {
   return (
     <div className={styles.input}>
-      <Glass size={20} />
+      <Glass />
       <input
         className={styles.searchInput}
         type="text"

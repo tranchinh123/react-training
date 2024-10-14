@@ -10,6 +10,7 @@ export default {
 
 interface CategoryListArgs {
   categories: Category[];
+
 }
 
 // Create a Template of type Story

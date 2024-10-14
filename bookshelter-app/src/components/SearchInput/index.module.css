@@ -1,5 +1,5 @@
 .input {
-  max-width: 670px;
+  width: 670px;
   display: flex;
   align-items: center;
   height: 53px;
@@ -11,7 +11,7 @@
 }
 
 .searchInput {
-  width: 670px;
+  flex: 1;
   border: none;
   outline: none;
   margin-left: 10px;

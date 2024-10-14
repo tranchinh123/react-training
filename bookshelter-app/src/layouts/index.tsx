@@ -11,6 +11,7 @@ import { Outlet } from 'react-router-dom';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,13 +32,36 @@ const DefaultLayout = () => {
     fetchCategoriesList();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(true);
+      } else {
+        setIsMenuOpen(false);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return loading ? (
     <Loading />
   ) : (
     <>
-      <Header />
+      <Header onToggleMenu={handleToggleMenu} />
       <CategoriesSection />
-      <CategoryList categories={categories} />
+      <CategoryList
+        categories={categories}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
       <section className={styles.content}>
         <Outlet />
       </section>
