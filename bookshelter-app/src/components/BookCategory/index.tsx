@@ -4,17 +4,11 @@ interface BookCategoryProps {
   name: string;
   totalBooks: number;
   color: string;
-  onClick: () => void;
 }
 
-const BookCategory = ({
-  name,
-  totalBooks,
-  color,
-  onClick,
-}: BookCategoryProps) => {
+const BookCategory = ({ name, totalBooks, color }: BookCategoryProps) => {
   return (
-    <div className={styles.categoryItem} onClick={onClick}>
+    <div className={styles.categoryItem}>
       <div style={{ backgroundColor: color }} className={styles.initials}>
         {name.slice(0, 2)}
       </div>

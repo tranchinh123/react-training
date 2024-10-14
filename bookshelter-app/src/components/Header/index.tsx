@@ -76,7 +76,6 @@ const Header = () => {
   const handleClose = () => {
     setIsSearchOpen(false);
   };
-  console.log(isSearchOpen);
 
   return (
     <header className={styles.header}>

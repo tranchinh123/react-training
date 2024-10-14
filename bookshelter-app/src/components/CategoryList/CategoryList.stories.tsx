@@ -10,7 +10,6 @@ export default {
 
 interface CategoryListArgs {
   categories: Category[];
-  onClick: () => void;
 }
 
 // Create a Template of type Story
