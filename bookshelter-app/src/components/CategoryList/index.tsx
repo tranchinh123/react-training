@@ -4,7 +4,7 @@ import getRandomColor from '../../utils/randomColor';
 import Close from '../Icons/Close';
 import { Category } from '../../types';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface CategoryListProps {
   categories: Category[];
@@ -19,7 +19,6 @@ const CategoryList = ({
 }: CategoryListProps) => {
   const [colors, setColors] = useState<string[]>([]);
   const [isMobile, setIsMobile] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const generatedColors = categories.map(() => getRandomColor());
@@ -39,8 +38,7 @@ const CategoryList = ({
     };
   }, []);
 
-  const handleCategoryClick = (categorySlug: string) => {
-    navigate(`/${categorySlug}`);
+  const handleCategoryClick = () => {
     if (isMobile) {
       setIsMenuOpen(false);
     }
@@ -49,6 +47,7 @@ const CategoryList = ({
   const handleClickClose = () => {
     setIsMenuOpen(false);
   };
+
   return (
     <section
       className={styles.categoryList}
@@ -69,13 +68,14 @@ const CategoryList = ({
       </p>
 
       {categories.map((category, index) => (
-        <BookCategory
-          key={category.id}
-          name={category.name}
-          totalBooks={category.totalBooks}
-          color={colors[index]}
-          onClick={() => handleCategoryClick(category.slug)}
-        />
+        <Link key={category.id} to={`/${category.slug}`}>
+          <BookCategory
+            name={category.name}
+            totalBooks={category.totalBooks}
+            color={colors[index]}
+            onClick={() => handleCategoryClick()}
+          />
+        </Link>
       ))}
     </section>
   );

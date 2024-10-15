@@ -3,12 +3,11 @@ import { Book } from '../../types';
 
 interface BookCardProps {
   book: Book;
-  onHandleClick: () => void;
 }
 
-const BookCard = ({ book, onHandleClick }: BookCardProps) => {
+const BookCard = ({ book }: BookCardProps) => {
   return (
-    <div className={styles.card} onClick={onHandleClick} id={book.id}>
+    <div className={styles.card} id={book.id}>
       <div className={styles.imageCard}>
         <img
           className={styles.imageBook}
