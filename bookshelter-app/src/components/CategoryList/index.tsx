@@ -4,7 +4,6 @@ import getRandomColor from '../../utils/randomColor';
 import Close from '../Icons/Close';
 import { Category } from '../../types';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 interface CategoryListProps {
   categories: Category[];
@@ -68,14 +67,14 @@ const CategoryList = ({
       </p>
 
       {categories.map((category, index) => (
-        <Link key={category.id} to={`/${category.slug}`}>
-          <BookCategory
-            name={category.name}
-            totalBooks={category.totalBooks}
-            color={colors[index]}
-            onClick={() => handleCategoryClick()}
-          />
-        </Link>
+        <BookCategory
+          key={category.id}
+          name={category.name}
+          totalBooks={category.totalBooks}
+          color={colors[index]}
+          categorySlug={category.slug}
+          onClick={() => handleCategoryClick()}
+        ></BookCategory>
       ))}
     </section>
   );

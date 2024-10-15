@@ -4,15 +4,12 @@ import { get } from '../../services/api';
 import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
-import Toast from '../../components/Toast';
 import { useParams, useSearchParams } from 'react-router-dom';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const [toastType, setToastType] = useState<'success' | 'error'>('success');
-  const [showToast, setShowToast] = useState(false);
+
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
@@ -40,9 +37,7 @@ const HomePage = () => {
 
         setBooks(filteredBooks);
       } catch {
-        setToastMessage('Failed to fetch Book');
-        setToastType('error');
-        setShowToast(true);
+        console.log('Fail to fetch data ');
       } finally {
         setLoading(false);
       }
@@ -51,23 +46,7 @@ const HomePage = () => {
     fetchBookList();
   }, [slug, name]);
 
-  const handleCloseToast = () => {
-    setShowToast(false);
-    setToastMessage(null);
-  };
-
-  return (
-    <>
-      {loading ? <Loading /> : <BookCardList books={books} />}
-      {showToast && toastMessage && (
-        <Toast
-          message={toastMessage}
-          type={toastType}
-          onClose={handleCloseToast}
-        />
-      )}
-    </>
-  );
+  return loading ? <Loading /> : <BookCardList books={books} />;
 };
 
 export default HomePage;

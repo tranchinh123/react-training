@@ -8,28 +8,22 @@ import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
 import { Outlet } from 'react-router-dom';
-import Toast from '../components/Toast';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
-  const [toastType, setToastType] = useState<'success' | 'error'>('success');
-  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    const fetchCategoriesList = async () => {
+    const fetchCategoriesList = async (): Promise<void> => {
       setLoading(true);
       try {
         const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
         if (categories) {
           setCategories(categories);
         }
-      } catch {
-        setToastMessage('Failed to fetch categoryList');
-        setToastType('error');
-        setShowToast(true);
+      } catch (error) {
+        console.error('Failed to fetch categories:', error);
       } finally {
         setLoading(false);
       }
@@ -46,7 +40,7 @@ const DefaultLayout = () => {
         setIsMenuOpen(false);
       }
     };
-
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -55,11 +49,6 @@ const DefaultLayout = () => {
 
   const handleToggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
-  };
-
-  const handleCloseToast = () => {
-    setShowToast(false);
-    setToastMessage(null);
   };
 
   return loading ? (
@@ -76,13 +65,6 @@ const DefaultLayout = () => {
       <section className={styles.content}>
         <Outlet />
       </section>
-      {showToast && toastMessage && (
-        <Toast
-          message={toastMessage}
-          type={toastType}
-          onClose={handleCloseToast}
-        />
-      )}
     </>
   );
 };
