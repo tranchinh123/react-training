@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import LeftArrow from '../Icons/LeftArrow';
+import ButtonBack from '../ButtonBack';
 import styles from './index.module.css';
 
 interface HeaderContentSectionProps {
@@ -15,10 +15,7 @@ const HeaderContentSection = ({ title }: HeaderContentSectionProps) => {
 
   return (
     <div className={styles.headerContentSection}>
-      <button className={styles.backLink} onClick={handleBackClick}>
-        <LeftArrow />
-        <span className={styles.backText}>Back</span>
-      </button>
+      <ButtonBack handleBackClick={handleBackClick} />
       <p className={styles.nameBook}>{title}</p>
     </div>
   );
