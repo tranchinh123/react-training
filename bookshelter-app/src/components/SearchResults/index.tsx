@@ -24,7 +24,11 @@ const SearchResults = ({ results, onClose }: SearchResultsProps) => {
           id={result.id}
           onClick={() => handleClick(result)}
         >
-          <img className={styles.image} src={result.cover} alt="" />
+          <img
+            className={styles.image}
+            src={result.cover}
+            alt="image of the book"
+          />
           <p className={styles.title}>{result.title}</p>
         </div>
       ))}

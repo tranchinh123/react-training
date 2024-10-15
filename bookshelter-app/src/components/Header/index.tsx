@@ -32,6 +32,7 @@ const Header = ({ onToggleMenu }: HeaderProps) => {
         'title',
         `${searchTerm}`
       );
+      if (books.length > 0) handleOpen();
       setResults(books || []);
     };
 

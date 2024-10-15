@@ -15,7 +15,7 @@ const DefaultLayout = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCategoriesList = async (): Promise<void> => {
+    const fetchCategoriesList = async () => {
       setLoading(true);
       try {
         const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
