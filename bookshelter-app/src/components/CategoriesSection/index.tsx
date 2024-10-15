@@ -10,6 +10,7 @@ const CategoriesSection = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
+
   const name = searchParams.get('query');
   const location = useLocation();
   const isHomePage = location.pathname === '/';
