@@ -17,66 +17,63 @@ const CategoryList = ({
   setIsMenuOpen,
 }: CategoryListProps) => {
   const [colors, setColors] = useState<string[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const generatedColors = categories.map(() => getRandomColor());
     setColors(generatedColors);
   }, [categories]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const handleCategoryClick = () => {
-    if (isMobile) {
-      setIsMenuOpen(false);
-    }
-  };
-
   const handleClickClose = () => {
     setIsMenuOpen(false);
   };
 
+  const handleClickCategory = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <section
-      className={styles.categoryList}
-      style={{
-        display: isMenuOpen ? 'flex' : 'none',
-        top: isMobile ? 0 : '126px',
-        zIndex: 99,
-      }}
-    >
-      {isMobile && (
-        <div className={styles.iconClose} onClick={handleClickClose}>
-          <Close />
-        </div>
+    <>
+      <section className={styles.categoryList}>
+        <p className={styles.curatedList}>
+          A curated list of every book ever written
+        </p>
+
+        {categories.map((category, index) => (
+          <BookCategory
+            key={category.id}
+            name={category.name}
+            totalBooks={category.totalBooks}
+            color={colors[index]}
+            categorySlug={category.slug}
+            onClick={handleClickCategory}
+          ></BookCategory>
+        ))}
+      </section>
+
+      {isMenuOpen && (
+        <section className={styles.categoryListMobile}>
+          <div className={styles.iconClose} onClick={handleClickClose}>
+            <Close />
+          </div>
+          <p className={styles.curatedList}>
+            A curated list of every book ever written
+          </p>
+
+          {categories.map((category, index) => (
+            <BookCategory
+              key={category.id}
+              name={category.name}
+              totalBooks={category.totalBooks}
+              color={colors[index]}
+              categorySlug={category.slug}
+              onClick={handleClickCategory}
+            ></BookCategory>
+          ))}
+        </section>
       )}
-
-      <p className={styles.curatedList}>
-        A curated list of every book ever written
-      </p>
-
-      {categories.map((category, index) => (
-        <BookCategory
-          key={category.id}
-          name={category.name}
-          totalBooks={category.totalBooks}
-          color={colors[index]}
-          categorySlug={category.slug}
-          onClick={() => handleCategoryClick()}
-        ></BookCategory>
-      ))}
-    </section>
+    </>
   );
 };
 

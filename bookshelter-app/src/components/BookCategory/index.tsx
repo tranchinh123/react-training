@@ -4,16 +4,16 @@ interface BookCategoryProps {
   name: string;
   totalBooks: number;
   color: string;
-  onClick: () => void;
   categorySlug: string;
+  onClick: () => void;
 }
 
 const BookCategory = ({
   name,
   totalBooks,
   color,
-  onClick,
   categorySlug,
+  onClick,
 }: BookCategoryProps) => {
   return (
     <Link to={`/${categorySlug}`}>

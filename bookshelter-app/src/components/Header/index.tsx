@@ -10,10 +10,10 @@ import { get } from '../../services/api';
 import { API } from '../../constants/api';
 
 interface HeaderProps {
-  onToggleMenu: () => void;
+  onClick: () => void;
 }
 
-const Header = ({ onToggleMenu }: HeaderProps) => {
+const Header = ({ onClick }: HeaderProps) => {
   const [results, setResults] = useState<Book[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -84,7 +84,7 @@ const Header = ({ onToggleMenu }: HeaderProps) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.Menu} onClick={onToggleMenu}>
+      <div className={styles.Menu} onClick={onClick}>
         <Menu />
       </div>
       <Logo />

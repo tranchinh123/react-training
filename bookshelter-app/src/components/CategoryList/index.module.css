@@ -21,3 +21,24 @@
   margin-left: 210px;
   margin-top: 15px;
 }
+.categoryListMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .categoryList {
+    display: none;
+  }
+  .categoryListMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100vh;
+    max-width: 268px;
+    font-family: var(--primary-font-family);
+    background-color: var(--background-color-primary);
+    top: 0;
+    z-index: 99;
+  }
+}
