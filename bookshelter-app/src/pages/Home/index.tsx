@@ -9,6 +9,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
+
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
@@ -35,8 +36,8 @@ const HomePage = () => {
         }
 
         setBooks(filteredBooks);
-      } catch (error) {
-        console.error('Failed to fetch books:', error);
+      } catch {
+        console.log('Fail to fetch data ');
       } finally {
         setLoading(false);
       }

@@ -8,7 +8,7 @@ export default {
 } as Meta;
 
 interface HeaderProps {
-  onToggleMenu: () => void;
+  onClick: () => void;
 }
 
 const Template: StoryFn<HeaderProps> = (args) => (

@@ -13,6 +13,7 @@ interface BookCategoryArgs {
   totalBooks: number;
   color: string;
   onClick: () => void;
+  categorySlug: string;
 }
 
 const Template: StoryFn<BookCategoryArgs> = (args) => (
