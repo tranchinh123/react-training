@@ -30,9 +30,6 @@ export const AppProvider = ({ children }: MyComponentProps) => {
       })
       .then((data) => {
         setUserData(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching user data:", error);
       });
   }, []);
 

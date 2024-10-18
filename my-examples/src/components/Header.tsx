@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { AppContext } from "../Context/AppContext";
+
 interface HeaderProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
@@ -6,6 +9,14 @@ const Header = ({ isOpen, setIsOpen }: HeaderProps) => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
+
+  const context = useContext(AppContext);
+
+  if (!context) {
+    return <p>Error: Context is not available.</p>;
+  }
+
+  const { userData } = context;
 
   return (
     <div
@@ -19,7 +30,7 @@ const Header = ({ isOpen, setIsOpen }: HeaderProps) => {
         gridRow: "1 / 2",
       }}
     >
-      <div>Hello! </div>
+      <div>Hello! {userData ? userData.name : ""} </div>
       <p style={{ cursor: "pointer" }} onClick={toggleSidebar}>
         My profile
       </p>
