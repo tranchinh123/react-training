@@ -1,7 +1,14 @@
 import "./App.css";
-
+import ButtonBack from "./components/ButtonBack";
 function App() {
-  return <></>;
+  const handleBackClick = () => {
+    console.log("abc");
+  };
+  return (
+    <>
+      <ButtonBack handleBackClick={handleBackClick} />
+    </>
+  );
 }
 
 export default App;
