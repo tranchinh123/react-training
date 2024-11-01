@@ -5,4 +5,11 @@
   border: 1px solid #b8b9be;
   outline: none;
   margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.name {
+  font-family: var(--primary-font-family);
+  font-size: 13px;
+  font-weight: 400;
 }

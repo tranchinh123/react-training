@@ -1,8 +1,10 @@
 .commentsSection {
   padding-left: 70px;
+  margin-bottom: 50px;
 }
 
 .Comments {
+  width: max-content;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -16,6 +18,11 @@
 }
 
 .leaveComment {
+  display: flex;
+  flex-direction: column;
+}
+
+.formComment {
   display: flex;
   flex-direction: column;
 }

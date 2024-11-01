@@ -1,5 +1,6 @@
 import { Book } from '../types/index';
 import { API } from '../constants/api';
+import { Comment } from '../types/index';
 
 const get = async <T>(
   endPoint: string,
@@ -40,4 +41,20 @@ const getByID = async (endPoint: string, id: string): Promise<Book | void> => {
   }
 };
 
-export { get, getByID };
+const create = async (data: Comment, endPoint: string, id: string) => {
+  try {
+    const response = await fetch(`${API.BASE_URL}${endPoint}/${id}`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.error('Something went wrong', error);
+  }
+};
+
+export { get, getByID, create };

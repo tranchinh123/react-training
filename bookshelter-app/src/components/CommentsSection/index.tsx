@@ -1,15 +1,44 @@
 import Dropdown from '../Icons/ArrowDown';
 import UserComments from '../UserComment';
 import Input from '../Input';
+import Button from '../Button';
+import { API } from '../../constants/api';
+import { create } from '../../services/api';
+import { Comment } from '../../types';
 import { useState } from 'react';
+import { Book } from '../../types';
 import styles from './index.module.css';
 
-const CommentSection = () => {
+interface BookProps {
+  book: Book;
+}
+
+const CommentSection = ({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);
+  const [comment, setComment] = useState('');
+  const [name, setName] = useState('');
 
   const handleShowComments = () => {
     setIsShow((prev) => !prev);
   };
+
+  const handlePostComment = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const newComment: Comment = {
+      author: name,
+      comment: comment,
+    };
+
+    try {
+      await create(newComment, API.BOOKS_ENDPOINT, book.id);
+      setName('');
+      setComment('');
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
+  };
+
   return (
     <div className={styles.commentsSection}>
       <div className={styles.Comments} onClick={handleShowComments}>
@@ -20,12 +49,27 @@ const CommentSection = () => {
       {isShow ? (
         <>
           <div className={styles.userComments}>
-            <UserComments />
+            <UserComments book={book} />
           </div>
           <div className={styles.leaveComment}>
             <p className={styles.headerLeaveComment}>Leave a comment</p>
-            <Input />
-            <Input />
+            <form
+              className={styles.formComment}
+              action="submit"
+              onSubmit={handlePostComment}
+            >
+              <Input
+                label="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Input
+                label="Comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <Button />
+            </form>
           </div>
         </>
       ) : (

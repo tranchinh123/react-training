@@ -1,6 +1,13 @@
 .userComment {
+  display: flex;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.avatar {
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 10px;
 }
 
 .comment {
@@ -8,6 +15,7 @@
   font-weight: 400;
   font-size: 13px;
   color: #58667e;
+  margin-top: 5px;
 }
 
 .userComment {

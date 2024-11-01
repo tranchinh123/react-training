@@ -34,8 +34,6 @@ const DetailPage = () => {
     fetchBookDetail();
   }, [id]);
 
-  console.log(book);
-
   return loading ? (
     <Loading />
   ) : (
@@ -48,7 +46,7 @@ const DetailPage = () => {
           publisher={book.publisher}
         />
         <MainContentSection cover={book.cover} description={book.description} />
-        <CommentSection />
+        <CommentSection book={book} />
       </div>
     )
   );
