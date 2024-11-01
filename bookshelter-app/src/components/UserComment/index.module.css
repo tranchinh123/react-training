@@ -1,0 +1,17 @@
+.userComment {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.comment {
+  font-family: var(--primary-font-family);
+  font-weight: 400;
+  font-size: 13px;
+  color: #58667e;
+}
+
+.userComment {
+  font-family: var(--primary-font-family);
+  font-weight: 600;
+  font-size: #222531;
+}

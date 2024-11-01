@@ -1,0 +1,32 @@
+.commentsSection {
+  padding-left: 70px;
+}
+
+.Comments {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.headerComment {
+  font-family: var(--primary-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.leaveComment {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerLeaveComment {
+  font-family: var(--primary-font-family);
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.Comments :hover {
+  opacity: 0.8;
+}

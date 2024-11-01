@@ -1,6 +1,7 @@
 import HeaderContentSection from '../../components/HeaderContentSection';
 import MainContentSection from '../../components/MainContentSection';
 import InfoContentSection from '../../components/InfoContentSection';
+import CommentSection from '../../components/CommentsSection';
 import styles from './index.module.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -33,6 +34,8 @@ const DetailPage = () => {
     fetchBookDetail();
   }, [id]);
 
+  console.log(book);
+
   return loading ? (
     <Loading />
   ) : (
@@ -45,6 +48,7 @@ const DetailPage = () => {
           publisher={book.publisher}
         />
         <MainContentSection cover={book.cover} description={book.description} />
+        <CommentSection />
       </div>
     )
   );
