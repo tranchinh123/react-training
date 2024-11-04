@@ -8,7 +8,7 @@ import { Comment } from '../../types';
 import { useState, useRef } from 'react';
 import { Book } from '../../types';
 import styles from './index.module.css';
-
+import { useToast } from '../../contexts/ToastContext';
 interface BookProps {
   book: Book;
 }
@@ -18,6 +18,7 @@ const CommentSection = ({ book }: BookProps) => {
   const [comments, setComments] = useState<Comment[]>(book.comments);
   const nameRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLInputElement>(null);
+  const { showToast } = useToast();
 
   const handleShowComments = () => {
     setIsShow((prev) => !prev);
@@ -34,15 +35,20 @@ const CommentSection = ({ book }: BookProps) => {
     };
 
     setComments((prevComments) => [...prevComments, newComment]);
+    book.comments.push(newComment);
 
     try {
       await edit(book, API.BOOKS_ENDPOINT, book.id);
       if (nameRef.current) nameRef.current.value = '';
       if (commentRef.current) commentRef.current.value = '';
+      showToast('Success to add comment', 'success');
     } catch (error) {
       console.error('Error adding comment:', error);
+      showToast('Failed to add comment', 'error');
     }
   };
+
+  console.log(comments);
 
   return (
     <div className={styles.commentsSection}>
@@ -54,7 +60,7 @@ const CommentSection = ({ book }: BookProps) => {
       {isShow ? (
         <>
           <div className={styles.userComments}>
-            <UserComments comments={comments} />
+            <UserComments book={book} />
           </div>
           <div className={styles.leaveComment}>
             <p className={styles.headerLeaveComment}>Leave a comment</p>
