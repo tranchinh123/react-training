@@ -5,7 +5,7 @@ import Button from '../Button';
 import { API } from '../../constants/api';
 import { edit } from '../../services/api';
 import { Comment } from '../../types';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Book } from '../../types';
 import styles from './index.module.css';
 
@@ -15,8 +15,8 @@ interface BookProps {
 
 const CommentSection = ({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);
-  const [comment, setComment] = useState('');
-  const [name, setName] = useState('');
+  const nameRef = useRef<HTMLInputElement>(null);
+  const commentRef = useRef<HTMLInputElement>(null);
 
   const handleShowComments = () => {
     setIsShow((prev) => !prev);
@@ -28,22 +28,21 @@ const CommentSection = ({ book }: BookProps) => {
     const newCommentId = book.comments.length + 1;
     const newComment: Comment = {
       id: newCommentId,
-      author: name,
-      comment: comment,
+      author: nameRef.current?.value || '',
+      comment: commentRef.current?.value || '',
     };
 
     book.comments.push(newComment);
 
     try {
       await edit(book, API.BOOKS_ENDPOINT, book.id);
-      setName('');
-      setComment('');
+      if (nameRef.current) nameRef.current.value = '';
+      if (commentRef.current) commentRef.current.value = '';
     } catch (error) {
       console.error('Error adding comment:', error);
     }
   };
-
-  console.log(book);
+  console.log('aaa');
 
   return (
     <div className={styles.commentsSection}>
@@ -64,16 +63,8 @@ const CommentSection = ({ book }: BookProps) => {
               action="submit"
               onSubmit={handlePostComment}
             >
-              <Input
-                label="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Input
-                label="Comment"
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
+              <Input label="Name" ref={nameRef} />
+              <Input label="Comment" ref={commentRef} />
               <Button />
             </form>
           </div>
