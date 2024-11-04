@@ -1,6 +1,5 @@
 import { Book } from '../types/index';
 import { API } from '../constants/api';
-import { Comment } from '../types/index';
 
 const get = async <T>(
   endPoint: string,
@@ -41,10 +40,14 @@ const getByID = async (endPoint: string, id: string): Promise<Book | void> => {
   }
 };
 
-const create = async (data: Comment, endPoint: string, id: string) => {
+const edit = async (
+  data: Book,
+  endPoint: string,
+  id: string
+): Promise<void> => {
   try {
     const response = await fetch(`${API.BASE_URL}${endPoint}/${id}`, {
-      method: 'POST',
+      method: 'PUT', // or PATCH
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
     });
@@ -57,4 +60,4 @@ const create = async (data: Comment, endPoint: string, id: string) => {
   }
 };
 
-export { get, getByID, create };
+export { get, getByID, edit };

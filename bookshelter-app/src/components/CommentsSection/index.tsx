@@ -3,7 +3,7 @@ import UserComments from '../UserComment';
 import Input from '../Input';
 import Button from '../Button';
 import { API } from '../../constants/api';
-import { create } from '../../services/api';
+import { edit } from '../../services/api';
 import { Comment } from '../../types';
 import { useState } from 'react';
 import { Book } from '../../types';
@@ -25,19 +25,25 @@ const CommentSection = ({ book }: BookProps) => {
   const handlePostComment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const newCommentId = book.comments.length + 1;
     const newComment: Comment = {
+      id: newCommentId,
       author: name,
       comment: comment,
     };
 
+    book.comments.push(newComment);
+
     try {
-      await create(newComment, API.BOOKS_ENDPOINT, book.id);
+      await edit(book, API.BOOKS_ENDPOINT, book.id);
       setName('');
       setComment('');
     } catch (error) {
       console.error('Error adding comment:', error);
     }
   };
+
+  console.log(book);
 
   return (
     <div className={styles.commentsSection}>
