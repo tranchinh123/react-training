@@ -15,6 +15,7 @@ interface BookProps {
 
 const CommentSection = ({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);
+  const [comments, setComments] = useState<Comment[]>(book.comments);
   const nameRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLInputElement>(null);
 
@@ -32,7 +33,7 @@ const CommentSection = ({ book }: BookProps) => {
       comment: commentRef.current?.value || '',
     };
 
-    book.comments.push(newComment);
+    setComments((prevComments) => [...prevComments, newComment]);
 
     try {
       await edit(book, API.BOOKS_ENDPOINT, book.id);
@@ -42,7 +43,6 @@ const CommentSection = ({ book }: BookProps) => {
       console.error('Error adding comment:', error);
     }
   };
-  console.log('aaa');
 
   return (
     <div className={styles.commentsSection}>
@@ -54,7 +54,7 @@ const CommentSection = ({ book }: BookProps) => {
       {isShow ? (
         <>
           <div className={styles.userComments}>
-            <UserComments book={book} />
+            <UserComments comments={comments} />
           </div>
           <div className={styles.leaveComment}>
             <p className={styles.headerLeaveComment}>Leave a comment</p>

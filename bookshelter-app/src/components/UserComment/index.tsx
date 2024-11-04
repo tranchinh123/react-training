@@ -1,13 +1,13 @@
 import styles from './index.module.css';
 import iconUser from '../../assets/images/iconUser.png';
-import { Book } from '../../types';
-interface BookProps {
-  book: Book;
+import { Comment } from '../../types';
+interface CommentProps {
+  comments: Comment[];
 }
-const UserComments = ({ book }: BookProps) => {
+const UserComments = ({ comments }: CommentProps) => {
   return (
     <>
-      {book.comments.map((comment) => (
+      {comments.map((comment: Comment) => (
         <div className={styles.userComment} key={comment.id}>
           <div className={styles.Comments}>
             <img src={iconUser} alt="iconUser" className={styles.avatar} />
