@@ -8,11 +8,13 @@ import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
 import { Outlet } from 'react-router-dom';
+import { useToast } from '../contexts/ToastContext';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
@@ -24,13 +26,14 @@ const DefaultLayout = () => {
         }
       } catch (error) {
         console.error('Failed to fetch categories:', error);
+        showToast('Failed to fetch categories ', 'error');
       } finally {
         setLoading(false);
       }
     };
 
     fetchCategoriesList();
-  }, []);
+  }, [showToast]);
 
   const handleClickMenu = () => {
     setIsMenuOpen((pre) => !pre);

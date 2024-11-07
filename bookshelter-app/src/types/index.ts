@@ -21,3 +21,13 @@ export interface Book {
   cover: string;
   comments: Comment[];
 }
+
+export interface Toast {
+  message: string;
+  type: 'success' | 'error';
+}
+
+export interface ToastContextType {
+  toast: Toast | null;
+  showToast: (message: string, type: 'success' | 'error') => void;
+}

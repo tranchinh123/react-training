@@ -5,10 +5,12 @@ import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
 import { useParams, useSearchParams } from 'react-router-dom';
+import { useToast } from '../../contexts/ToastContext';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
+  const { showToast } = useToast();
 
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
@@ -38,13 +40,14 @@ const HomePage = () => {
         setBooks(filteredBooks);
       } catch {
         console.log('Fail to fetch data ');
+        showToast('Failed to fetch data to get list book', 'error');
       } finally {
         setLoading(false);
       }
     };
 
     fetchBookList();
-  }, [slug, name]);
+  }, [slug, name, showToast]);
 
   return loading ? <Loading /> : <BookCardList books={books} />;
 };

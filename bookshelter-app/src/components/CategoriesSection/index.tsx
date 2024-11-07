@@ -5,11 +5,13 @@ import { Category } from '../../types';
 import { useEffect, useState } from 'react';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
+import { useToast } from '../../contexts/ToastContext';
 
 const CategoriesSection = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
+  const { showToast } = useToast();
 
   const name = searchParams.get('query');
   const location = useLocation();
@@ -17,19 +19,24 @@ const CategoriesSection = () => {
 
   useEffect(() => {
     if (slug) {
-      const fetchCategory = async (): Promise<void> => {
-        const categories = await get<Category>(
-          API.CATEGORIES_ENDPOINT,
-          'slug',
-          `${slug}`
-        );
-        if (categories) {
-          setCategories(categories);
-        }
-      };
-      fetchCategory();
+      try {
+        const fetchCategory = async (): Promise<void> => {
+          const categories = await get<Category>(
+            API.CATEGORIES_ENDPOINT,
+            'slug',
+            `${slug}`
+          );
+          if (categories) {
+            setCategories(categories);
+          }
+        };
+        fetchCategory();
+      } catch (error) {
+        console.error('Error fetch data', error);
+        showToast('Failed to fetch data', 'error');
+      }
     }
-  }, [slug]);
+  }, [slug, showToast]);
 
   return (
     <section className={styles.categoriesSection}>
