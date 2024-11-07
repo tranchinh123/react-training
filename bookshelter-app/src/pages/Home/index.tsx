@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { useToast } from '../../contexts/ToastContext';
+import { useToast } from '../../hooks/useToast';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);

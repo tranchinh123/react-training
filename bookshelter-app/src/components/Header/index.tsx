@@ -8,7 +8,7 @@ import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
-import { useToast } from '../../contexts/ToastContext';
+import { useToast } from '../../hooks/useToast';
 
 interface HeaderProps {
   onClick: () => void;
@@ -21,6 +21,8 @@ const Header = ({ onClick }: HeaderProps) => {
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
+
+  console.log('aa');
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {

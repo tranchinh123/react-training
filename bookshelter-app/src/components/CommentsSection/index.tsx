@@ -8,7 +8,7 @@ import { Comment } from '../../types';
 import { useState, useRef } from 'react';
 import { Book } from '../../types';
 import styles from './index.module.css';
-import { useToast } from '../../contexts/ToastContext';
+import { useToast } from '../../hooks/useToast';
 
 interface BookProps {
   book: Book;

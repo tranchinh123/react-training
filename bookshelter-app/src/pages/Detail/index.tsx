@@ -9,7 +9,7 @@ import { getByID } from '../../services/api';
 import { Book } from '../../types';
 import { API } from '../../constants/api';
 import Loading from '../../components/Loading';
-import { useToast } from '../../contexts/ToastContext';
+import { useToast } from '../../hooks/useToast';
 
 const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,6 +35,8 @@ const DetailPage = () => {
     };
     fetchBookDetail();
   }, [id, showToast]);
+
+  console.log('aaa');
 
   return loading ? (
     <Loading />

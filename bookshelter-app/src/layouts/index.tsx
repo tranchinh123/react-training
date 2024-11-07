@@ -3,12 +3,12 @@ import Header from '../components/Header';
 import CategoriesSection from '../components/CategoriesSection';
 import CategoryList from '../components/CategoryList';
 import Loading from '../components/Loading';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
 import { Outlet } from 'react-router-dom';
-import { useToast } from '../contexts/ToastContext';
+import { useToast } from '../hooks/useToast';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -39,9 +39,9 @@ const DefaultLayout = () => {
     fetchCategoriesList();
   }, [showToast]);
 
-  const handleClickMenu = () => {
-    setIsMenuOpen((pre) => !pre);
-  };
+  const handleClickMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
 
   return loading ? (
     <Loading />

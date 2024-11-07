@@ -5,7 +5,7 @@ import { Category } from '../../types';
 import { useEffect, useState } from 'react';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
-import { useToast } from '../../contexts/ToastContext';
+import { useToast } from '../../hooks/useToast';
 
 const CategoriesSection = () => {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -17,6 +17,8 @@ const CategoriesSection = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  console.log('bbb');
+
   useEffect(() => {
     if (slug) {
       try {
@@ -24,7 +26,8 @@ const CategoriesSection = () => {
           const categories = await get<Category>(
             API.CATEGORIES_ENDPOINT,
             'slug',
-            `${slug}`
+            `${slug}`,
+            showToast
           );
           if (categories) {
             setCategories(categories);

@@ -19,7 +19,6 @@ const get = async <T>(
       const data = await response.json();
       return data as T[];
     } else {
-      showToast('Failed to fetch data', 'error');
       return [];
     }
   } catch (error) {
@@ -65,6 +64,7 @@ const edit = async (
     });
     if (response.ok) {
       const data = await response.json();
+      showToast('Success add a comment', 'success');
       return data;
     } else {
       showToast('Failed to fetch data', 'error');
