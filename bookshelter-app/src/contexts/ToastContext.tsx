@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useState, useCallback } from 'react';
 import { ToastContextType, Toast } from '../types';
 import ToastMessage from '../components/Toast';
 interface MyComponentProps {
@@ -12,12 +12,15 @@ export const ToastContext = createContext<ToastContextType | undefined>(
 export const ToastProvider = ({ children }: MyComponentProps) => {
   const [toast, setToast] = useState<Toast | null>(null);
 
-  const showToast = (message: string, type: 'success' | 'error') => {
-    setToast({ message, type });
-    setTimeout(() => {
-      setToast(null);
-    }, 3000);
-  };
+  const showToast = useCallback(
+    (message: string, type: 'success' | 'error') => {
+      setToast({ message, type });
+      setTimeout(() => {
+        setToast(null);
+      }, 3000);
+    },
+    []
+  );
 
   return (
     <ToastContext.Provider value={{ toast, showToast }}>

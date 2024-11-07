@@ -36,8 +36,6 @@ const DetailPage = () => {
     fetchBookDetail();
   }, [id, showToast]);
 
-  console.log('aaa');
-
   return loading ? (
     <Loading />
   ) : (

@@ -22,8 +22,6 @@ const Header = ({ onClick }: HeaderProps) => {
   const searchRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
 
-  console.log('aa');
-
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
       if (searchTerm.trim() === '') {

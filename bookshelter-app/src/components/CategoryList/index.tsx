@@ -32,6 +32,7 @@ const CategoryList = ({
       setIsMenuOpen(false);
     }
   };
+  console.log('bbb');
 
   return (
     <>
