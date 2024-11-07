@@ -20,13 +20,17 @@ const DefaultLayout = () => {
     const fetchCategoriesList = async (): Promise<void> => {
       setLoading(true);
       try {
-        const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
+        const categories = await get<Category>(
+          API.CATEGORIES_ENDPOINT,
+          '',
+          '',
+          showToast
+        );
         if (categories) {
           setCategories(categories);
         }
       } catch (error) {
         console.error('Failed to fetch categories:', error);
-        showToast('Failed to fetch categories ', 'error');
       } finally {
         setLoading(false);
       }

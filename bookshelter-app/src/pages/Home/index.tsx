@@ -26,21 +26,26 @@ const HomePage = () => {
           const Books = await get<Book>(
             API.BOOKS_ENDPOINT,
             'category',
-            `${slug}`
+            `${slug}`,
+            showToast
           );
           filteredBooks = Books || [];
         } else if (name) {
-          const Books = await get<Book>(API.BOOKS_ENDPOINT, 'title', `${name}`);
+          const Books = await get<Book>(
+            API.BOOKS_ENDPOINT,
+            'title',
+            `${name}`,
+            showToast
+          );
           filteredBooks = Books || [];
         } else {
-          const Books = await get<Book>(API.BOOKS_ENDPOINT);
+          const Books = await get<Book>(API.BOOKS_ENDPOINT, '', '', showToast);
           filteredBooks = Books || [];
         }
 
         setBooks(filteredBooks);
       } catch {
         console.log('Fail to fetch data ');
-        showToast('Failed to fetch data to get list book', 'error');
       } finally {
         setLoading(false);
       }

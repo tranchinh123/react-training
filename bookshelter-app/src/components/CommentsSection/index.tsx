@@ -2,8 +2,8 @@ import Dropdown from '../Icons/ArrowDown';
 import UserComments from '../UserComment';
 import Input from '../Input';
 import Button from '../Button';
-// import { API } from '../../constants/api';
-// import { edit } from '../../services/api';
+import { API } from '../../constants/api';
+import { edit } from '../../services/api';
 import { Comment } from '../../types';
 import { useState, useRef } from 'react';
 import { Book } from '../../types';
@@ -16,7 +16,7 @@ interface BookProps {
 
 const CommentSection = ({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);
-  // const [comments, setComments] = useState<Comment[]>(book.comments);
+  const [comments, setComments] = useState<Comment[]>(book.comments);
   const nameRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLInputElement>(null);
   const { showToast } = useToast();
@@ -36,24 +36,19 @@ const CommentSection = ({ book }: BookProps) => {
       comment: commentRef.current?.value || '',
     };
 
-    // setComments((prevComments) => [...prevComments, newComment]);
+    setComments((prevComments) => [...prevComments, newComment]);
     book.comments.push(newComment);
-    console.log(book);
 
     try {
-      // await edit(book, API.BOOKS_ENDPOINT, book.id);
-      // if (nameRef.current) nameRef.current.value = '';
-      // if (commentRef.current) commentRef.current.value = '';
-      // showToast('Success to add comment', 'success');
-      // setComments((prevComments) => [...prevComments, newComment]);
-      throw new Error();
+      await edit(book, API.BOOKS_ENDPOINT, book.id, showToast);
+      if (nameRef.current) nameRef.current.value = '';
+      if (commentRef.current) commentRef.current.value = '';
     } catch (error) {
       console.error('Error adding comment:', error);
-      showToast('Failed to add comment', 'error');
     }
   };
 
-  // console.log(comments);
+  console.log(comments);
 
   return (
     <div className={styles.commentsSection}>

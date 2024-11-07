@@ -22,14 +22,13 @@ const DetailPage = () => {
       setLoading(true);
       try {
         if (id) {
-          const book = await getByID(API.BOOKS_ENDPOINT, id);
+          const book = await getByID(API.BOOKS_ENDPOINT, id, showToast);
           if (book) {
             setBook(book);
           }
         }
       } catch (error) {
         console.error('Failed to fetch books:', error);
-        showToast('Failed to get data book', 'error');
       } finally {
         setLoading(false);
       }

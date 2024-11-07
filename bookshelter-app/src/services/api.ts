@@ -4,7 +4,8 @@ import { API } from '../constants/api';
 const get = async <T>(
   endPoint: string,
   param: string = '',
-  value: string = ''
+  value: string = '',
+  showToast: (message: string, type: 'success' | 'error') => void
 ): Promise<T[]> => {
   const url = new URL(`${API.BASE_URL}${endPoint}`);
   if (param) url.searchParams.append(param, value);
@@ -17,15 +18,22 @@ const get = async <T>(
     if (response.ok) {
       const data = await response.json();
       return data as T[];
+    } else {
+      showToast('Failed to fetch data', 'error');
+      return [];
     }
-    return [];
   } catch (error) {
     console.error('Failed to fetch data ', error);
+    showToast('Something went wrong', 'error');
     return [];
   }
 };
 
-const getByID = async (endPoint: string, id: string): Promise<Book | void> => {
+const getByID = async (
+  endPoint: string,
+  id: string,
+  showToast: (message: string, type: 'success' | 'error') => void
+): Promise<Book | void> => {
   try {
     const response = await fetch(`${API.BASE_URL}${endPoint}/${id}`, {
       method: 'GET',
@@ -34,8 +42,11 @@ const getByID = async (endPoint: string, id: string): Promise<Book | void> => {
     if (response.ok) {
       const data = await response.json();
       return data;
+    } else {
+      showToast('Failed to fetch data', 'error');
     }
   } catch (error) {
+    showToast('Something went wrong', 'error');
     console.error('Failed to fetch data ', error);
   }
 };
@@ -43,7 +54,8 @@ const getByID = async (endPoint: string, id: string): Promise<Book | void> => {
 const edit = async (
   data: Book,
   endPoint: string,
-  id: string
+  id: string,
+  showToast: (message: string, type: 'success' | 'error') => void
 ): Promise<void> => {
   try {
     const response = await fetch(`${API.BASE_URL}${endPoint}/${id}`, {
@@ -54,8 +66,11 @@ const edit = async (
     if (response.ok) {
       const data = await response.json();
       return data;
+    } else {
+      showToast('Failed to fetch data', 'error');
     }
   } catch (error) {
+    showToast('Something went wrong', 'error');
     console.error('Something went wrong', error);
   }
 };
