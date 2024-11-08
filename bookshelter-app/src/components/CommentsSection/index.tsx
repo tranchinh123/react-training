@@ -9,6 +9,7 @@ import { useState, useRef } from 'react';
 import { Book } from '../../types';
 import styles from './index.module.css';
 import { useToast } from '../../hooks/useToast';
+import { ValidationErrors, validateForm } from '../../validator/validator';
 
 interface BookProps {
   book: Book;
@@ -17,6 +18,7 @@ interface BookProps {
 const CommentSection = ({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);
   const [comments, setComments] = useState<Comment[]>(book.comments);
+  const [errors, setErrors] = useState<ValidationErrors>({});
   const nameRef = useRef<HTMLInputElement>(null);
   const commentRef = useRef<HTMLInputElement>(null);
   const { showToast } = useToast();
@@ -27,13 +29,25 @@ const CommentSection = ({ book }: BookProps) => {
 
   const handlePostComment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({});
+
+    const name = nameRef.current?.value || '';
+    const comment = commentRef.current?.value || '';
+
+    const newErrors = validateForm(name, comment);
+
+    if (newErrors.name || newErrors.comment) {
+      setErrors(newErrors);
+      showToast('Failed to post comment', 'error');
+      return;
+    }
 
     const newCommentId = book.comments.length + 1;
 
     const newComment: Comment = {
       id: newCommentId,
-      author: nameRef.current?.value || '',
-      comment: commentRef.current?.value || '',
+      author: name,
+      comment: comment,
     };
 
     setComments((prevComments) => [...prevComments, newComment]);
@@ -70,7 +84,14 @@ const CommentSection = ({ book }: BookProps) => {
               onSubmit={handlePostComment}
             >
               <Input label="Name" ref={nameRef} />
+              {errors.name && (
+                <span className={styles.error}>{errors.name}</span>
+              )}
+
               <Input label="Comment" ref={commentRef} />
+              {errors.comment && (
+                <span className={styles.error}>{errors.comment}</span>
+              )}
               <Button />
             </form>
           </div>
