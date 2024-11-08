@@ -36,7 +36,6 @@ const CategoriesSection = () => {
         fetchCategory();
       } catch (error) {
         console.error('Error fetch data', error);
-        showToast('Failed to fetch data', 'error');
       }
     }
   }, [slug, showToast]);
