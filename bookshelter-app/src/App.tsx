@@ -1,9 +1,11 @@
+import { lazy, Suspense } from 'react';
 import DefaultLayout from './layouts';
-import HomePage from './pages/Home';
-import DetailPage from './pages/Detail';
-import NotFound from './pages/NotFound';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastProvider } from './contexts/ToastContext';
+
+const HomePage = lazy(() => import('./pages/Home/index'));
+const DetailPage = lazy(() => import('./pages/Detail/index'));
+const NotFound = lazy(() => import('./pages/NotFound/index'));
 
 function App() {
   return (
@@ -11,11 +13,46 @@ function App() {
       <ToastProvider>
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
-            <Route index element={<HomePage />} />
-            <Route path=":slug" element={<HomePage />} />
-            <Route path="search" element={<HomePage />} />
-            <Route path="detail/:id" element={<DetailPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Đang tải...</div>}>
+                  <HomePage />
+                </Suspense>
+              }
+            />
+            <Route
+              path=":slug"
+              element={
+                <Suspense fallback={<div>Đang tải...</div>}>
+                  <HomePage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="search"
+              element={
+                <Suspense fallback={<div>Đang tải...</div>}>
+                  <HomePage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="detail/:id"
+              element={
+                <Suspense fallback={<div>Đang tải...</div>}>
+                  <DetailPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <Suspense fallback={<div>Đang tải...</div>}>
+                  <NotFound />
+                </Suspense>
+              }
+            />
           </Route>
         </Routes>
       </ToastProvider>
