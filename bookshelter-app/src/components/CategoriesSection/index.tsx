@@ -1,44 +1,16 @@
 import { useParams, useSearchParams, useLocation } from 'react-router-dom';
 import styles from './index.module.css';
 import RightArrow from '../Icons/RightArrow';
-import { Category } from '../../types';
-import { useEffect, useState } from 'react';
-import { get } from '../../services/api';
-import { API } from '../../constants/api';
-import { useToast } from '../../hooks/useToast';
+import useFetchCategories from '../../hooks/useFetchCategories';
 
 const CategoriesSection = () => {
-  const [categories, setCategories] = useState<Category[]>([]);
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
-  const { showToast } = useToast();
-
   const name = searchParams.get('query');
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
-  console.log('bbb');
-
-  useEffect(() => {
-    if (slug) {
-      try {
-        const fetchCategory = async (): Promise<void> => {
-          const categories = await get<Category>(
-            API.CATEGORIES_ENDPOINT,
-            'slug',
-            `${slug}`,
-            showToast
-          );
-          if (categories) {
-            setCategories(categories);
-          }
-        };
-        fetchCategory();
-      } catch (error) {
-        console.error('Error fetch data', error);
-      }
-    }
-  }, [slug, showToast]);
+  const { categories } = useFetchCategories(slug);
 
   return (
     <section className={styles.categoriesSection}>

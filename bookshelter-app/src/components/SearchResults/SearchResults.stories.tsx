@@ -15,34 +15,58 @@ interface SearchResultsArgs {
 
 const mockBooks: Book[] = [
   {
-    id: '1',
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    publishedYear: 1925,
+    id: '63d7755f50f3cca31911ea67',
+    title: 'Nostrud commodo sint reprehenderit duis ad sit aute.',
+    author: 'Naomi',
+    category: 'contemporary',
+    publishedYear: 2016,
+    publisher: 'Liliana',
+    description:
+      'Veniam laborum sint magna in sit pariatur irure laboris anim et. Consequat ex duis sunt et labore consequat nisi. Ea amet officia ullamco nostrud officia irure duis nulla exercitation veniam sint ut. Culpa irure excepteur ea qui sit aliqua Lorem nulla ut minim culpa.\r\n',
     cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
-    category: 'Classic',
-    publisher: 'Scribner',
-    description: 'A novel set in the Roaring Twenties.',
+    comments: [
+      {
+        id: 1,
+        author: 'David',
+        comment: 'In dolore ad commodo proident sit commodo ad et in magna id.',
+      },
+    ],
   },
   {
-    id: '2',
-    title: '1984',
-    author: 'George Orwell',
-    publishedYear: 1949,
+    id: '63d7755f50f3cca31911ea67',
+    title: 'Nostrud commodo sint reprehenderit duis ad sit aute.',
+    author: 'Naomi',
+    category: 'contemporary',
+    publishedYear: 2016,
+    publisher: 'Liliana',
+    description:
+      'Veniam laborum sint magna in sit pariatur irure laboris anim et. Consequat ex duis sunt et labore consequat nisi. Ea amet officia ullamco nostrud officia irure duis nulla exercitation veniam sint ut. Culpa irure excepteur ea qui sit aliqua Lorem nulla ut minim culpa.\r\n',
     cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
-    category: 'Dystopian',
-    publisher: 'Secker & Warburg',
-    description: 'A novel about totalitarianism and surveillance.',
+    comments: [
+      {
+        id: 1,
+        author: 'David',
+        comment: 'In dolore ad commodo proident sit commodo ad et in magna id.',
+      },
+    ],
   },
   {
-    id: '3',
-    title: 'To Kill a Mockingbird',
-    author: 'Harper Lee',
-    publishedYear: 1960,
+    id: '63d7755f50f3cca31911ea67',
+    title: 'Nostrud commodo sint reprehenderit duis ad sit aute.',
+    author: 'Naomi',
+    category: 'contemporary',
+    publishedYear: 2016,
+    publisher: 'Liliana',
+    description:
+      'Veniam laborum sint magna in sit pariatur irure laboris anim et. Consequat ex duis sunt et labore consequat nisi. Ea amet officia ullamco nostrud officia irure duis nulla exercitation veniam sint ut. Culpa irure excepteur ea qui sit aliqua Lorem nulla ut minim culpa.\r\n',
     cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
-    category: 'Southern Gothic',
-    publisher: 'J.B. Lippincott & Co.',
-    description: 'A novel about racial injustice in the Deep South.',
+    comments: [
+      {
+        id: 1,
+        author: 'David',
+        comment: 'In dolore ad commodo proident sit commodo ad et in magna id.',
+      },
+    ],
   },
 ];
 
