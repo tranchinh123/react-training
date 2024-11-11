@@ -1,7 +1,8 @@
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { Link } from 'react-router-dom';
-
+import { withErrorBoundary } from 'react-error-boundary';
+import ErrorComponent from '../../error/ErrorBoundary';
 interface SearchResultsProps {
   results: Book[];
   onClose: () => void;
@@ -29,4 +30,8 @@ const SearchResults = ({ results, onClose }: SearchResultsProps) => {
   );
 };
 
-export default SearchResults;
+const WrappedSearchResults = withErrorBoundary(SearchResults, {
+  FallbackComponent: ErrorComponent,
+});
+
+export default WrappedSearchResults;

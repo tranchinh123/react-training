@@ -10,6 +10,8 @@ import { Book } from '../../types';
 import styles from './index.module.css';
 import { useToast } from '../../hooks/useToast';
 import { ValidationErrors, validateForm } from '../../validator/validator';
+import { withErrorBoundary } from 'react-error-boundary';
+import ErrorComponent from '../../error/ErrorBoundary';
 
 interface BookProps {
   book: Book;
@@ -102,4 +104,9 @@ const CommentSection = ({ book }: BookProps) => {
     </div>
   );
 };
-export default CommentSection;
+
+const WrappedCommentSection = withErrorBoundary(CommentSection, {
+  FallbackComponent: ErrorComponent,
+});
+
+export default WrappedCommentSection;
