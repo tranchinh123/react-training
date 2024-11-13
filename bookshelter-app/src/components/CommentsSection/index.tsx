@@ -11,7 +11,7 @@ import { useToast } from '../../hooks/useToast';
 import { ValidationErrors, validateForm } from '../../validator/validator';
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
-import SkeletonCommentSection from '../Skeleton/SkeletonCommentSection/SkeletonCommentSection';
+import SkeletonCommentSection from '../Skeleton/SkeletonCommentSection';
 
 const UserComments = lazy(() => import('../UserComment'));
 

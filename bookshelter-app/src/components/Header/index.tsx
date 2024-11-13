@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 import { useToast } from '../../hooks/useToast';
-import SkeletonSearchResults from '../Skeleton/SkeletonSearchResults/SkeletonHeaderContentSection';
+import SkeletonSearchResults from '../Skeleton/SkeletonSearchResults';
 
 const SearchResults = lazy(() => import('../SearchResults'));
 

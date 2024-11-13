@@ -5,7 +5,7 @@ import Loading from '../components/Loading';
 import { useState, useCallback, lazy, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import useFetchCategories from '../hooks/useFetchCategories';
-import SkeletonBookCategoryList from '../components/Skeleton/SkeletonBookCategoryList/SkeletonBookCategoryList';
+import SkeletonBookCategoryList from '../components/Skeleton/SkeletonBookCategoryList';
 
 const CategoryList = lazy(() => import('../components/CategoryList'));
 
