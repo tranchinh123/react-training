@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import { useState, useCallback, lazy, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import useFetchCategories from '../hooks/useFetchCategories';
+import SkeletonBookCategory from '../components/Skeleton/SkeletonBookCategoryList/SkeletonBookCategory';
 
 const CategoryList = lazy(() => import('../components/CategoryList'));
 
@@ -23,7 +24,7 @@ const DefaultLayout = () => {
     <>
       <Header onClick={handleClickMenu} />
       <CategoriesSection />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<SkeletonBookCategory bookCategory={8} />}>
         <CategoryList
           categories={categories}
           isMenuOpen={isMenuOpen}

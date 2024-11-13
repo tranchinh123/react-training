@@ -11,8 +11,8 @@ const SkeletonBookCardList = ({ cards }: SkeletonBookCardListProps) => {
     <div className={styles.BookCardListSkeleton}>
       {Array(cards)
         .fill(0)
-        .map(() => (
-          <div className={styles.cardSkeleton}>
+        .map((_, index) => (
+          <div className={styles.cardSkeleton} key={index}>
             <div className={styles.imageCardSkeleton}>
               <Skeleton containerClassName="flex-1" width={200} height={200} />
             </div>
