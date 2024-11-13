@@ -5,10 +5,12 @@ import { useState, useEffect } from 'react';
 import { Book } from '../../types/index';
 import { API } from '../../constants/api';
 import { useParams, useSearchParams } from 'react-router-dom';
+import { useToast } from '../../hooks/useToast';
 
 const HomePage = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
+  const { showToast } = useToast();
 
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
@@ -24,14 +26,20 @@ const HomePage = () => {
           const Books = await get<Book>(
             API.BOOKS_ENDPOINT,
             'category',
-            `${slug}`
+            `${slug}`,
+            showToast
           );
           filteredBooks = Books || [];
         } else if (name) {
-          const Books = await get<Book>(API.BOOKS_ENDPOINT, 'title', `${name}`);
+          const Books = await get<Book>(
+            API.BOOKS_ENDPOINT,
+            'title',
+            `${name}`,
+            showToast
+          );
           filteredBooks = Books || [];
         } else {
-          const Books = await get<Book>(API.BOOKS_ENDPOINT);
+          const Books = await get<Book>(API.BOOKS_ENDPOINT, '', '', showToast);
           filteredBooks = Books || [];
         }
 
@@ -44,7 +52,7 @@ const HomePage = () => {
     };
 
     fetchBookList();
-  }, [slug, name]);
+  }, [slug, name, showToast]);
 
   return loading ? <Loading /> : <BookCardList books={books} />;
 };

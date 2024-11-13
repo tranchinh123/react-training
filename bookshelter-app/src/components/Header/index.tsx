@@ -8,6 +8,7 @@ import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
+import { useToast } from '../../hooks/useToast';
 
 interface HeaderProps {
   onClick: () => void;
@@ -19,6 +20,7 @@ const Header = ({ onClick }: HeaderProps) => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
@@ -30,7 +32,8 @@ const Header = ({ onClick }: HeaderProps) => {
       const books = await get<Book>(
         API.BOOKS_ENDPOINT,
         'title',
-        `${searchTerm}`
+        `${searchTerm}`,
+        showToast
       );
       if (books.length > 0) handleOpen();
       setResults(books || []);
@@ -41,7 +44,7 @@ const Header = ({ onClick }: HeaderProps) => {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm, setResults]);
+  }, [searchTerm, setResults, showToast]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

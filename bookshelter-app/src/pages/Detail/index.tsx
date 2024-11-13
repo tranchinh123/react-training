@@ -9,18 +9,20 @@ import { getByID } from '../../services/api';
 import { Book } from '../../types';
 import { API } from '../../constants/api';
 import Loading from '../../components/Loading';
+import { useToast } from '../../hooks/useToast';
 
 const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const [book, setBook] = useState<Book | null>(null);
   const [loading, setLoading] = useState(true);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const fetchBookDetail = async (): Promise<void> => {
       setLoading(true);
       try {
         if (id) {
-          const book = await getByID(API.BOOKS_ENDPOINT, id);
+          const book = await getByID(API.BOOKS_ENDPOINT, id, showToast);
           if (book) {
             setBook(book);
           }
@@ -32,7 +34,7 @@ const DetailPage = () => {
       }
     };
     fetchBookDetail();
-  }, [id]);
+  }, [id, showToast]);
 
   return loading ? (
     <Loading />

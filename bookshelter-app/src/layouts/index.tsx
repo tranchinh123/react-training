@@ -3,22 +3,29 @@ import Header from '../components/Header';
 import CategoriesSection from '../components/CategoriesSection';
 import CategoryList from '../components/CategoryList';
 import Loading from '../components/Loading';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Category } from '../types';
 import { get } from '../services/api';
 import { API } from '../constants/api';
 import { Outlet } from 'react-router-dom';
+import { useToast } from '../hooks/useToast';
 
 const DefaultLayout = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     const fetchCategoriesList = async (): Promise<void> => {
       setLoading(true);
       try {
-        const categories = await get<Category>(API.CATEGORIES_ENDPOINT);
+        const categories = await get<Category>(
+          API.CATEGORIES_ENDPOINT,
+          '',
+          '',
+          showToast
+        );
         if (categories) {
           setCategories(categories);
         }
@@ -30,11 +37,11 @@ const DefaultLayout = () => {
     };
 
     fetchCategoriesList();
-  }, []);
+  }, [showToast]);
 
-  const handleClickMenu = () => {
-    setIsMenuOpen((pre) => !pre);
-  };
+  const handleClickMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev);
+  }, []);
 
   return loading ? (
     <Loading />
