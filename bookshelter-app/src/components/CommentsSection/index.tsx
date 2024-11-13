@@ -1,17 +1,18 @@
 import Dropdown from '../Icons/ArrowDown';
-import UserComments from '../UserComment';
 import Input from '../Input';
 import Button from '../Button';
 import { API } from '../../constants/api';
 import { edit } from '../../services/api';
 import { Comment } from '../../types';
-import { useState, useRef } from 'react';
+import { useState, useRef, lazy, Suspense } from 'react';
 import { Book } from '../../types';
 import styles from './index.module.css';
 import { useToast } from '../../hooks/useToast';
 import { ValidationErrors, validateForm } from '../../validator/validator';
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
+
+const UserComments = lazy(() => import('../UserComment'));
 
 interface BookProps {
   book: Book;
@@ -75,28 +76,30 @@ const CommentSection = ({ book }: BookProps) => {
 
       {isShow ? (
         <>
-          <div className={styles.userComments}>
-            <UserComments book={book} />
-          </div>
-          <div className={styles.leaveComment}>
-            <p className={styles.headerLeaveComment}>Leave a comment</p>
-            <form
-              className={styles.formComment}
-              action="submit"
-              onSubmit={handlePostComment}
-            >
-              <Input label="Name" ref={nameRef} />
-              {errors.name && (
-                <span className={styles.error}>{errors.name}</span>
-              )}
+          <Suspense fallback={<div>Loading...</div>}>
+            <div className={styles.userComments}>
+              <UserComments book={book} />
+            </div>
+            <div className={styles.leaveComment}>
+              <p className={styles.headerLeaveComment}>Leave a comment</p>
+              <form
+                className={styles.formComment}
+                action="submit"
+                onSubmit={handlePostComment}
+              >
+                <Input label="Name" ref={nameRef} />
+                {errors.name && (
+                  <span className={styles.error}>{errors.name}</span>
+                )}
 
-              <Input label="Comment" ref={commentRef} />
-              {errors.comment && (
-                <span className={styles.error}>{errors.comment}</span>
-              )}
-              <Button />
-            </form>
-          </div>
+                <Input label="Comment" ref={commentRef} />
+                {errors.comment && (
+                  <span className={styles.error}>{errors.comment}</span>
+                )}
+                <Button />
+              </form>
+            </div>
+          </Suspense>
         </>
       ) : (
         ''

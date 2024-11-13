@@ -2,13 +2,14 @@ import styles from './index.module.css';
 import Logo from '../Logo';
 import Menu from '../Icons/Menu';
 import SearchInput from '../SearchInput';
-import SearchResults from '../SearchResults';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 import { useToast } from '../../hooks/useToast';
+
+const SearchResults = lazy(() => import('../SearchResults'));
 
 interface HeaderProps {
   onClick: () => void;
@@ -100,7 +101,9 @@ const Header = ({ onClick }: HeaderProps) => {
         />
 
         {isSearchOpen && (
-          <SearchResults results={results} onClose={handleClose} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <SearchResults results={results} onClose={handleClose} />
+          </Suspense>
         )}
       </div>
     </header>
