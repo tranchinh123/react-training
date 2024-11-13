@@ -1,5 +1,7 @@
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
+import { withErrorBoundary } from 'react-error-boundary';
+import ErrorComponent from '../../error/ErrorBoundary';
 interface BookCategoryProps {
   name: string;
   totalBooks: number;
@@ -28,4 +30,8 @@ const BookCategory = ({
   );
 };
 
-export default BookCategory;
+const WrappedBookCategory = withErrorBoundary(BookCategory, {
+  FallbackComponent: ErrorComponent,
+});
+
+export default WrappedBookCategory;

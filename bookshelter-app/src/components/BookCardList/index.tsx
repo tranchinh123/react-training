@@ -1,7 +1,10 @@
-import BookCard from '../BookCard';
+import WrappedBookCard from '../BookCard';
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { Link } from 'react-router-dom';
+
+import { withErrorBoundary } from 'react-error-boundary';
+import ErrorComponent from '../../error/ErrorBoundary';
 
 interface BooksProps {
   books: Book[];
@@ -12,11 +15,15 @@ const BookCardList = ({ books }: BooksProps) => {
     <div className={styles.bookList}>
       {books.map((book) => (
         <Link key={book.id} to={`/detail/${book.id}`}>
-          <BookCard key={book.id} book={book} />
+          <WrappedBookCard key={book.id} book={book} />
         </Link>
       ))}
     </div>
   );
 };
 
-export default BookCardList;
+const WrappedBookCardList = withErrorBoundary(BookCardList, {
+  FallbackComponent: ErrorComponent,
+});
+
+export default WrappedBookCardList;

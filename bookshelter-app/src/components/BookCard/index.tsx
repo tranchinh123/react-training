@@ -1,5 +1,7 @@
 import styles from './index.module.css';
 import { Book } from '../../types';
+import { withErrorBoundary } from 'react-error-boundary';
+import ErrorComponent from '../../error/ErrorBoundary';
 
 interface BookCardProps {
   book: Book;
@@ -23,4 +25,9 @@ const BookCard = ({ book }: BookCardProps) => {
     </div>
   );
 };
-export default BookCard;
+
+const WrappedBookCard = withErrorBoundary(BookCard, {
+  FallbackComponent: ErrorComponent,
+});
+
+export default WrappedBookCard;
