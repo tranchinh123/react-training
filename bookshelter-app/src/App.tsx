@@ -16,7 +16,7 @@ function App() {
             <Route
               index
               element={
-                <Suspense fallback={<div>Đang tải...</div>}>
+                <Suspense fallback={<div>Loading...</div>}>
                   <HomePage />
                 </Suspense>
               }
@@ -24,7 +24,7 @@ function App() {
             <Route
               path=":slug"
               element={
-                <Suspense fallback={<div>Đang tải...</div>}>
+                <Suspense fallback={<div>Loading...</div>}>
                   <HomePage />
                 </Suspense>
               }
@@ -32,7 +32,7 @@ function App() {
             <Route
               path="search"
               element={
-                <Suspense fallback={<div>Đang tải...</div>}>
+                <Suspense fallback={<div>Loading...</div>}>
                   <HomePage />
                 </Suspense>
               }
@@ -40,7 +40,7 @@ function App() {
             <Route
               path="detail/:id"
               element={
-                <Suspense fallback={<div>Đang tải...</div>}>
+                <Suspense fallback={<div>Loading...</div>}>
                   <DetailPage />
                 </Suspense>
               }
@@ -48,7 +48,7 @@ function App() {
             <Route
               path="*"
               element={
-                <Suspense fallback={<div>Đang tải...</div>}>
+                <Suspense fallback={<div>Loading...</div>}>
                   <NotFound />
                 </Suspense>
               }
