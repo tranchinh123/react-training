@@ -3,38 +3,11 @@ import MainContentSection from '../../components/MainContentSection';
 import InfoContentSection from '../../components/InfoContentSection';
 import CommentSection from '../../components/CommentsSection';
 import styles from './index.module.css';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { getByID } from '../../services/api';
-import { Book } from '../../types';
-import { API } from '../../constants/api';
 import Loading from '../../components/Loading';
-import { useToast } from '../../hooks/useToast';
+import useFetchABook from '../../hooks/useFetchABook';
 
 const DetailPage = () => {
-  const { id } = useParams<{ id: string }>();
-  const [book, setBook] = useState<Book | null>(null);
-  const [loading, setLoading] = useState(true);
-  const { showToast } = useToast();
-
-  useEffect(() => {
-    const fetchBookDetail = async (): Promise<void> => {
-      setLoading(true);
-      try {
-        if (id) {
-          const book = await getByID(API.BOOKS_ENDPOINT, id, showToast);
-          if (book) {
-            setBook(book);
-          }
-        }
-      } catch (error) {
-        console.error('Failed to fetch books:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBookDetail();
-  }, [id, showToast]);
+  const { book, loading } = useFetchABook();
 
   return loading ? (
     <Loading />

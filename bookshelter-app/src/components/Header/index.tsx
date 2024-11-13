@@ -35,7 +35,7 @@ const Header = ({ onClick }: HeaderProps) => {
         `${searchTerm}`,
         showToast
       );
-      if (books.length > 0) handleOpen();
+      if (Array.isArray(books) && books.length > 0) handleOpen();
       setResults(books || []);
     };
 

@@ -6,7 +6,7 @@ const get = async <T>(
   param: string = '',
   value: string = '',
   showToast: (message: string, type: 'success' | 'error') => void
-): Promise<T[]> => {
+): Promise<T[] | void> => {
   const url = new URL(`${API.BASE_URL}${endPoint}`);
   if (param) url.searchParams.append(param, value);
 
@@ -18,13 +18,10 @@ const get = async <T>(
     if (response.ok) {
       const data = await response.json();
       return data as T[];
-    } else {
-      return [];
     }
   } catch (error) {
+    showToast('Failed to fetch data ', 'error');
     console.error('Failed to fetch data ', error);
-    showToast('Something went wrong', 'error');
-    return [];
   }
 };
 
@@ -41,12 +38,10 @@ const getByID = async (
     if (response.ok) {
       const data = await response.json();
       return data;
-    } else {
-      showToast('Failed to fetch data', 'error');
     }
   } catch (error) {
-    showToast('Something went wrong', 'error');
-    console.error('Failed to fetch data ', error);
+    showToast('Failed to fetch data to get book', 'error');
+    console.error('Failed to fetch data to get book', error);
   }
 };
 
@@ -66,11 +61,9 @@ const edit = async (
       const data = await response.json();
       showToast('Success add a comment', 'success');
       return data;
-    } else {
-      showToast('Failed to fetch data', 'error');
     }
   } catch (error) {
-    showToast('Something went wrong', 'error');
+    showToast('Failed to fetch data to post', 'error');
     console.error('Something went wrong', error);
   }
 };

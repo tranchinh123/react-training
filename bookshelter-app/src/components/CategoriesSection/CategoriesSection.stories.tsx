@@ -10,15 +10,32 @@ export default {
 
 const books: Book[] = [
   {
-    id: '63d7755f6ac4de76afd58e51',
-    title: 'Non sunt culpa Lorem aute consequat pariatur sit.',
-    author: 'Dora',
+    id: '63d7755fa2201e08da9b2e46',
+    title: 'Dolore aliquip pariatur deserunt ullamco dolore ad ut nulla.',
+    author: 'Burke',
     category: 'adventure',
-    publishedYear: 2019,
-    publisher: 'Warren',
+    publishedYear: 2020,
+    publisher: 'Stanley',
     description:
-      'Id in ullamco eu mollit adipisicing eiusmod mollit. Incididunt adipisicing irure cupidatat proident anim. Laborum occaecat excepteur nisi ut cillum nisi do. Id minim eiusmod non pariatur excepteur proident eiusmod aliqua ex.\r\n',
+      'Deserunt dolor eiusmod consectetur nisi. Nulla eu sit deserunt voluptate voluptate id nisi cillum officia voluptate dolore consequat est. Nostrud cupidatat mollit deserunt ea magna anim officia anim amet ex pariatur. Proident laborum deserunt tempor aute ut est dolor ut nostrud aliquip elit. Excepteur laboris esse sunt proident tempor sit. Enim fugiat voluptate et consequat in excepteur ut commodo.\r\n',
     cover: 'https://i.ibb.co/ZSRxJHH/book-1.png',
+    comments: [
+      {
+        id: 1,
+        author: 'David',
+        comment: 'In dolore ad commodo proident sit commodo ad et in magna id.',
+      },
+      {
+        id: 2,
+        author: 'Lisa',
+        comment: 'In dolore ad commodo proident sit commodo ad et in magna id.',
+      },
+      {
+        id: 3,
+        author: 'Henry',
+        comment: 'In dolore ad commodo proident sit commodo ad et in magna id.',
+      },
+    ],
   },
 ];
 const Template: StoryFn = (args) => (
