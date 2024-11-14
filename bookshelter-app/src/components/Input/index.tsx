@@ -2,7 +2,7 @@ import styles from './index.module.css';
 import { forwardRef } from 'react';
 interface InputProps {
   label: string;
-  ref: HTMLInputElement;
+  ref: React.Ref<HTMLInputElement>;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({ label }, ref) => {
