@@ -20,7 +20,11 @@ const BookCategory = ({
   return (
     <Link to={`/${categorySlug}`}>
       <div className={styles.categoryItem} onClick={onClick}>
-        <div style={{ backgroundColor: color }} className={styles.initials}>
+        <div
+          data-testid="initials"
+          style={{ backgroundColor: color }}
+          className={styles.initials}
+        >
           {name.slice(0, 2)}
         </div>
         <p className={styles.category}>{name}</p>
