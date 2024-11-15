@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './index.module.css';
 import iconUser from '../../assets/images/iconUser.png';
 import { Book } from '../../types';
@@ -6,7 +7,7 @@ import ErrorComponent from '../../error/ErrorBoundary';
 interface CommentProps {
   book: Book;
 }
-const UserComments = ({ book }: CommentProps) => {
+const UserComments = React.memo(({ book }: CommentProps) => {
   return (
     <>
       {book.comments.map((comment, index) => (
@@ -22,7 +23,7 @@ const UserComments = ({ book }: CommentProps) => {
       ))}
     </>
   );
-};
+});
 
 const WrappedUserComments = withErrorBoundary(UserComments, {
   FallbackComponent: ErrorComponent,
