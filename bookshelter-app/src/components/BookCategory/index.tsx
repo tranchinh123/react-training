@@ -2,6 +2,7 @@ import styles from './index.module.css';
 import { Link } from 'react-router-dom';
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
+import React from 'react';
 interface BookCategoryProps {
   name: string;
   totalBooks: number;
@@ -10,25 +11,21 @@ interface BookCategoryProps {
   onClick: () => void;
 }
 
-const BookCategory = ({
-  name,
-  totalBooks,
-  color,
-  categorySlug,
-  onClick,
-}: BookCategoryProps) => {
-  return (
-    <Link to={`/${categorySlug}`}>
-      <div className={styles.categoryItem} onClick={onClick}>
-        <div style={{ backgroundColor: color }} className={styles.initials}>
-          {name.slice(0, 2)}
+const BookCategory = React.memo(
+  ({ name, totalBooks, color, categorySlug, onClick }: BookCategoryProps) => {
+    return (
+      <Link to={`/${categorySlug}`}>
+        <div className={styles.categoryItem} onClick={onClick}>
+          <div style={{ backgroundColor: color }} className={styles.initials}>
+            {name.slice(0, 2)}
+          </div>
+          <p className={styles.category}>{name}</p>
+          <p className={styles.bookQuantity}>{totalBooks}</p>
         </div>
-        <p className={styles.category}>{name}</p>
-        <p className={styles.bookQuantity}>{totalBooks}</p>
-      </div>
-    </Link>
-  );
-};
+      </Link>
+    );
+  }
+);
 
 const WrappedBookCategory = withErrorBoundary(BookCategory, {
   FallbackComponent: ErrorComponent,

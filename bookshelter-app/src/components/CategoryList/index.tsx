@@ -3,7 +3,7 @@ import BookCategory from '../BookCategory';
 import getRandomColor from '../../utils/randomColor';
 import Close from '../Icons/Close';
 import { Category } from '../../types';
-import { useState, useEffect } from 'react';
+import { useCallback, useMemo } from 'react';
 
 interface CategoryListProps {
   categories: Category[];
@@ -16,22 +16,19 @@ const CategoryList = ({
   isMenuOpen,
   setIsMenuOpen,
 }: CategoryListProps) => {
-  const [colors, setColors] = useState<string[]>([]);
-
-  useEffect(() => {
-    const generatedColors = categories.map(() => getRandomColor());
-    setColors(generatedColors);
+  const colors = useMemo(() => {
+    return categories.map(() => getRandomColor());
   }, [categories]);
 
   const handleClickClose = () => {
     setIsMenuOpen(false);
   };
 
-  const handleClickCategory = () => {
+  const handleClickCategory = useCallback(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
-  };
+  }, [isMenuOpen, setIsMenuOpen]);
 
   return (
     <>

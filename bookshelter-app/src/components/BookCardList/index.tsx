@@ -1,8 +1,8 @@
+import React from 'react';
 import WrappedBookCard from '../BookCard';
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { Link } from 'react-router-dom';
-
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
 
@@ -10,7 +10,9 @@ interface BooksProps {
   books: Book[];
 }
 
-const BookCardList = ({ books }: BooksProps) => {
+const BookCardList = React.memo(({ books }: BooksProps) => {
+  console.log('aaa');
+
   return (
     <div className={styles.bookList}>
       {books.map((book) => (
@@ -20,7 +22,7 @@ const BookCardList = ({ books }: BooksProps) => {
       ))}
     </div>
   );
-};
+});
 
 const WrappedBookCardList = withErrorBoundary(BookCardList, {
   FallbackComponent: ErrorComponent,
