@@ -17,8 +17,6 @@ const BookCategory = ({
   categorySlug,
   onClick,
 }: BookCategoryProps) => {
-  console.log('aa');
-
   return (
     <Link to={`/${categorySlug}`}>
       <div className={styles.categoryItem} onClick={onClick}>

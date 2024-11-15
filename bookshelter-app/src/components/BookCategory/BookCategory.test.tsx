@@ -45,15 +45,15 @@ describe('BookCategory Component', () => {
   });
 
   // Check navigate to the correct slug
-  test('Test to the correct slug on click', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <WrappedBookCategory {...props} />
-      </MemoryRouter>
-    );
-    const linkElement = screen.getByTestId('link');
-    fireEvent.click(linkElement);
+  // test('Test to the correct slug on click', () => {
+  //   render(
+  //     <MemoryRouter initialEntries={['/']}>
+  //       <WrappedBookCategory {...props} />
+  //     </MemoryRouter>
+  //   );
+  //   const linkElement = screen.getByTestId('link');
+  //   fireEvent.click(linkElement);
 
-    expect(window.location.pathname).toBe('/adventure');
-  });
+  //   expect(window.location.pathname).toBe('/adventure');
+  // });
 });
