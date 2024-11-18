@@ -2,7 +2,14 @@ import styles from './index.module.css';
 import Logo from '../Logo';
 import Menu from '../Icons/Menu';
 import SearchInput from '../SearchInput';
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  lazy,
+  Suspense,
+  useCallback,
+} from 'react';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
@@ -22,6 +29,14 @@ const Header = ({ onClick }: HeaderProps) => {
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
+
+  const handleOpen = () => {
+    setIsSearchOpen(true);
+  };
+
+  const handleClose = useCallback(() => {
+    setIsSearchOpen(false);
+  }, []);
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
@@ -61,7 +76,7 @@ const Header = ({ onClick }: HeaderProps) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [handleClose]);
 
   const onHandleChange = (value: string) => {
     setSearchTerm(value);
@@ -76,14 +91,6 @@ const Header = ({ onClick }: HeaderProps) => {
       handleClose();
       navigate(`/search?query=${searchTerm}`);
     }
-  };
-
-  const handleOpen = () => {
-    setIsSearchOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsSearchOpen(false);
   };
 
   return (
