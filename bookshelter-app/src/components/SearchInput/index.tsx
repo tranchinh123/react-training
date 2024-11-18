@@ -13,8 +13,6 @@ const SearchInput = ({
   onHandleChange,
   onHandleKeyDown,
 }: SearchInputProps) => {
-  console.log('aa');
-
   return (
     <div className={styles.input}>
       <Glass />

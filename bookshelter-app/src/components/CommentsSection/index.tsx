@@ -68,9 +68,7 @@ const CommentSection = React.memo(({ book }: BookProps) => {
     [book, showToast]
   );
 
-  // console.log(comments);
-
-  console.log('hello ');
+  console.log(comments);
 
   return (
     <div className={styles.commentsSection}>
