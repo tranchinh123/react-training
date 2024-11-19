@@ -3,12 +3,13 @@ import { Book } from '../../types';
 import { Link } from 'react-router-dom';
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
+import React from 'react';
 interface SearchResultsProps {
   results: Book[];
   onClose: () => void;
 }
 
-const SearchResults = ({ results, onClose }: SearchResultsProps) => {
+const SearchResults = React.memo(({ results, onClose }: SearchResultsProps) => {
   return (
     <div className={styles.resultList}>
       {results.map((result, id) => (
@@ -28,7 +29,7 @@ const SearchResults = ({ results, onClose }: SearchResultsProps) => {
       ))}
     </div>
   );
-};
+});
 
 const WrappedSearchResults = withErrorBoundary(SearchResults, {
   FallbackComponent: ErrorComponent,

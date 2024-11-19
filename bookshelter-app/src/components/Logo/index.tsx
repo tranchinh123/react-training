@@ -1,8 +1,9 @@
 import styles from './index.module.css';
 import LogoPage from '../Icons/Logo';
 import { Link } from 'react-router-dom';
+import React from 'react';
 
-const Logo = () => {
+const Logo = React.memo(() => {
   return (
     <Link to="/">
       <div className={styles.logo}>
@@ -11,6 +12,6 @@ const Logo = () => {
       </div>
     </Link>
   );
-};
+});
 
 export default Logo;
