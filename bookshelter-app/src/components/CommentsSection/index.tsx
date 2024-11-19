@@ -11,6 +11,7 @@ import { useToast } from '../../hooks/useToast';
 import { ValidationErrors, validateForm } from '../../validator/validator';
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
+import SkeletonCommentSection from '../Skeleton/SkeletonCommentSection';
 
 const UserComments = lazy(() => import('../UserComment'));
 
@@ -79,7 +80,7 @@ const CommentSection = React.memo(({ book }: BookProps) => {
 
       {isShow && (
         <>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<SkeletonCommentSection />}>
             <div className={styles.userComments}>
               <UserComments book={book} />
             </div>
