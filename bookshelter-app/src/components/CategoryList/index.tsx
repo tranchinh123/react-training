@@ -4,6 +4,8 @@ import getRandomColor from '../../utils/randomColor';
 import Close from '../Icons/Close';
 import { Category } from '../../types';
 import { useCallback, useMemo } from 'react';
+import ErrorBoundary from '../../error/ErrorBoundary';
+import ErrorComponent from '../../error/ErrorComponent';
 
 interface CategoryListProps {
   categories: Category[];
@@ -38,14 +40,16 @@ const CategoryList = ({
         </p>
 
         {categories.map((category, index) => (
-          <BookCategory
-            key={category.id}
-            name={category.name}
-            totalBooks={category.totalBooks}
-            color={colors[index]}
-            categorySlug={category.slug}
-            onClick={handleClickCategory}
-          ></BookCategory>
+          <ErrorBoundary fallback={<ErrorComponent />} key={index}>
+            <BookCategory
+              key={category.id}
+              name={category.name}
+              totalBooks={category.totalBooks}
+              color={colors[index]}
+              categorySlug={category.slug}
+              onClick={handleClickCategory}
+            ></BookCategory>
+          </ErrorBoundary>
         ))}
       </section>
 
@@ -59,14 +63,16 @@ const CategoryList = ({
           </p>
 
           {categories.map((category, index) => (
-            <BookCategory
-              key={category.id}
-              name={category.name}
-              totalBooks={category.totalBooks}
-              color={colors[index]}
-              categorySlug={category.slug}
-              onClick={handleClickCategory}
-            ></BookCategory>
+            <ErrorBoundary fallback={<ErrorComponent />} key={index}>
+              <BookCategory
+                key={category.id}
+                name={category.name}
+                totalBooks={category.totalBooks}
+                color={colors[index]}
+                categorySlug={category.slug}
+                onClick={handleClickCategory}
+              ></BookCategory>
+            </ErrorBoundary>
           ))}
         </section>
       )}

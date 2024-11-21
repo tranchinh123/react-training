@@ -9,9 +9,9 @@ import { Book } from '../../types';
 import styles from './index.module.css';
 import { useToast } from '../../hooks/useToast';
 import { ValidationErrors, validateForm } from '../../validator/validator';
-import { withErrorBoundary } from 'react-error-boundary';
-import ErrorComponent from '../../error/ErrorBoundary';
 import SkeletonCommentSection from '../Skeleton/SkeletonCommentSection';
+import ErrorComponent from '../../error/ErrorComponent';
+import ErrorBoundary from '../../error/ErrorBoundary';
 
 const UserComments = lazy(() => import('../UserComment'));
 
@@ -82,7 +82,9 @@ const CommentSection = React.memo(({ book }: BookProps) => {
         <>
           <Suspense fallback={<SkeletonCommentSection />}>
             <div className={styles.userComments}>
-              <UserComments book={book} />
+              <ErrorBoundary fallback={<ErrorComponent />}>
+                <UserComments book={book} />
+              </ErrorBoundary>
             </div>
             <div className={styles.leaveComment}>
               <p className={styles.headerLeaveComment}>Leave a comment</p>
@@ -110,8 +112,4 @@ const CommentSection = React.memo(({ book }: BookProps) => {
   );
 });
 
-const WrappedCommentSection = withErrorBoundary(CommentSection, {
-  FallbackComponent: ErrorComponent,
-});
-
-export default WrappedCommentSection;
+export default CommentSection;

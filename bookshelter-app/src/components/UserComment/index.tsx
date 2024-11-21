@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './index.module.css';
 import iconUser from '../../assets/images/iconUser.png';
 import { Book } from '../../types';
-import { withErrorBoundary } from 'react-error-boundary';
-import ErrorComponent from '../../error/ErrorBoundary';
 interface CommentProps {
   book: Book;
 }
@@ -25,8 +23,4 @@ const UserComments = React.memo(({ book }: CommentProps) => {
   );
 });
 
-const WrappedUserComments = withErrorBoundary(UserComments, {
-  FallbackComponent: ErrorComponent,
-});
-
-export default WrappedUserComments;
+export default UserComments;

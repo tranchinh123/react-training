@@ -1,12 +1,36 @@
-interface ErrorComponentProps {
-  error: Error;
+import React, { Component, ReactNode } from 'react';
+
+interface ErrorBoundaryProps {
+  fallback: ReactNode;
+  children: ReactNode;
 }
 
-const ErrorComponent = ({ error }: ErrorComponentProps) => {
-  return (
-    <div style={{ padding: '20px', textAlign: 'center', color: 'red' }}>
-      <p>{error.message}</p>
-    </div>
-  );
-};
-export default ErrorComponent;
+interface ErrorBoundaryState {
+  hasError: boolean;
+  errorMessage?: string;
+}
+
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, errorMessage: error.message };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;

@@ -15,6 +15,8 @@ import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 import { useToast } from '../../hooks/useToast';
+import ErrorBoundary from '../../error/ErrorBoundary';
+import ErrorComponent from '../../error/ErrorComponent';
 import SkeletonSearchResults from '../Skeleton/SkeletonSearchResults';
 
 const SearchResults = lazy(() => import('../SearchResults'));
@@ -113,9 +115,11 @@ const Header = ({ onClick }: HeaderProps) => {
         />
 
         {isSearchOpen && (
-          <Suspense fallback={<SkeletonSearchResults />}>
-            <SearchResults results={results} onClose={handleClose} />
-          </Suspense>
+          <ErrorBoundary fallback={<ErrorComponent />}>
+            <Suspense fallback={<SkeletonSearchResults />}>
+              <SearchResults results={results} onClose={handleClose} />
+            </Suspense>
+          </ErrorBoundary>
         )}
       </div>
     </header>

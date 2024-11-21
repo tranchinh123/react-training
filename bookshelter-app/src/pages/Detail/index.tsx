@@ -6,6 +6,8 @@ import styles from './index.module.css';
 import Loading from '../../components/Loading';
 import useFetchABook from '../../hooks/useFetchABook';
 import { useToast } from '../../hooks/useToast';
+import ErrorComponent from '../../error/ErrorComponent';
+import ErrorBoundary from '../../error/ErrorBoundary';
 
 const DetailPage = () => {
   const { result, loading, error } = useFetchABook();
@@ -29,7 +31,9 @@ const DetailPage = () => {
           cover={result.cover}
           description={result.description}
         />
-        <CommentSection book={result} />
+        <ErrorBoundary fallback={<ErrorComponent />}>
+          <CommentSection book={result} />
+        </ErrorBoundary>
       </div>
     )
   );
