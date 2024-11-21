@@ -49,11 +49,15 @@ const Header = ({ onClick }: HeaderProps) => {
       const books = await get<Book>(
         API.BOOKS_ENDPOINT,
         'title',
-        `${searchTerm}`,
-        showToast
+        `${searchTerm}`
       );
+      if ('error' in books) {
+        showToast('Fail to fetch data get book', 'error');
+        return;
+      }
+
+      setResults(books);
       if (Array.isArray(books) && books.length > 0) handleOpen();
-      setResults(books || []);
     };
 
     const timeoutId = setTimeout(() => {
