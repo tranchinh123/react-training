@@ -5,13 +5,10 @@ import Loading from '../components/Loading';
 import { useState, useCallback, lazy, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import useFetchCategories from '../hooks/useFetchCategories';
-<<<<<<< HEAD
 import { useToast } from '../hooks/useToast';
-=======
 import SkeletonBookCategoryList from '../components/Skeleton/SkeletonBookCategoryList';
 
 const CategoryList = lazy(() => import('../components/CategoryList'));
->>>>>>> eb894425c8bf3ed1b5cc4f744599c9cc41314fbb
 
 const DefaultLayout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
