@@ -1,0 +1,6 @@
+.headerContentSectionSkeleton {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-color-secondary);
+  padding: 15px 0px 15px 20px;
+}

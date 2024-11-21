@@ -4,13 +4,14 @@ import Button from '../Button';
 import { API } from '../../constants/api';
 import { edit } from '../../services/api';
 import { Comment } from '../../types';
-import { useState, useRef, lazy, Suspense } from 'react';
+import React, { useState, useRef, lazy, Suspense, useCallback } from 'react';
 import { Book } from '../../types';
 import styles from './index.module.css';
 import { useToast } from '../../hooks/useToast';
 import { ValidationErrors, validateForm } from '../../validator/validator';
 import { withErrorBoundary } from 'react-error-boundary';
 import ErrorComponent from '../../error/ErrorBoundary';
+import SkeletonCommentSection from '../Skeleton/SkeletonCommentSection';
 
 const UserComments = lazy(() => import('../UserComment'));
 
@@ -18,7 +19,7 @@ interface BookProps {
   book: Book;
 }
 
-const CommentSection = ({ book }: BookProps) => {
+const CommentSection = React.memo(({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);
   const [comments, setComments] = useState<Comment[]>(book.comments);
   const [errors, setErrors] = useState<ValidationErrors>({});
@@ -26,44 +27,47 @@ const CommentSection = ({ book }: BookProps) => {
   const commentRef = useRef<HTMLInputElement>(null);
   const { showToast } = useToast();
 
-  const handleShowComments = () => {
+  const handleShowComments = useCallback(() => {
     setIsShow((prev) => !prev);
-  };
+  }, []);
 
-  const handlePostComment = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setErrors({});
+  const handlePostComment = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setErrors({});
 
-    const name = nameRef.current?.value || '';
-    const comment = commentRef.current?.value || '';
+      const name = nameRef.current?.value || '';
+      const comment = commentRef.current?.value || '';
 
-    const newErrors = validateForm(name, comment);
+      const newErrors = validateForm(name, comment);
 
-    if (newErrors.name || newErrors.comment) {
-      setErrors(newErrors);
-      showToast('Failed to post comment', 'error');
-      return;
-    }
+      if (newErrors.name || newErrors.comment) {
+        setErrors(newErrors);
+        showToast('Failed to post comment', 'error');
+        return;
+      }
 
-    const newCommentId = book.comments.length + 1;
+      const newCommentId = book.comments.length + 1;
 
-    const newComment: Comment = {
-      id: newCommentId,
-      author: name,
-      comment: comment,
-    };
+      const newComment: Comment = {
+        id: newCommentId,
+        author: name,
+        comment: comment,
+      };
 
-    setComments((prevComments) => [...prevComments, newComment]);
-    book.comments.push(newComment);
+      setComments((prevComments) => [...prevComments, newComment]);
+      book.comments.push(newComment);
 
-    try {
-      await edit(book, API.BOOKS_ENDPOINT, book.id, showToast);
-      if (nameRef.current) nameRef.current.value = '';
-      if (commentRef.current) commentRef.current.value = '';
-    } catch (error) {
-      console.error('Error adding comment:', error);
-    }
-  };
+      try {
+        await edit(book, API.BOOKS_ENDPOINT, book.id, showToast);
+        if (nameRef.current) nameRef.current.value = '';
+        if (commentRef.current) commentRef.current.value = '';
+      } catch (error) {
+        console.error('Error adding comment:', error);
+      }
+    },
+    [book, showToast]
+  );
 
   console.log(comments);
 
@@ -74,9 +78,9 @@ const CommentSection = ({ book }: BookProps) => {
         <Dropdown />
       </div>
 
-      {isShow ? (
+      {isShow && (
         <>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<SkeletonCommentSection />}>
             <div className={styles.userComments}>
               <UserComments book={book} />
             </div>
@@ -101,12 +105,10 @@ const CommentSection = ({ book }: BookProps) => {
             </div>
           </Suspense>
         </>
-      ) : (
-        ''
       )}
     </div>
   );
-};
+});
 
 const WrappedCommentSection = withErrorBoundary(CommentSection, {
   FallbackComponent: ErrorComponent,

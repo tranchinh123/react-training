@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react';
 import DefaultLayout from './layouts';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastProvider } from './contexts/ToastContext';
+import SkeletonBookCardList from './components/Skeleton/SkeletonBookCardList';
+import SkeletonDetailPage from './components/Skeleton/SkeletonPageDetail';
 
 const HomePage = lazy(() => import('./pages/Home/index'));
 const DetailPage = lazy(() => import('./pages/Detail/index'));
@@ -16,7 +18,7 @@ function App() {
             <Route
               index
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<SkeletonBookCardList cards={8} />}>
                   <HomePage />
                 </Suspense>
               }
@@ -24,7 +26,7 @@ function App() {
             <Route
               path=":slug"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<SkeletonBookCardList cards={8} />}>
                   <HomePage />
                 </Suspense>
               }
@@ -32,7 +34,7 @@ function App() {
             <Route
               path="search"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<SkeletonBookCardList cards={8} />}>
                   <HomePage />
                 </Suspense>
               }
@@ -40,7 +42,7 @@ function App() {
             <Route
               path="detail/:id"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<SkeletonDetailPage />}>
                   <DetailPage />
                 </Suspense>
               }

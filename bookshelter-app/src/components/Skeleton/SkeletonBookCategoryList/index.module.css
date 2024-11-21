@@ -1,0 +1,28 @@
+.categoryListSkeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  height: 100vh;
+  max-width: 268px;
+  background-color: var(--background-color-primary);
+  top: 126px;
+}
+
+.curatedListSkeleton {
+  margin-top: 20px;
+  padding-left: 25px;
+  padding-right: 40px;
+}
+
+.categoryItemSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 212px;
+  border-radius: 10px;
+  margin-top: 23px;
+  margin-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
