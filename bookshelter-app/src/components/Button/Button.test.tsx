@@ -3,15 +3,15 @@ import '@testing-library/jest-dom';
 import Button from '.';
 
 describe('Button component', () => {
-  test('renders button with correct text', () => {
+  test('renders button  correctly ', () => {
     render(<Button />);
     const buttonElement = screen.getByRole('button', { name: /post comment/i });
     expect(buttonElement).toBeInTheDocument();
+    expect(buttonElement).toHaveClass('button');
   });
 
-  test('has correct class name', () => {
-    render(<Button />);
-    const buttonElement = screen.getByRole('button', { name: /post comment/i });
-    expect(buttonElement).toHaveClass('button');
+  test('matches snapshot', () => {
+    const { container } = render(<Button />);
+    expect(container).toMatchSnapshot();
   });
 });

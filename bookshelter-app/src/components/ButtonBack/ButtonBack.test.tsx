@@ -27,4 +27,9 @@ describe('ButtonBack component', () => {
 
     expect(handleBackClick).toHaveBeenCalledTimes(1);
   });
+
+  test('matches snapshots', () => {
+    const { container } = render(<ButtonBack handleBackClick={jest.fn()} />);
+    expect(container).toMatchSnapshot();
+  });
 });

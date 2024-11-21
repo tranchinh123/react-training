@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import Logo from '.';
 
 jest.mock('../Icons/Logo', () => () => <svg data-testid="logo-icon" />);
@@ -8,9 +8,9 @@ jest.mock('../Icons/Logo', () => () => <svg data-testid="logo-icon" />);
 describe('Logo component', () => {
   test('renders Logo with text and icon', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Logo />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     const logoIcon = screen.getByTestId('logo-icon');
@@ -22,12 +22,22 @@ describe('Logo component', () => {
 
   test('contains a link to the home page', () => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Logo />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     const linkElement = screen.getByRole('link', { name: /bookshelter/i });
     expect(linkElement).toHaveAttribute('href', '/');
+  });
+
+  test('Matches Snapshots', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Logo />
+      </MemoryRouter>
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });

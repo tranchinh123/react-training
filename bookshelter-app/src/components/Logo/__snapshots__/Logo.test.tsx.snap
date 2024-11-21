@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo component Matches Snapshots 1`] = `
+<div>
+  <a
+    href="/"
+  >
+    <div
+      class="logo"
+    >
+      <svg
+        data-testid="logo-icon"
+      />
+      <p
+        class="logoText"
+      >
+        BookShelter
+      </p>
+    </div>
+  </a>
+</div>
+`;

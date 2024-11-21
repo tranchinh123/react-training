@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoContentSection component matches snapshot 1`] = `
+<div>
+  <div
+    class="infoContentSection"
+  >
+    <div
+      class="textInfo"
+    >
+      <p
+        class="textInfoItem"
+      >
+        Author:
+      </p>
+      <p
+        class="textInfoItem"
+      >
+        Published:
+      </p>
+      <p
+        class="textInfoItem"
+      >
+        Publisher:
+      </p>
+    </div>
+    <div
+      class="infoBook"
+    >
+      <p
+        class="infoBookItem"
+      >
+        John Doe
+      </p>
+      <p
+        class="infoBookItem"
+      >
+        2021
+      </p>
+      <p
+        class="infoBookItem"
+      >
+        Example Publisher
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContent Component matches snapshots 1`] = `
+<div>
+  <div
+    class="mainContentSection"
+  >
+    <img
+      alt="image of the book "
+      class="imgBook"
+      src="https://i.ibb.co/ZSRxJHH/book-1.png"
+    />
+    <p
+      class="description"
+    >
+      Veniam laborum sint magna in sit pariatur irure laboris anim et. Consequat ex duis sunt et labore consequat nisi
+    </p>
+  </div>
+</div>
+`;

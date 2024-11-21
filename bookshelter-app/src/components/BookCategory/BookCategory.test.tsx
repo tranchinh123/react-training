@@ -12,6 +12,16 @@ describe('BookCategory Component', () => {
     categorySlug: 'adventure',
     onClick: MockOnClick,
   };
+
+  test('matches snapshots', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <WrappedBookCategory {...props} />
+      </MemoryRouter>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   // Check render UI component
   test('render correctly with given props', () => {
     render(

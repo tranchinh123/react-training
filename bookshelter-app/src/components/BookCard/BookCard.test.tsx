@@ -23,6 +23,11 @@ describe('BookCard Component', () => {
     ],
   };
 
+  test('matches snapshots', () => {
+    const { container } = render(<WrappedBookCard book={book} />);
+    expect(container).toMatchSnapshot();
+  });
+
   test('renders book information correctly', () => {
     render(<WrappedBookCard book={book} />);
 
