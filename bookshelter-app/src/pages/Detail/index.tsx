@@ -5,23 +5,31 @@ import CommentSection from '../../components/CommentsSection';
 import styles from './index.module.css';
 import Loading from '../../components/Loading';
 import useFetchABook from '../../hooks/useFetchABook';
+import { useToast } from '../../hooks/useToast';
 
 const DetailPage = () => {
-  const { book, loading } = useFetchABook();
+  const { result, loading, error } = useFetchABook();
+  const { showToast } = useToast();
 
+  if (error) {
+    showToast('Failed to fetch data to get book', 'error');
+  }
   return loading ? (
     <Loading />
   ) : (
-    book && (
+    result && (
       <div className={styles.contentSection}>
-        <HeaderContentSection title={book.title} />
+        <HeaderContentSection title={result.title} />
         <InfoContentSection
-          author={book.author}
-          publishedYear={book.publishedYear}
-          publisher={book.publisher}
+          author={result.author}
+          publishedYear={result.publishedYear}
+          publisher={result.publisher}
         />
-        <MainContentSection cover={book.cover} description={book.description} />
-        <CommentSection book={book} />
+        <MainContentSection
+          cover={result.cover}
+          description={result.description}
+        />
+        <CommentSection book={result} />
       </div>
     )
   );
