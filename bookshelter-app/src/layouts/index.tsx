@@ -19,9 +19,11 @@ const DefaultLayout = () => {
   }, []);
 
   const { categories, loading, error } = useFetchCategories();
+
   if (error) {
     showToast('Failed to fetch data', 'error');
   }
+
   return loading ? (
     <Loading />
   ) : (

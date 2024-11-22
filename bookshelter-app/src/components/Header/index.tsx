@@ -2,7 +2,7 @@ import styles from './index.module.css';
 import Logo from '../Logo';
 import Menu from '../Icons/Menu';
 import SearchInput from '../SearchInput';
-import {
+import React, {
   useState,
   useEffect,
   useRef,
@@ -25,7 +25,7 @@ interface HeaderProps {
   onClick: () => void;
 }
 
-const Header = ({ onClick }: HeaderProps) => {
+const Header = React.memo(({ onClick }: HeaderProps) => {
   const [results, setResults] = useState<Book[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,9 +33,9 @@ const Header = ({ onClick }: HeaderProps) => {
   const searchRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
 
-  const handleOpen = () => {
+  const handleOpen = useCallback(() => {
     setIsSearchOpen(true);
-  };
+  }, []);
 
   const handleClose = useCallback(() => {
     setIsSearchOpen(false);
@@ -67,7 +67,7 @@ const Header = ({ onClick }: HeaderProps) => {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm, setResults, showToast]);
+  }, [searchTerm, setResults, showToast, handleOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -85,20 +85,26 @@ const Header = ({ onClick }: HeaderProps) => {
     };
   }, [handleClose]);
 
-  const onHandleChange = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setResults([]);
-      handleClose();
-    }
-  };
+  const onHandleChange = useCallback(
+    (value: string) => {
+      setSearchTerm(value);
+      if (value.trim() === '') {
+        setResults([]);
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
 
-  const onHandleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleClose();
-      navigate(`/search?query=${searchTerm}`);
-    }
-  };
+  const onHandleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        handleClose();
+        navigate(`/search?query=${searchTerm}`);
+      }
+    },
+    [handleClose, navigate, searchTerm]
+  );
 
   return (
     <header className={styles.header}>
@@ -124,6 +130,6 @@ const Header = ({ onClick }: HeaderProps) => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;
