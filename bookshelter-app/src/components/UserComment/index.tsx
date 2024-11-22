@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './index.module.css';
 import iconUser from '../../assets/images/iconUser.png';
-import { Book } from '../../types';
+import { Comment } from '../../types';
 interface CommentProps {
-  book: Book;
+  comments: Comment[];
 }
-const UserComments = React.memo(({ book }: CommentProps) => {
+const UserComments = React.memo(({ comments }: CommentProps) => {
   return (
     <>
-      {book.comments.map((comment, index) => (
+      {comments.map((comment, index) => (
         <div key={index} className={styles.userComment}>
           <div className={styles.Comments}>
             <img src={iconUser} alt="iconUser" className={styles.avatar} />

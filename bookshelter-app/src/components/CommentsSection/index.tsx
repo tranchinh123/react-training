@@ -43,7 +43,6 @@ const CommentSection = React.memo(({ book }: BookProps) => {
 
       if (newErrors.name || newErrors.comment) {
         setErrors(newErrors);
-        showToast('Failed to post comment', 'error');
         return;
       }
 
@@ -69,8 +68,6 @@ const CommentSection = React.memo(({ book }: BookProps) => {
     [book, showToast]
   );
 
-  console.log(comments);
-
   return (
     <div className={styles.commentsSection}>
       <div className={styles.Comments} onClick={handleShowComments}>
@@ -83,7 +80,7 @@ const CommentSection = React.memo(({ book }: BookProps) => {
           <Suspense fallback={<SkeletonCommentSection />}>
             <div className={styles.userComments}>
               <ErrorBoundary fallback={<ErrorComponent />}>
-                <UserComments book={book} />
+                <UserComments comments={comments} />
               </ErrorBoundary>
             </div>
             <div className={styles.leaveComment}>
