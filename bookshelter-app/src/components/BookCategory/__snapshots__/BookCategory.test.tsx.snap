@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookCategory Component matches snapshots 1`] = `
+<div>
+  <a
+    href="/adventure"
+  >
+    <div
+      class="categoryItem"
+    >
+      <div
+        class="initials"
+        data-testid="initials"
+        style="background-color: blue;"
+      >
+        Ad
+      </div>
+      <p
+        class="category"
+      >
+        Adventure
+      </p>
+      <p
+        class="bookQuantity"
+      >
+        15
+      </p>
+    </div>
+  </a>
+</div>
+`;

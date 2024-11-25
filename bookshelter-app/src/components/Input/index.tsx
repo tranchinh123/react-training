@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import React from 'react';
 interface InputProps {
   label: string;
-  ref: HTMLInputElement;
+  ref: React.Ref<HTMLInputElement>;
 }
 
 const Input = React.memo(

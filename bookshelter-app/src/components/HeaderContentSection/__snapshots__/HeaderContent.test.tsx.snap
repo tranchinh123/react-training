@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderContentSection component matches snapshot 1`] = `
+<div>
+  <div
+    class="headerContentSection"
+  >
+    <button>
+      Back
+    </button>
+    <p
+      class="nameBook"
+    >
+      My Book Title
+    </p>
+  </div>
+</div>
+`;

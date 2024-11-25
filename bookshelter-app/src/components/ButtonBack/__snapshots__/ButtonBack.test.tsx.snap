@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonBack component matches snapshots 1`] = `
+<div>
+  <button
+    class="backLink"
+  >
+    <svg
+      data-testid="left-arrow"
+    />
+    <span
+      class="backText"
+    >
+      Back
+    </span>
+  </button>
+</div>
+`;
