@@ -4,6 +4,10 @@
   margin-bottom: 20px;
 }
 
+.Comments {
+  display: flex;
+}
+
 .avatar {
   max-width: 40px;
   max-height: 40px;

@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react';
 import { Book } from '../types';
 import { API } from '../constants/api';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { useToast } from './useToast';
 
 const useFetchBook = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState(true);
-  const { showToast } = useToast();
+  const [error, setError] = useState<string | null>(null);
 
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
@@ -17,42 +16,51 @@ const useFetchBook = () => {
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
       setLoading(true);
+      setError(null);
+
       try {
         let filteredBooks: Book[];
 
         if (slug) {
-          const Books = await get<Book>(
+          const result = await get<Book>(
             API.BOOKS_ENDPOINT,
             'category',
-            `${slug}`,
-            showToast
+            `${slug}`
           );
-          filteredBooks = Books || [];
+          if ('error' in result) {
+            throw new Error(result.error);
+          }
+          filteredBooks = result || [];
         } else if (name) {
-          const Books = await get<Book>(
+          const result = await get<Book>(
             API.BOOKS_ENDPOINT,
             'title',
-            `${name}`,
-            showToast
+            `${name}`
           );
-          filteredBooks = Books || [];
+          if ('error' in result) {
+            throw new Error(result.error);
+          }
+          filteredBooks = result || [];
         } else {
-          const Books = await get<Book>(API.BOOKS_ENDPOINT, '', '', showToast);
-          filteredBooks = Books || [];
+          const result = await get<Book>(API.BOOKS_ENDPOINT, '', '');
+          if ('error' in result) {
+            throw new Error(result.error);
+          }
+          filteredBooks = result || [];
         }
 
         setBooks(filteredBooks);
-      } catch {
-        console.log('Fail to fetch data ');
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
         setLoading(false);
       }
     };
 
     fetchBookList();
-  }, [slug, name, showToast]);
+  }, [slug, name]);
 
-  return { books, loading };
+  return { books, loading, error };
 };
 
 export default useFetchBook;

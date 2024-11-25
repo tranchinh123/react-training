@@ -1,15 +1,14 @@
+import React from 'react';
 import styles from './index.module.css';
 import iconUser from '../../assets/images/iconUser.png';
-import { Book } from '../../types';
-import { withErrorBoundary } from 'react-error-boundary';
-import ErrorComponent from '../../error/ErrorBoundary';
+import { Comment } from '../../types';
 interface CommentProps {
-  book: Book;
+  comments: Comment[];
 }
-const UserComments = ({ book }: CommentProps) => {
+const UserComments = React.memo(({ comments }: CommentProps) => {
   return (
     <>
-      {book.comments.map((comment, index) => (
+      {comments.map((comment, index) => (
         <div key={index} className={styles.userComment}>
           <div className={styles.Comments}>
             <img src={iconUser} alt="iconUser" className={styles.avatar} />
@@ -22,10 +21,6 @@ const UserComments = ({ book }: CommentProps) => {
       ))}
     </>
   );
-};
-
-const WrappedUserComments = withErrorBoundary(UserComments, {
-  FallbackComponent: ErrorComponent,
 });
 
-export default WrappedUserComments;
+export default UserComments;

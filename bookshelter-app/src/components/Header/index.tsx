@@ -2,12 +2,21 @@ import styles from './index.module.css';
 import Logo from '../Logo';
 import Menu from '../Icons/Menu';
 import SearchInput from '../SearchInput';
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  lazy,
+  Suspense,
+  useCallback,
+} from 'react';
 import { Book } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import { get } from '../../services/api';
 import { API } from '../../constants/api';
 import { useToast } from '../../hooks/useToast';
+import ErrorBoundary from '../../error/ErrorBoundary';
+import ErrorComponent from '../../error/ErrorComponent';
 import SkeletonSearchResults from '../Skeleton/SkeletonSearchResults';
 
 const SearchResults = lazy(() => import('../SearchResults'));
@@ -16,13 +25,21 @@ interface HeaderProps {
   onClick: () => void;
 }
 
-const Header = ({ onClick }: HeaderProps) => {
+const Header = React.memo(({ onClick }: HeaderProps) => {
   const [results, setResults] = useState<Book[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const searchRef = useRef<HTMLDivElement>(null);
   const { showToast } = useToast();
+
+  const handleOpen = useCallback(() => {
+    setIsSearchOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsSearchOpen(false);
+  }, []);
 
   useEffect(() => {
     const fetchBookList = async (): Promise<void> => {
@@ -34,11 +51,15 @@ const Header = ({ onClick }: HeaderProps) => {
       const books = await get<Book>(
         API.BOOKS_ENDPOINT,
         'title',
-        `${searchTerm}`,
-        showToast
+        `${searchTerm}`
       );
+      if ('error' in books) {
+        showToast('Fail to fetch data get book', 'error');
+        return;
+      }
+
+      setResults(books);
       if (Array.isArray(books) && books.length > 0) handleOpen();
-      setResults(books || []);
     };
 
     const timeoutId = setTimeout(() => {
@@ -46,7 +67,7 @@ const Header = ({ onClick }: HeaderProps) => {
     }, 300);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm, setResults, showToast]);
+  }, [searchTerm, setResults, showToast, handleOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -62,30 +83,28 @@ const Header = ({ onClick }: HeaderProps) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [handleClose]);
 
-  const onHandleChange = (value: string) => {
-    setSearchTerm(value);
-    if (value.trim() === '') {
-      setResults([]);
-      handleClose();
-    }
-  };
+  const onHandleChange = useCallback(
+    (value: string) => {
+      setSearchTerm(value);
+      if (value.trim() === '') {
+        setResults([]);
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
 
-  const onHandleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleClose();
-      navigate(`/search?query=${searchTerm}`);
-    }
-  };
-
-  const handleOpen = () => {
-    setIsSearchOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsSearchOpen(false);
-  };
+  const onHandleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') {
+        handleClose();
+        navigate(`/search?query=${searchTerm}`);
+      }
+    },
+    [handleClose, navigate, searchTerm]
+  );
 
   return (
     <header className={styles.header}>
@@ -102,13 +121,15 @@ const Header = ({ onClick }: HeaderProps) => {
         />
 
         {isSearchOpen && (
-          <Suspense fallback={<SkeletonSearchResults />}>
-            <SearchResults results={results} onClose={handleClose} />
-          </Suspense>
+          <ErrorBoundary fallback={<ErrorComponent />}>
+            <Suspense fallback={<SkeletonSearchResults />}>
+              <SearchResults results={results} onClose={handleClose} />
+            </Suspense>
+          </ErrorBoundary>
         )}
       </div>
     </header>
   );
-};
+});
 
 export default Header;

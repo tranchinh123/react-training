@@ -1,10 +1,10 @@
 import styles from './index.module.css';
-
-const Button = () => {
+import React from 'react';
+const Button = React.memo(() => {
   return (
     <>
       <button className={styles.button}>Post Comment</button>
     </>
   );
-};
+});
 export default Button;

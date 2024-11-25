@@ -3,34 +3,35 @@ import { useEffect, useState } from 'react';
 import { getByID } from '../services/api';
 import { Book } from '../types';
 import { API } from '../constants/api';
-import { useToast } from './useToast';
 
 const useFetchABook = () => {
   const { id } = useParams<{ id: string }>();
-  const [book, setBook] = useState<Book | null>(null);
+  const [result, setResult] = useState<Book | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  const { showToast } = useToast();
 
   useEffect(() => {
     const fetchBookDetail = async (): Promise<void> => {
       setLoading(true);
+      setError(null);
       try {
         if (id) {
-          const book = await getByID(API.BOOKS_ENDPOINT, id, showToast);
-          if (book) {
-            setBook(book);
+          const result = await getByID(API.BOOKS_ENDPOINT, id);
+          if ('error' in result) {
+            throw new Error(result.error);
           }
+          setResult(result);
         }
       } catch (error) {
-        console.error('Failed to fetch books:', error);
+        setError(error instanceof Error ? error.message : 'Unknown error');
       } finally {
         setLoading(false);
       }
     };
     fetchBookDetail();
-  }, [id, showToast]);
+  }, [id]);
 
-  return { book, loading };
+  return { result, loading, error };
 };
 
 export default useFetchABook;

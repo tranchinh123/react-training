@@ -2,15 +2,22 @@ import { useParams, useSearchParams, useLocation } from 'react-router-dom';
 import styles from './index.module.css';
 import RightArrow from '../Icons/RightArrow';
 import useFetchCategories from '../../hooks/useFetchCategories';
+import { useToast } from '../../hooks/useToast';
+import React from 'react';
 
-const CategoriesSection = () => {
+const CategoriesSection = React.memo(() => {
   const { slug, id } = useParams<{ slug: string; id: string }>();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('query');
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const { showToast } = useToast();
 
-  const { categories } = useFetchCategories(slug);
+  const { categories, error } = useFetchCategories(slug);
+
+  if (error) {
+    showToast('Failed to fetch data ', 'error');
+  }
 
   return (
     <section className={styles.categoriesSection}>
@@ -37,6 +44,6 @@ const CategoriesSection = () => {
       )}
     </section>
   );
-};
+});
 
 export default CategoriesSection;

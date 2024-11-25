@@ -1,4 +1,6 @@
-const Menu = () => {
+import React from 'react';
+
+const Menu = React.memo(() => {
   return (
     <svg
       width="28"
@@ -30,6 +32,6 @@ const Menu = () => {
       />
     </svg>
   );
-};
+});
 
 export default Menu;

@@ -1,29 +1,27 @@
-import WrappedBookCard from '../BookCard';
+import React from 'react';
+import BookCard from '../BookCard';
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { Link } from 'react-router-dom';
-
-import { withErrorBoundary } from 'react-error-boundary';
-import ErrorComponent from '../../error/ErrorBoundary';
+import ErrorComponent from '../../error/ErrorComponent';
+import ErrorBoundary from '../../error/ErrorBoundary';
 
 interface BooksProps {
   books: Book[];
 }
 
-const BookCardList = ({ books }: BooksProps) => {
+const BookCardList = React.memo(({ books }: BooksProps) => {
   return (
     <div className={styles.bookList}>
       {books.map((book) => (
         <Link key={book.id} to={`/detail/${book.id}`}>
-          <WrappedBookCard key={book.id} book={book} />
+          <ErrorBoundary fallback={<ErrorComponent />}>
+            <BookCard key={book.id} book={book} />
+          </ErrorBoundary>
         </Link>
       ))}
     </div>
   );
-};
-
-const WrappedBookCardList = withErrorBoundary(BookCardList, {
-  FallbackComponent: ErrorComponent,
 });
 
-export default WrappedBookCardList;
+export default BookCardList;
