@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
-import WrappedBookCategory from '.';
+import BookCategory from '.';
 
 describe('BookCategory Component', () => {
   const MockOnClick = jest.fn();
@@ -16,7 +16,7 @@ describe('BookCategory Component', () => {
   test('matches snapshots', () => {
     const { container } = render(
       <MemoryRouter>
-        <WrappedBookCategory {...props} />
+        <BookCategory {...props} />
       </MemoryRouter>
     );
     expect(container).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('BookCategory Component', () => {
   test('render correctly with given props', () => {
     render(
       <MemoryRouter>
-        <WrappedBookCategory {...props} />
+        <BookCategory {...props} />
       </MemoryRouter>
     );
 
@@ -45,7 +45,7 @@ describe('BookCategory Component', () => {
   test('Calls onClick when the category is clicked ', () => {
     render(
       <MemoryRouter>
-        <WrappedBookCategory {...props} />
+        <BookCategory {...props} />
       </MemoryRouter>
     );
 

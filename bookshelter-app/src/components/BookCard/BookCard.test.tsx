@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import WrappedBookCard from '.';
+import BookCard from '.';
 import { Book } from '../../types';
 
 describe('BookCard Component', () => {
@@ -24,12 +24,12 @@ describe('BookCard Component', () => {
   };
 
   test('matches snapshots', () => {
-    const { container } = render(<WrappedBookCard book={book} />);
+    const { container } = render(<BookCard book={book} />);
     expect(container).toMatchSnapshot();
   });
 
   test('renders book information correctly', () => {
-    render(<WrappedBookCard book={book} />);
+    render(<BookCard book={book} />);
 
     // Check render title correctly
     const titleElement = screen.getByRole('heading', { level: 2 });
@@ -49,7 +49,7 @@ describe('BookCard Component', () => {
   });
 
   test('renders correctly with error boundary', () => {
-    const { container } = render(<WrappedBookCard book={book} />);
+    const { container } = render(<BookCard book={book} />);
     expect(container).toBeInTheDocument();
   });
 });
