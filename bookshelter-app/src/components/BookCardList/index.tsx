@@ -11,6 +11,9 @@ interface BooksProps {
 }
 
 const BookCardList = React.memo(({ books }: BooksProps) => {
+  if (books.length === 0) {
+    return null;
+  }
   return (
     <div className={styles.bookList}>
       {books.map((book) => (

@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import BookCategory from '.';
 
 describe('BookCategory Component', () => {
@@ -55,15 +55,19 @@ describe('BookCategory Component', () => {
   });
 
   // Check navigate to the correct slug
-  // test('Test to the correct slug on click', () => {
-  //   render(
-  //     <MemoryRouter initialEntries={['/']}>
-  //       <WrappedBookCategory {...props} />
-  //     </MemoryRouter>
-  //   );
-  //   const linkElement = screen.getByTestId('link');
-  //   fireEvent.click(linkElement);
+  test('navigates to the correct slug on click', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <Routes>
+          <Route path="/" element={<BookCategory {...props} />} />
+          <Route path="/adventure" element={<div>Adventure Page</div>} />
+        </Routes>
+      </MemoryRouter>
+    );
 
-  //   expect(window.location.pathname).toBe('/adventure');
-  // });
+    const linkElement = screen.getByRole('link', { name: /adventure/i });
+    fireEvent.click(linkElement);
+
+    expect(screen.getByText(/adventure page/i)).toBeInTheDocument();
+  });
 });

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogoPage Component matches snapshots 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="44"
+    viewBox="0 0 54 44"
+    width="54"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#0D75FF"
+      fill-opacity="0.8"
+      height="22"
+      width="27"
+      x="21"
+      y="22"
+    />
+    <rect
+      fill="#0D75FF"
+      fill-opacity="0.9"
+      height="22"
+      width="27"
+      y="11"
+    />
+    <rect
+      fill="#0D75FF"
+      height="22"
+      width="27"
+      x="27"
+    />
+  </svg>
+</div>
+`;

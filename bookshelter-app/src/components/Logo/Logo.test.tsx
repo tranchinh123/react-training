@@ -20,7 +20,7 @@ describe('Logo component', () => {
     expect(logoText).toBeInTheDocument();
   });
 
-  test('contains a link to the home page', () => {
+  test('contains a link to the homepage', () => {
     render(
       <MemoryRouter>
         <Logo />

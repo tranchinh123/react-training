@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookCardList Component matches snapshots 1`] = `
+<div>
+  <div
+    class="bookList"
+  >
+    <a
+      href="/detail/63d7755f50f3cca31911ea67"
+    >
+      <div
+        class="card"
+        id="63d7755f50f3cca31911ea67"
+      >
+        <div
+          class="imageCard"
+        >
+          <img
+            alt="image of the book"
+            class="imageBook"
+            src="https://i.ibb.co/ZSRxJHH/book-1.png"
+          />
+        </div>
+        <div
+          class="bookInform"
+        >
+          <h2
+            class="nameBook"
+          >
+            Nostrud commodo sint reprehenderit duis ad sit aute.
+          </h2>
+          <p
+            class="author"
+          >
+            Naomi
+          </p>
+          <p
+            class="published"
+          >
+            2016
+          </p>
+        </div>
+      </div>
+    </a>
+    <a
+      href="/detail/63d7755f50f3cca31911ea99"
+    >
+      <div
+        class="card"
+        id="63d7755f50f3cca31911ea99"
+      >
+        <div
+          class="imageCard"
+        >
+          <img
+            alt="image of the book"
+            class="imageBook"
+            src="https://i.ibb.co/ZSRxJHH/book-1.png"
+          />
+        </div>
+        <div
+          class="bookInform"
+        >
+          <h2
+            class="nameBook"
+          >
+            Nostrud commodo sint reprehenderit duis ad sit aute.
+          </h2>
+          <p
+            class="author"
+          >
+            Henry
+          </p>
+          <p
+            class="published"
+          >
+            2018
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+`;

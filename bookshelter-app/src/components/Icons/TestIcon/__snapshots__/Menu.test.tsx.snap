@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Component matches snapshots 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="31"
+    viewBox="0 0 28 31"
+    width="28"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.5 15.5H24.5"
+      stroke="#0000001a"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+    />
+    <path
+      d="M3.5 7.75H24.5"
+      stroke="#0000001a"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+    />
+    <path
+      d="M3.5 23.25H24.5"
+      stroke="#0000001a"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="3"
+    />
+  </svg>
+</div>
+`;

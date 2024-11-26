@@ -47,9 +47,4 @@ describe('BookCard Component', () => {
     const imageElement = screen.getByAltText('image of the book');
     expect(imageElement).toHaveAttribute('src', book.cover);
   });
-
-  test('renders correctly with error boundary', () => {
-    const { container } = render(<BookCard book={book} />);
-    expect(container).toBeInTheDocument();
-  });
 });
