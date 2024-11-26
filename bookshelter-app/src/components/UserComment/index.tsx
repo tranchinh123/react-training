@@ -2,9 +2,16 @@ import React from 'react';
 import styles from './index.module.css';
 import iconUser from '../../assets/images/iconUser.png';
 import { Comment } from '../../types';
+import isEqual from 'react-fast-compare';
+
 interface CommentProps {
   comments: Comment[];
 }
+
+const areEqual = (prevProps: CommentProps, nextProps: CommentProps) => {
+  return isEqual(prevProps.comments, nextProps.comments);
+};
+
 const UserComments = React.memo(({ comments }: CommentProps) => {
   return (
     <>
@@ -21,6 +28,6 @@ const UserComments = React.memo(({ comments }: CommentProps) => {
       ))}
     </>
   );
-});
+}, areEqual);
 
 export default UserComments;

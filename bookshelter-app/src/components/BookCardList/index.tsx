@@ -5,10 +5,15 @@ import { Book } from '../../types';
 import { Link } from 'react-router-dom';
 import ErrorComponent from '../../error/ErrorComponent';
 import ErrorBoundary from '../../error/ErrorBoundary';
+import isEqual from 'react-fast-compare';
 
 interface BooksProps {
   books: Book[];
 }
+
+const areEqual = (prevProps: BooksProps, nextProps: BooksProps) => {
+  return isEqual(prevProps.books, nextProps.books);
+};
 
 const BookCardList = React.memo(({ books }: BooksProps) => {
   if (books.length === 0) {
@@ -25,6 +30,6 @@ const BookCardList = React.memo(({ books }: BooksProps) => {
       ))}
     </div>
   );
-});
+}, areEqual);
 
 export default BookCardList;

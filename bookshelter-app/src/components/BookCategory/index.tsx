@@ -1,5 +1,6 @@
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
+import isEqual from 'react-fast-compare';
 
 import React from 'react';
 interface BookCategoryProps {
@@ -10,22 +11,32 @@ interface BookCategoryProps {
   onClick: () => void;
 }
 
+const areEqual = (
+  prevProps: BookCategoryProps,
+  nextProps: BookCategoryProps
+) => {
+  return isEqual(prevProps.onClick, nextProps.onClick);
+};
 
 const BookCategory = React.memo(
   ({ name, totalBooks, color, categorySlug, onClick }: BookCategoryProps) => {
     return (
       <Link to={`/${categorySlug}`}>
         <div className={styles.categoryItem} onClick={onClick}>
-          <div data-testid="initials" style={{ backgroundColor: color }} className={styles.initials}>
+          <div
+            data-testid="initials"
+            style={{ backgroundColor: color }}
+            className={styles.initials}
+          >
             {name.slice(0, 2)}
           </div>
           <p className={styles.category}>{name}</p>
           <p className={styles.bookQuantity}>{totalBooks}</p>
-
         </div>
       </Link>
     );
-  }
+  },
+  areEqual
 );
 
 export default BookCategory;

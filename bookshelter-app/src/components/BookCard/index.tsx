@@ -1,9 +1,14 @@
+import React from 'react';
 import styles from './index.module.css';
 import { Book } from '../../types';
-import React from 'react';
+import isEqual from 'react-fast-compare';
 interface BookCardProps {
   book: Book;
 }
+
+const areEqual = (prevProps: BookCardProps, nextProps: BookCardProps) => {
+  return isEqual(prevProps.book, nextProps.book);
+};
 
 const BookCard = React.memo(({ book }: BookCardProps) => {
   return (
@@ -22,6 +27,6 @@ const BookCard = React.memo(({ book }: BookCardProps) => {
       </div>
     </div>
   );
-});
+}, areEqual);
 
 export default BookCard;

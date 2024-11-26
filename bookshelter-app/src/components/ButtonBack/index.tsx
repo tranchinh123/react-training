@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from './index.module.css';
 import LeftArrow from '../Icons/LeftArrow';
+import isEqual from 'react-fast-compare';
 interface ButtonBackProps {
   handleBackClick: () => void;
 }
+
+const areEqual = (prevProps: ButtonBackProps, nextProps: ButtonBackProps) => {
+  return isEqual(prevProps.handleBackClick, nextProps.handleBackClick);
+};
 
 const ButtonBack = React.memo(({ handleBackClick }: ButtonBackProps) => {
   return (
@@ -12,6 +17,6 @@ const ButtonBack = React.memo(({ handleBackClick }: ButtonBackProps) => {
       <span className={styles.backText}>Back</span>
     </button>
   );
-});
+}, areEqual);
 
 export default ButtonBack;

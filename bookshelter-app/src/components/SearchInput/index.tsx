@@ -1,12 +1,18 @@
 import styles from './index.module.css';
 import Glass from '../Icons/Glass';
 import React from 'react';
+import isEqual from 'react-fast-compare';
+
 interface SearchInputProps {
   searchTerm: string;
   onOpen: () => void;
   onHandleChange: (value: string) => void;
   onHandleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
+
+const areEqual = (prevProps: SearchInputProps, nextProps: SearchInputProps) => {
+  return isEqual(prevProps, nextProps);
+};
 
 const SearchInput = React.memo(
   ({ searchTerm, onHandleChange, onHandleKeyDown }: SearchInputProps) => {
@@ -25,7 +31,8 @@ const SearchInput = React.memo(
         />
       </div>
     );
-  }
+  },
+  areEqual
 );
 
 export default SearchInput;
