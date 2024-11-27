@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Not Found Page matches snapshots 1`] = `
+<div>
+  <div
+    class="notFoundPage"
+  >
+    <svg
+      fill="none"
+      height="22"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 22 22"
+      width="22"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.38036 18.1429C14.0087 18.1429 17.7607 14.3053 17.7607 9.57143C17.7607 4.83756 14.0087 1 9.38036 1C4.75201 1 1 4.83756 1 9.57143C1 14.3053 4.75201 18.1429 9.38036 18.1429Z"
+        stroke="#B8B9BE"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M15.6656 16L20.5542 21"
+        stroke="#B8B9BE"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <p
+      class="text"
+    >
+      No results found
+    </p>
+  </div>
+</div>
+`;

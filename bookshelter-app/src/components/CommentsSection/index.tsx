@@ -12,17 +12,13 @@ import { ValidationErrors, validateForm } from '../../validator/validator';
 import SkeletonCommentSection from '../Skeleton/SkeletonCommentSection';
 import ErrorComponent from '../../error/ErrorComponent';
 import ErrorBoundary from '../../error/ErrorBoundary';
-import isEqual from 'react-fast-compare';
+import { areEqual } from '../../utils/areEqual';
 
 const UserComments = lazy(() => import('../UserComment'));
 
 interface BookProps {
   book: Book;
 }
-
-const areEqual = (prevProps: BookProps, nextProps: BookProps) => {
-  return isEqual(prevProps.book, nextProps.book);
-};
 
 const CommentSection = React.memo(({ book }: BookProps) => {
   const [isShow, setIsShow] = useState(false);

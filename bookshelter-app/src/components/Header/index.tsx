@@ -18,17 +18,13 @@ import { useToast } from '../../hooks/useToast';
 import ErrorBoundary from '../../error/ErrorBoundary';
 import ErrorComponent from '../../error/ErrorComponent';
 import SkeletonSearchResults from '../Skeleton/SkeletonSearchResults';
-import isEqual from 'react-fast-compare';
+import { areEqual } from '../../utils/areEqual';
 
 const SearchResults = lazy(() => import('../SearchResults'));
 
 interface HeaderProps {
   onClick: () => void;
 }
-
-const areEqual = (prevProps: HeaderProps, nextProps: HeaderProps) => {
-  return isEqual(prevProps.onClick, nextProps.onClick);
-};
 
 const Header = React.memo(({ onClick }: HeaderProps) => {
   const [results, setResults] = useState<Book[]>([]);
@@ -120,7 +116,6 @@ const Header = React.memo(({ onClick }: HeaderProps) => {
       <div ref={searchRef}>
         <SearchInput
           searchTerm={searchTerm}
-          onOpen={handleOpen}
           onHandleChange={onHandleChange}
           onHandleKeyDown={onHandleKeyDown}
         />

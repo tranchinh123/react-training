@@ -6,20 +6,12 @@ import { Category } from '../../types';
 import React, { useCallback, useMemo } from 'react';
 import ErrorBoundary from '../../error/ErrorBoundary';
 import ErrorComponent from '../../error/ErrorComponent';
-import isEqual from 'react-fast-compare';
-
+import { areEqual } from '../../utils/areEqual';
 interface CategoryListProps {
   categories: Category[];
   isMenuOpen: boolean;
   setIsMenuOpen: (open: boolean) => void;
 }
-
-const areEqual = (
-  prevProps: CategoryListProps,
-  nextProps: CategoryListProps
-) => {
-  return isEqual(prevProps, nextProps);
-};
 
 const CategoryList = React.memo(
   ({ categories, isMenuOpen, setIsMenuOpen }: CategoryListProps) => {

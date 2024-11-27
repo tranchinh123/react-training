@@ -1,6 +1,6 @@
 import styles from './index.module.css';
 import { Link } from 'react-router-dom';
-import isEqual from 'react-fast-compare';
+import { areEqual } from '../../utils/areEqual';
 
 import React from 'react';
 interface BookCategoryProps {
@@ -10,13 +10,6 @@ interface BookCategoryProps {
   categorySlug: string;
   onClick: () => void;
 }
-
-const areEqual = (
-  prevProps: BookCategoryProps,
-  nextProps: BookCategoryProps
-) => {
-  return isEqual(prevProps.onClick, nextProps.onClick);
-};
 
 const BookCategory = React.memo(
   ({ name, totalBooks, color, categorySlug, onClick }: BookCategoryProps) => {

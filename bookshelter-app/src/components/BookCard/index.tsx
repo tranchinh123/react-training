@@ -1,14 +1,10 @@
 import React from 'react';
 import styles from './index.module.css';
 import { Book } from '../../types';
-import isEqual from 'react-fast-compare';
+import { areEqual } from '../../utils/areEqual';
 interface BookCardProps {
   book: Book;
 }
-
-const areEqual = (prevProps: BookCardProps, nextProps: BookCardProps) => {
-  return isEqual(prevProps.book, nextProps.book);
-};
 
 const BookCard = React.memo(({ book }: BookCardProps) => {
   return (

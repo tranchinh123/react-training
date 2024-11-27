@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Component matches snapshots 1`] = `
+<div>
+  <div
+    class="modal"
+  >
+    <div
+      class="loader"
+    />
+  </div>
+</div>
+`;

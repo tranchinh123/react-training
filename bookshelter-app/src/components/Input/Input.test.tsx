@@ -4,6 +4,14 @@ import '@testing-library/jest-dom';
 import Input from '.';
 
 describe('Input Component', () => {
+  test('matches snapshots', () => {
+    const labelText = 'Username';
+    const ref = React.createRef<HTMLInputElement>();
+
+    const { container } = render(<Input label={labelText} ref={ref} />);
+    expect(container).toMatchSnapshot();
+  });
+
   test('renders the label and input', () => {
     const labelText = 'Username';
     const ref = React.createRef<HTMLInputElement>();

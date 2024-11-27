@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component matches snapshots 1`] = `
+<div>
+  <label
+    class="name"
+    for="input"
+  >
+    Username
+  </label>
+  <input
+    class="input"
+    id="input"
+    type="text"
+  />
+</div>
+`;

@@ -1,19 +1,13 @@
 import styles from './index.module.css';
 import { Book } from '../../types';
 import { Link } from 'react-router-dom';
-import isEqual from 'react-fast-compare';
+import { areEqual } from '../../utils/areEqual';
 
 import React from 'react';
 interface SearchResultsProps {
   results: Book[];
   onClose: () => void;
 }
-const areEqual = (
-  prevProps: SearchResultsProps,
-  nextProps: SearchResultsProps
-) => {
-  return isEqual(prevProps, nextProps);
-};
 
 const SearchResults = React.memo(({ results, onClose }: SearchResultsProps) => {
   return (

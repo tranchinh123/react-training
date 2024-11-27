@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserComment Component matches snapshots 1`] = `
+<div>
+  <div
+    class="userComment"
+  >
+    <div
+      class="Comments"
+    >
+      <img
+        alt="iconUser"
+        class="avatar"
+        src="test-file-stub"
+      />
+      <div>
+        <div
+          class="userName"
+        >
+          John
+        </div>
+        <div
+          class="comment"
+        >
+          Hello!
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="userComment"
+  >
+    <div
+      class="Comments"
+    >
+      <img
+        alt="iconUser"
+        class="avatar"
+        src="test-file-stub"
+      />
+      <div>
+        <div
+          class="userName"
+        >
+          Henry
+        </div>
+        <div
+          class="comment"
+        >
+          Test!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
