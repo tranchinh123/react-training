@@ -38,23 +38,23 @@ describe('HeaderContentSection component', () => {
     expect(screen.getByRole('button', { name: /back/i })).toBeInTheDocument();
   });
 
-  // test('calls navigate with -1 when back button is clicked', () => {
-  //   const navigate = jest.fn();
+  test('calls navigate with -1 when back button is clicked', () => {
+    const navigate = jest.fn();
 
-  //   jest.mock('react-router-dom', () => ({
-  //     ...jest.requireActual('react-router-dom'),
-  //     useNavigate: () => navigate,
-  //   }));
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'),
+      useNavigate: () => navigate,
+    }));
 
-  //   render(
-  //     <MemoryRouter>
-  //       <HeaderContentSection {...props} />
-  //     </MemoryRouter>
-  //   );
+    render(
+      <MemoryRouter>
+        <HeaderContentSection {...props} />
+      </MemoryRouter>
+    );
 
-  //   const backButton = screen.getByRole('button', { name: /back/i });
-  //   fireEvent.click(backButton);
+    const backButton = screen.getByRole('button', { name: /back/i });
+    fireEvent.click(backButton);
 
-  //   expect(navigate).toHaveBeenCalledWith(-1);
-  // });
+    expect(navigate).toHaveBeenCalledWith(-1);
+  });
 });

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoriesSection matches snapshots 1`] = `
+<div>
+  <section
+    class="categoriesSection"
+  >
+    <p
+      class="categories"
+    >
+      Categories
+    </p>
+    <div
+      class="wrapped"
+    >
+      <p
+        class="showQuantity"
+      >
+        Showing 0 Result(s)
+      </p>
+    </div>
+  </section>
+</div>
+`;
