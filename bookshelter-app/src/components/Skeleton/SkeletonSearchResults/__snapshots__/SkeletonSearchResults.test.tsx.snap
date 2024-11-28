@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonSearchResults matches snapshots 1`] = `
+<div>
+  <div
+    class="resultListSkeleton"
+  >
+    <div
+      class="bookItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-right: 20px; width: 45px; height: 45px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 550px; height: 30px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="bookItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-right: 20px; width: 45px; height: 45px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 550px; height: 30px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="bookItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-right: 20px; width: 45px; height: 45px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 550px; height: 30px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="bookItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-right: 20px; width: 45px; height: 45px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 550px; height: 30px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+  </div>
+</div>
+`;

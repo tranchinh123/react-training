@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonDetailPage matches snapshots 1`] = `
+<div>
+  <div
+    class="contentSection"
+  >
+    <div
+      data-testid="skeleton-header"
+    >
+      Header Skeleton
+    </div>
+    <div
+      data-testid="skeleton-info"
+    >
+      Info Skeleton
+    </div>
+    <div
+      data-testid="skeleton-main"
+    >
+      Main Skeleton
+    </div>
+  </div>
+</div>
+`;

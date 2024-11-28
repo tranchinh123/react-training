@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonSearchResults matches snapshots 1`] = `
+<div>
+  <div
+    class="mainContentSection"
+    data-testid="skeleton-item"
+  >
+    <span
+      aria-busy="true"
+      aria-live="polite"
+    >
+      <span
+        class="react-loading-skeleton"
+        style="margin-bottom: 20px; width: 430px; height: 230px;"
+      >
+        ‌
+      </span>
+      <br />
+    </span>
+    <span
+      aria-busy="true"
+      aria-live="polite"
+    >
+      <span
+        class="react-loading-skeleton"
+        style="width: 1100px;"
+      >
+        ‌
+      </span>
+      <br />
+      <span
+        class="react-loading-skeleton"
+        style="width: 1100px;"
+      >
+        ‌
+      </span>
+      <br />
+      <span
+        class="react-loading-skeleton"
+        style="width: 1100px;"
+      >
+        ‌
+      </span>
+      <br />
+      <span
+        class="react-loading-skeleton"
+        style="width: 1100px;"
+      >
+        ‌
+      </span>
+      <br />
+    </span>
+  </div>
+  <div
+    class="commentsSection"
+  >
+    <div
+      class="Comments"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-right: 20px; width: 150px; height: 30px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 30px; height: 30px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+  </div>
+</div>
+`;

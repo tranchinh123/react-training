@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonBookCardList  matches snapshots 1`] = `
+<div>
+  <div
+    class="BookCardListSkeleton"
+  >
+    <div
+      class="cardSkeleton"
+      data-testid="skeleton-item"
+    >
+      <div
+        class="imageCardSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+          class="flex-1"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 200px; height: 200px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="bookInformSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+    <div
+      class="cardSkeleton"
+      data-testid="skeleton-item"
+    >
+      <div
+        class="imageCardSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+          class="flex-1"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 200px; height: 200px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="bookInformSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+    <div
+      class="cardSkeleton"
+      data-testid="skeleton-item"
+    >
+      <div
+        class="imageCardSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+          class="flex-1"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 200px; height: 200px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="bookInformSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+    <div
+      class="cardSkeleton"
+      data-testid="skeleton-item"
+    >
+      <div
+        class="imageCardSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+          class="flex-1"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 200px; height: 200px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="bookInformSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+    <div
+      class="cardSkeleton"
+      data-testid="skeleton-item"
+    >
+      <div
+        class="imageCardSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+          class="flex-1"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 200px; height: 200px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="bookInformSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+    <div
+      class="cardSkeleton"
+      data-testid="skeleton-item"
+    >
+      <div
+        class="imageCardSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+          class="flex-1"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 200px; height: 200px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+      <div
+        class="bookInformSkeleton"
+      >
+        <span
+          aria-busy="true"
+          aria-live="polite"
+        >
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+          <span
+            class="react-loading-skeleton"
+            style="width: 250px;"
+          >
+            ‌
+          </span>
+          <br />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,272 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonBookCategoryList matches snapshots 1`] = `
+<div>
+  <section
+    class="categoryListSkeleton"
+  >
+    <div
+      class="curatedListSkeleton"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 240px; height: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="categoryItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 120px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="categoryItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 120px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="categoryItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 120px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="categoryItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 120px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="categoryItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 120px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="categoryItemSkeleton"
+      data-testid="skeleton-item"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 40px; height: 40px; border-radius: 50%;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 120px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 20px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+  </section>
+</div>
+`;

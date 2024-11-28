@@ -16,7 +16,11 @@ const SkeletonBookCategoryList = ({
       {Array(bookCategory)
         .fill(0)
         .map((_, index) => (
-          <div className={styles.categoryItemSkeleton} key={index}>
+          <div
+            className={styles.categoryItemSkeleton}
+            key={index}
+            data-testid="skeleton-item"
+          >
             <Skeleton circle width={40} height={40} />
             <Skeleton width={120} />
             <Skeleton width={20} />

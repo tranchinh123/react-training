@@ -8,7 +8,11 @@ const SkeletonSearchResults = () => {
       {Array(4)
         .fill(0)
         .map((_, i) => (
-          <div className={styles.bookItemSkeleton} key={i}>
+          <div
+            className={styles.bookItemSkeleton}
+            key={i}
+            data-testid="skeleton-item"
+          >
             <Skeleton width={45} height={45} style={{ marginRight: '20px' }} />
             <Skeleton width={550} height={30} />
           </div>

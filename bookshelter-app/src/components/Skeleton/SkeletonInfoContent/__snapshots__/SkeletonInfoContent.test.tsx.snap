@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonSearchResults matches snapshots 1`] = `
+<div>
+  <div
+    class="infoContentSection"
+    data-testid="skeleton-item"
+  >
+    <div
+      class="textInfo"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-bottom: 10px; width: 68px; height: 25px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-bottom: 10px; width: 68px; height: 25px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 68px; height: 25px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+    <div
+      class="infoBook"
+    >
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-bottom: 10px; width: 130px; height: 23px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="margin-bottom: 15px; width: 130px; height: 23px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+      <span
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <span
+          class="react-loading-skeleton"
+          style="width: 130px; height: 23px;"
+        >
+          ‌
+        </span>
+        <br />
+      </span>
+    </div>
+  </div>
+</div>
+`;

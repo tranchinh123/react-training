@@ -1,7 +1,7 @@
 import { Toast } from '../../types';
 import styles from './index.module.css';
 
-const ToastMessage: React.FC<{ toast: Toast }> = ({ toast }) => {
+const ToastMessage: React.FC<{ toast: Toast | null }> = ({ toast }) => {
   if (!toast) return null;
 
   return (

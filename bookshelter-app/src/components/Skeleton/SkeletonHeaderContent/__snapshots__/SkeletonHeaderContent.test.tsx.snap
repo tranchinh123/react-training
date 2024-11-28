@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonSearchResults matches snapshots 1`] = `
+<div>
+  <div
+    class="headerContentSectionSkeleton"
+    data-testid="skeleton-item"
+  >
+    <span
+      aria-busy="true"
+      aria-live="polite"
+    >
+      <span
+        class="react-loading-skeleton"
+        style="margin-right: 25px; width: 70px; height: 20px;"
+      >
+        ‌
+      </span>
+      <br />
+    </span>
+    <span
+      aria-busy="true"
+      aria-live="polite"
+    >
+      <span
+        class="react-loading-skeleton"
+        style="width: 1000px; height: 30px;"
+      >
+        ‌
+      </span>
+      <br />
+    </span>
+  </div>
+</div>
+`;

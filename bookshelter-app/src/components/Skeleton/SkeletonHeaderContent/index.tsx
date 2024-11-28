@@ -4,7 +4,10 @@ import styles from './index.module.css';
 
 const SkeletonHeaderContent = () => {
   return (
-    <div className={styles.headerContentSectionSkeleton}>
+    <div
+      className={styles.headerContentSectionSkeleton}
+      data-testid="skeleton-item"
+    >
       <Skeleton width={70} height={20} style={{ marginRight: '25px' }} />
       <Skeleton width={1000} height={30} />
     </div>

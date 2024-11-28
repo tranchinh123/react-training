@@ -6,7 +6,7 @@ const SkeletonCommentSection = () => {
   return (
     <>
       <div>
-        <div className={styles.userCommentSkeleton}>
+        <div className={styles.userCommentSkeleton} data-testid="skeleton-item">
           <div className={styles.CommentsSkeleton}>
             <Skeleton
               circle

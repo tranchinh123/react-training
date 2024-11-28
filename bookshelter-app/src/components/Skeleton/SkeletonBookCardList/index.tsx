@@ -12,7 +12,11 @@ const SkeletonBookCardList = ({ cards }: SkeletonBookCardListProps) => {
       {Array(cards)
         .fill(0)
         .map((_, index) => (
-          <div className={styles.cardSkeleton} key={index}>
+          <div
+            className={styles.cardSkeleton}
+            key={index}
+            data-testid="skeleton-item"
+          >
             <div className={styles.imageCardSkeleton}>
               <Skeleton containerClassName="flex-1" width={200} height={200} />
             </div>

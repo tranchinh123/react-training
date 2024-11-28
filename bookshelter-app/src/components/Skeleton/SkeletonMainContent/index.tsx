@@ -5,7 +5,7 @@ import styles from './index.module.css';
 const SkeletonMainContent = () => {
   return (
     <>
-      <div className={styles.mainContentSection}>
+      <div className={styles.mainContentSection} data-testid="skeleton-item">
         <Skeleton width={430} height={230} style={{ marginBottom: '20px' }} />
         <Skeleton width={1100} count={4} />
       </div>
