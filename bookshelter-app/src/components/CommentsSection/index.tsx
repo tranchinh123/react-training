@@ -55,15 +55,26 @@ const CommentSection = React.memo(({ book }: BookProps) => {
         comment: comment,
       };
 
-      setComments((prevComments) => [...prevComments, newComment]);
-      book.comments.push(newComment);
+      const updatedComments = [...comments, newComment];
+      setComments(updatedComments);
 
       try {
-        await edit(book, API.BOOKS_ENDPOINT, book.id, showToast);
-        if (nameRef.current) nameRef.current.value = '';
-        if (commentRef.current) commentRef.current.value = '';
+        const result = await edit(
+          { ...book, comments: updatedComments },
+          API.BOOKS_ENDPOINT,
+          book.id
+        );
+
+        if (result && 'error' in result) {
+          showToast('Failed to fetch data to get book', 'error');
+        } else {
+          showToast('Post comment success', 'success');
+          if (nameRef.current) nameRef.current.value = '';
+          if (commentRef.current) commentRef.current.value = '';
+        }
       } catch (error) {
         console.error('Error adding comment:', error);
+        showToast('An unexpected error occurred. Please try again.', 'error');
       }
     },
     [book, showToast]

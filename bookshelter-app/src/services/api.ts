@@ -57,9 +57,8 @@ const getByID = async (
 const edit = async (
   data: Book,
   endPoint: string,
-  id: string,
-  showToast: (message: string, type: 'success' | 'error') => void
-): Promise<void> => {
+  id: string
+): Promise<void | FetchError> => {
   try {
     const response = await fetch(`${API.BASE_URL}${endPoint}/${id}`, {
       method: 'PUT', // or PATCH
@@ -68,12 +67,14 @@ const edit = async (
     });
     if (response.ok) {
       const data = await response.json();
-      showToast('Success add a comment', 'success');
       return data;
+    } else {
+      return { error: `Error: ${response.status} ${response.statusText}` };
     }
   } catch (error) {
-    showToast('Failed to fetch data to post', 'error');
-    console.error('Something went wrong', error);
+    return {
+      error: `Fetch error: ${error instanceof Error ? error.message : 'Unknown error'}`,
+    };
   }
 };
 
