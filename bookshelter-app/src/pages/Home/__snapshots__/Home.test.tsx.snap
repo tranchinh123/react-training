@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage matches the snapshot when books are fetched successfully 1`] = `
+<DocumentFragment>
+  <div>
+    BookCardList
+  </div>
+</DocumentFragment>
+`;

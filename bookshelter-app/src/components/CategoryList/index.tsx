@@ -52,9 +52,13 @@ const CategoryList = React.memo(
 
         {isMenuOpen && (
           <section className={styles.categoryListMobile}>
-            <div className={styles.iconClose} onClick={handleClickClose}>
+            <button
+              className={styles.iconClose}
+              onClick={handleClickClose}
+              aria-label="Close"
+            >
               <Close />
-            </div>
+            </button>
             <p className={styles.curatedList}>
               A curated list of every book ever written
             </p>

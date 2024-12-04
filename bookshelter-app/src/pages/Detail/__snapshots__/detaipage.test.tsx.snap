@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailPage matches the snapshot when data is fetched successfully 1`] = `
+<DocumentFragment>
+  <div
+    class="contentSection"
+  >
+    <div>
+      HeaderContentSection
+    </div>
+    <div>
+      InfoContentSection
+    </div>
+    <div>
+      MainContentSection
+    </div>
+    <div>
+      CommentsSection
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DetailPage matches the snapshot when loading 1`] = `
+<DocumentFragment>
+  <div>
+    Loading...
+  </div>
+</DocumentFragment>
+`;
