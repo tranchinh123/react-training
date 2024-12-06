@@ -12,7 +12,7 @@ describe('Input Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders the label and input', () => {
+  test('should renders the label and input', () => {
     const labelText = 'Username';
     const ref = React.createRef<HTMLInputElement>();
 

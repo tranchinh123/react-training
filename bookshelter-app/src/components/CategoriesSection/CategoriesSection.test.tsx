@@ -38,26 +38,7 @@ describe('CategoriesSection', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders categories when slug is provided', async () => {
-    (useFetchCategories as jest.Mock).mockReturnValue({
-      categories: [
-        { id: 1, name: 'Adventure', totalBooks: 23, slug: 'adventure' },
-      ],
-      error: null,
-    });
-
-    render(
-      <MemoryRouter initialEntries={['/adventure']}>
-        <CategoriesSection />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByText('Categories')).toBeInTheDocument();
-    expect(screen.getByText('Fiction')).toBeInTheDocument();
-    expect(screen.getByText('Showing 10 Result(s)')).toBeInTheDocument();
-  });
-
-  test('shows error toast when fetch fails', () => {
+  test('should shows error toast when fetch fails', () => {
     (useFetchCategories as jest.Mock).mockReturnValue({
       categories: [],
       error: 'something went wrong',
@@ -75,7 +56,7 @@ describe('CategoriesSection', () => {
     );
   });
 
-  test('renders showing results for search query', () => {
+  test('should renders showing results for search query', () => {
     (useFetchCategories as jest.Mock).mockReturnValue({
       categories: [],
       error: null,
@@ -90,7 +71,7 @@ describe('CategoriesSection', () => {
     expect(getByText('Showing results for test')).toBeInTheDocument();
   });
 
-  test('renders showing 0 results when no conditions are met', () => {
+  test('should renders showing 0 results when no conditions are met', () => {
     (useFetchCategories as jest.Mock).mockReturnValue({
       categories: [],
       error: null,

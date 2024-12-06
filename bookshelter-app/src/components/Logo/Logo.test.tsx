@@ -6,7 +6,7 @@ import Logo from '.';
 jest.mock('../Icons/Logo', () => () => <svg data-testid="logo-icon" />);
 
 describe('Logo component', () => {
-  test('renders Logo with text and icon', () => {
+  test('should renders Logo with text and icon', () => {
     render(
       <MemoryRouter>
         <Logo />
@@ -20,7 +20,7 @@ describe('Logo component', () => {
     expect(logoText).toBeInTheDocument();
   });
 
-  test('contains a link to the homepage', () => {
+  test('should contains a link to the homepage', () => {
     render(
       <MemoryRouter>
         <Logo />

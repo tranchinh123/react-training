@@ -1,20 +1,20 @@
 # training-react
 
-# REACT BASIC PRACTICE
+# REACT ADVANCED PRACTICE
 
 ## OVERVIEW
 
-- This document provides requirements, technical stack, and estimation for React Basic Practice.
+- This document provides requirements, technical stack, and estimation for React Advanced Practice.
 - Design [Figma](https://www.figma.com/design/K53tONfNCdHH5ukLs5IcPp/bookshelter---React-practice?node-id=2314-32&node-type=frame&t=xu6nbwioznKB9eb8-0)
 
 ## TARGETS
 
-- Understand and apply knowledge of HTML5, CSS3, JavaScript (with ES6 syntax).
-- Understand and apply TypeScript in React.
-- Get familiar with JSX syntax and be able to implement React components based on real UI design
-- Understanding how React hooks work
-- Learn to debug with React developer tools
-- Set up and build Storybook to manage components
+- Apply useContext for state management (You can scan state management part to be offered more options).
+- Take a narrow view to check re-rendering and optimize performance of one React application.
+- Become better understood and create your own custom hook to reduce redundant code.
+- Study and apply uncontrolled components in some cases to avoid needless state management gradually.
+- Be aware of catching common and specific errors (errors from api, from logic,...) for one React application to prevent crashing issues dramatically.
+- Check PageSpeed scores frequently during development time and ensure the scores at minimum 98 points.
 
 ## TECHNICAL STACK
 
@@ -29,8 +29,14 @@
 
 ## REQUIREMENTS
 
-- Build a Book Web Application that follows the design.
-- Build a storybook for components in the app.
+- Apply code-splitting
+- Apply useContext to manage state globally
+- Catching rendering errors with an error boundary
+- Apply uncontrolled components to avoid needless state management gradually.
+- Building custom hooks to reduce redundant code.
+- Implement Unit Test for app
+- Apply react.memo to skip re-render when props are unchanged
+- Implement Comments in detail page.
 
 ## PREREQUISITE
 
@@ -49,7 +55,7 @@ git clone https://github.com/tranchinh123/react-training.git
 2. Git checkout
 
 ```
-git checkout feat/practice-one
+git checkout feat/react-advanced=practice
 cd bookshelter-app
 ```
 

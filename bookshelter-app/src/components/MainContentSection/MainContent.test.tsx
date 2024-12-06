@@ -14,7 +14,7 @@ describe('MainContent Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('render MainContent component correctly', () => {
+  test('should render MainContent component correctly', () => {
     render(<MainContentSection {...props} />);
 
     const imgElement = screen.getByRole('img', { name: /image of the book/i });

@@ -8,7 +8,7 @@ describe('SkeletonSearchResults', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders the correct number of skeleton items', () => {
+  test('should renders the correct number of skeleton items', () => {
     render(<SkeletonSearchResults />);
 
     const skeletonItems = screen.getAllByTestId('skeleton-item');
@@ -16,7 +16,7 @@ describe('SkeletonSearchResults', () => {
     expect(skeletonItems.length).toBe(4);
   });
 
-  test('renders skeleton structure correctly', () => {
+  test('should renders skeleton structure correctly', () => {
     render(<SkeletonSearchResults />);
 
     const skeletons = screen.getAllByTestId('skeleton-item');

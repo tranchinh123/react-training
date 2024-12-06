@@ -4,7 +4,7 @@ import ToastMessage from './';
 import { Toast } from '../../types';
 
 describe('ToastMessage', () => {
-  test('renders successfully toast message', () => {
+  test('should renders successfully toast message', () => {
     const toast: Toast = { message: 'Operation successful!', type: 'success' };
 
     render(<ToastMessage toast={toast} />);
@@ -17,7 +17,7 @@ describe('ToastMessage', () => {
     expect(toastElement).toHaveClass('toastSuccess');
   });
 
-  test('renders failed toast message', () => {
+  test('should renders failed toast message', () => {
     const toast: Toast = { message: 'Operation failed!', type: 'error' };
 
     render(<ToastMessage toast={toast} />);
@@ -28,7 +28,7 @@ describe('ToastMessage', () => {
     expect(toastElement).toHaveClass('toastFailed');
   });
 
-  test('does not render when toast is null', () => {
+  test('should does not render when toast is null', () => {
     const { container } = render(<ToastMessage toast={null} />);
 
     expect(container).toBeEmptyDOMElement();

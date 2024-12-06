@@ -5,7 +5,7 @@ import ButtonBack from '.';
 jest.mock('../Icons/LeftArrow', () => () => <svg data-testid="left-arrow" />);
 
 describe('ButtonBack component', () => {
-  test('renders button with Back text and LeftArrow icon', () => {
+  test('should renders button with Back text and LeftArrow icon', () => {
     render(<ButtonBack handleBackClick={jest.fn()} />);
 
     const buttonElement = screen.getByRole('button');
@@ -18,7 +18,7 @@ describe('ButtonBack component', () => {
     expect(leftArrowIcon).toBeInTheDocument();
   });
 
-  test('calls handleBackClick when button is clicked', () => {
+  test('should calls handleBackClick when button is clicked', () => {
     const handleBackClick = jest.fn();
     render(<ButtonBack handleBackClick={handleBackClick} />);
 

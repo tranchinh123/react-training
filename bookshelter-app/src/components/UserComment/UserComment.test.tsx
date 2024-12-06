@@ -21,7 +21,7 @@ describe('UserComment Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders comments correctly', () => {
+  test('should renders comments correctly', () => {
     render(<UserComments comments={comments} />);
 
     comments.forEach((comment) => {
@@ -30,13 +30,13 @@ describe('UserComment Component', () => {
     });
   });
 
-  test('renders nothing when there are no comments', () => {
+  test('should renders nothing when there are no comments', () => {
     const { container } = render(<UserComments comments={[]} />);
     const commentElements = container.querySelectorAll('.userComment');
     expect(commentElements.length).toBe(0);
   });
 
-  test('does not re-render when comments do not change', () => {
+  test('should does not re-render when comments do not change', () => {
     const { rerender } = render(<UserComments comments={comments} />);
 
     const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});

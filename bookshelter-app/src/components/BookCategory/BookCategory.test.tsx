@@ -23,7 +23,7 @@ describe('BookCategory Component', () => {
   });
 
   // Check render UI component
-  test('render correctly with given props', () => {
+  test('should render correctly with given props', () => {
     render(
       <MemoryRouter>
         <BookCategory {...props} />
@@ -42,7 +42,7 @@ describe('BookCategory Component', () => {
   });
 
   // Calls onClick when user click
-  test('Calls onClick when the category is clicked ', () => {
+  test('should calls onClick when the category is clicked ', () => {
     render(
       <MemoryRouter>
         <BookCategory {...props} />
@@ -55,7 +55,7 @@ describe('BookCategory Component', () => {
   });
 
   // Check navigate to the correct slug
-  test('navigates to the correct slug on click', () => {
+  test('should navigates to the correct slug on click', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <Routes>

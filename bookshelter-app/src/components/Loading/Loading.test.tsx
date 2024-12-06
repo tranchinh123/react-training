@@ -8,12 +8,12 @@ describe('Loading Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('render without crashing', () => {
+  test('should render LoadingComponent without crashing', () => {
     const { container } = render(<Loading />);
     expect(container).toBeInTheDocument();
   });
 
-  test('has correct class names', () => {
+  test('should has correct class names', () => {
     const { container } = render(<Loading />);
     expect(container.firstChild).toHaveClass('modal');
 

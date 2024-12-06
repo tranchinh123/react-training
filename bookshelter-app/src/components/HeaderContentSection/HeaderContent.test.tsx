@@ -18,7 +18,7 @@ describe('HeaderContentSection component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders the title correctly', () => {
+  test('should renders the title correctly', () => {
     render(
       <MemoryRouter>
         <HeaderContentSection {...props} />
@@ -28,7 +28,7 @@ describe('HeaderContentSection component', () => {
     expect(screen.getByText(props.title)).toBeInTheDocument();
   });
 
-  test('renders the back button', () => {
+  test('should renders the back button', () => {
     render(
       <MemoryRouter>
         <HeaderContentSection {...props} />

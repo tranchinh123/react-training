@@ -9,7 +9,7 @@ describe('InfoContentSection component', () => {
     publisher: 'Example Publisher',
   };
 
-  test('renders author, published year, and publisher', () => {
+  test('should renders author, published year, and publisher', () => {
     render(<InfoContentSection {...props} />);
 
     expect(screen.getByText(/author:/i)).toBeInTheDocument();

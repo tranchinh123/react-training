@@ -28,7 +28,7 @@ describe('BookCard Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders book information correctly', () => {
+  test('should renders book information correctly', () => {
     render(<BookCard book={book} />);
 
     // Check render title correctly

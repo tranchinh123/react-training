@@ -8,7 +8,7 @@ describe('SkeletonBookCategoryList', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('render the correct number of skeleton items', () => {
+  test('should render the correct number of skeleton items', () => {
     render(<SkeletonBookCategoryList bookCategory={6} />);
 
     const skeletonItems = screen.getAllByTestId('skeleton-item');
@@ -16,7 +16,7 @@ describe('SkeletonBookCategoryList', () => {
     expect(skeletonItems.length).toBe(6);
   });
 
-  test('renders skeleton structure correctly', () => {
+  test('should renders skeleton structure correctly', () => {
     render(<SkeletonBookCategoryList bookCategory={6} />);
 
     const skeletons = screen.getAllByTestId('skeleton-item');

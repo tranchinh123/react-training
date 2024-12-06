@@ -66,12 +66,12 @@ describe('SearchResults Component', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders the correct number of search results', () => {
+  test('should renders the correct number of search results', () => {
     const items = screen.getAllByRole('link');
     expect(items).toHaveLength(mockResults.length);
   });
 
-  test('renders book UI correctly', () => {
+  test('should renders book UI correctly', () => {
     mockResults.forEach((book) => {
       expect(screen.getByText(book.title)).toBeInTheDocument();
 
@@ -80,7 +80,7 @@ describe('SearchResults Component', () => {
     });
   });
 
-  test('calls onClose when a book item is clicked', () => {
+  test('should calls onClose when a book item is clicked', () => {
     const firstBook = screen.getByText(mockResults[0].title);
     const linkElement = firstBook.closest('a');
 
@@ -93,7 +93,7 @@ describe('SearchResults Component', () => {
     expect(mockOnClose).toHaveBeenCalledTimes(1);
   });
 
-  test('renders links for each book', () => {
+  test('should renders links for each book', () => {
     render(
       <MemoryRouter>
         <SearchResults results={mockResults} onClose={mockOnClose} />
@@ -111,7 +111,7 @@ describe('SearchResults Component', () => {
     );
   });
 
-  test('navigate to the correct detail page on Search Result click', () => {
+  test('should navigate to the correct detail page on Search Result click', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <Routes>

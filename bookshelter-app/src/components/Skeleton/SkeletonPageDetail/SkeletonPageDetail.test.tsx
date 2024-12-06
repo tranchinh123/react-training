@@ -18,7 +18,7 @@ describe('SkeletonDetailPage', () => {
     expect(container).toMatchSnapshot();
   });
 
-  test('renders all skeleton components', () => {
+  test('should renders all skeleton components', () => {
     render(<SkeletonDetailPage />);
 
     expect(screen.getByTestId('skeleton-header')).toBeInTheDocument();
