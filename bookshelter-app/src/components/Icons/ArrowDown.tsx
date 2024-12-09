@@ -1,9 +1,10 @@
-const ArrowDown = () => {
+import { SVGprop } from '../../types';
+const ArrowDown = ({ width, height }: SVGprop) => {
   return (
     <svg
-      width="26"
-      height="32"
-      viewBox="0 0 26 32"
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

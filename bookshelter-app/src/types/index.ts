@@ -31,3 +31,8 @@ export interface ToastContextType {
   toast: Toast | null;
   showToast: (message: string, type: 'success' | 'error') => void;
 }
+
+export interface SVGprop {
+  width: string;
+  height: string;
+}

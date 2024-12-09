@@ -84,7 +84,7 @@ const CommentSection = React.memo(({ book }: BookProps) => {
     <div className={styles.commentsSection}>
       <div className={styles.Comments} onClick={handleShowComments}>
         <p className={styles.headerComment}>Comments</p>
-        <Dropdown />
+        <Dropdown width="26" height="32" />
       </div>
 
       {isShow && (

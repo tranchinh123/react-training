@@ -1,9 +1,10 @@
-const LeftArrow = () => {
+import { SVGprop } from '../../types';
+const LeftArrow = ({ width, height }: SVGprop) => {
   return (
     <svg
-      width="12"
-      height="8"
-      viewBox="0 0 12 8"
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

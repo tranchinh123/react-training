@@ -4,17 +4,17 @@ import Glass from '../Glass';
 
 describe('Glass Component', () => {
   test('matches snapshots', () => {
-    const { container } = render(<Glass />);
+    const { container } = render(<Glass width="22" height="22" />);
     expect(container).toMatchSnapshot();
   });
 
   test('renders without crashing', () => {
-    const { container } = render(<Glass />);
+    const { container } = render(<Glass width="22" height="22" />);
     expect(container).toBeInTheDocument();
   });
 
   test('has the correct SVG structure', () => {
-    const { container } = render(<Glass />);
+    const { container } = render(<Glass width="22" height="22" />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '22');
     expect(svg).toHaveAttribute('height', '22');
@@ -25,7 +25,7 @@ describe('Glass Component', () => {
   });
 
   test('renders the arrow down correctly', () => {
-    const { container } = render(<Glass />);
+    const { container } = render(<Glass width="22" height="22" />);
     const svg = container.querySelector('svg');
     expect(svg).toBeInTheDocument();
   });

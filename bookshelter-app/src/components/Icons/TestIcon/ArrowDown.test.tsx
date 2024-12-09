@@ -4,17 +4,17 @@ import ArrowDown from '../ArrowDown';
 
 describe('ArrowDown Component', () => {
   test('matches snapshots', () => {
-    const { container } = render(<ArrowDown />);
+    const { container } = render(<ArrowDown width="26" height="32" />);
     expect(container).toMatchSnapshot();
   });
 
   test('renders without crashing', () => {
-    const { container } = render(<ArrowDown />);
+    const { container } = render(<ArrowDown width="26" height="32" />);
     expect(container).toBeInTheDocument();
   });
 
   test('has the correct SVG structure', () => {
-    const { container } = render(<ArrowDown />);
+    const { container } = render(<ArrowDown width="26" height="32" />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '26');
     expect(svg).toHaveAttribute('height', '32');
@@ -27,7 +27,7 @@ describe('ArrowDown Component', () => {
   });
 
   test('renders the arrow down correctly', () => {
-    const { container } = render(<ArrowDown />);
+    const { container } = render(<ArrowDown width="26" height="32" />);
     const svg = container.querySelector('svg');
     expect(svg).toBeInTheDocument();
   });

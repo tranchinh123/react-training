@@ -7,7 +7,7 @@ const Logo = React.memo(() => {
   return (
     <Link to="/">
       <div className={styles.logo}>
-        <LogoPage />
+        <LogoPage width="54" height="44" />
         <p className={styles.logoText}>BookShelter</p>
       </div>
     </Link>

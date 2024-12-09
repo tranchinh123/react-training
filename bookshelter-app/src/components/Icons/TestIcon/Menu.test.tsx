@@ -4,23 +4,23 @@ import Menu from '../Menu';
 
 describe('Menu Component', () => {
   test('matches snapshots', () => {
-    const { container } = render(<Menu />);
+    const { container } = render(<Menu width="28" height="31" />);
     expect(container).toMatchSnapshot();
   });
 
   test('render without crashing', () => {
-    const { container } = render(<Menu />);
+    const { container } = render(<Menu width="28" height="31" />);
     expect(container).toBeInTheDocument();
   });
 
   test('renders the arrow down correctly', () => {
-    const { container } = render(<Menu />);
+    const { container } = render(<Menu width="28" height="31" />);
     const svg = container.querySelector('svg');
     expect(svg).toBeInTheDocument();
   });
 
   test('has correct SVG structure', () => {
-    const { container } = render(<Menu />);
+    const { container } = render(<Menu width="28" height="31" />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '28');
     expect(svg).toHaveAttribute('height', '31');

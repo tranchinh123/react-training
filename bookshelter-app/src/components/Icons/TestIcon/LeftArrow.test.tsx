@@ -4,17 +4,17 @@ import LeftArrow from '../LeftArrow';
 
 describe('LeftArrow Component', () => {
   test('matches snapshots', () => {
-    const { container } = render(<LeftArrow />);
+    const { container } = render(<LeftArrow width="12" height="8" />);
     expect(container).toMatchSnapshot();
   });
 
   test('renders without crashing', () => {
-    const { container } = render(<LeftArrow />);
+    const { container } = render(<LeftArrow width="12" height="8" />);
     expect(container).toBeInTheDocument();
   });
 
   test('has the correct SVG structure', () => {
-    const { container } = render(<LeftArrow />);
+    const { container } = render(<LeftArrow width="12" height="8" />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '12');
     expect(svg).toHaveAttribute('height', '8');
@@ -25,7 +25,7 @@ describe('LeftArrow Component', () => {
   });
 
   test('renders the arrow down correctly', () => {
-    const { container } = render(<LeftArrow />);
+    const { container } = render(<LeftArrow width="12" height="8" />);
     const svg = container.querySelector('svg');
     expect(svg).toBeInTheDocument();
   });

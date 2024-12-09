@@ -110,7 +110,7 @@ const Header = React.memo(({ onClick }: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.Menu} onClick={onClick}>
-        <Menu />
+        <Menu width="28" height="31" />
       </div>
       <Logo />
       <div ref={searchRef}>

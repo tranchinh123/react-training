@@ -4,23 +4,23 @@ import RightArrow from '../RightArrow';
 
 describe('Menu Component', () => {
   test('matches snapshots', () => {
-    const { container } = render(<RightArrow />);
+    const { container } = render(<RightArrow width="22" height="8" />);
     expect(container).toMatchSnapshot();
   });
 
   test('render without crashing', () => {
-    const { container } = render(<RightArrow />);
+    const { container } = render(<RightArrow width="22" height="8" />);
     expect(container).toBeInTheDocument();
   });
 
   test('renders the arrow down correctly', () => {
-    const { container } = render(<RightArrow />);
+    const { container } = render(<RightArrow width="22" height="8" />);
     const svg = container.querySelector('svg');
     expect(svg).toBeInTheDocument();
   });
 
   test('has correct SVG structure', () => {
-    const { container } = render(<RightArrow />);
+    const { container } = render(<RightArrow width="22" height="8" />);
     const svg = container.querySelector('svg');
     expect(svg).toHaveAttribute('width', '22');
     expect(svg).toHaveAttribute('height', '8');

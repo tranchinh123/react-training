@@ -26,7 +26,7 @@ const CategoriesSection = React.memo(() => {
       {slug && categories.length > 0 && (
         <div className={styles.wrapped}>
           <div className={styles.category}>{categories[0].name}</div>
-          <RightArrow />
+          <RightArrow width="22" height="8" />
           <p className={styles.showQuantity}>
             Showing {categories[0].totalBooks} Result(s)
           </p>

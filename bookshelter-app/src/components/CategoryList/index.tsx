@@ -57,7 +57,7 @@ const CategoryList = React.memo(
               onClick={handleClickClose}
               aria-label="Close"
             >
-              <Close />
+              <Close width="15px" height="15px" />
             </button>
             <p className={styles.curatedList}>
               A curated list of every book ever written

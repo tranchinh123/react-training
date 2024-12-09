@@ -13,7 +13,7 @@ const SearchInput = React.memo(
   ({ searchTerm, onHandleChange, onHandleKeyDown }: SearchInputProps) => {
     return (
       <div className={styles.input}>
-        <Glass />
+        <Glass width="22" height="22" />
         <input
           className={styles.searchInput}
           type="text"

@@ -1,9 +1,10 @@
-const LogoPage = () => {
+import { SVGprop } from '../../types';
+const LogoPage = ({ width, height }: SVGprop) => {
   return (
     <svg
-      width="54"
-      height="44"
-      viewBox="0 0 54 44"
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

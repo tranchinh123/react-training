@@ -9,7 +9,7 @@ interface ButtonBackProps {
 const ButtonBack = React.memo(({ handleBackClick }: ButtonBackProps) => {
   return (
     <button className={styles.backLink} onClick={handleBackClick}>
-      <LeftArrow />
+      <LeftArrow width="12" height="8" />
       <span className={styles.backText}>Back</span>
     </button>
   );
