@@ -88,34 +88,32 @@ const CommentSection = React.memo(({ book }: BookProps) => {
       </div>
 
       {isShow && (
-        <>
-          <Suspense fallback={<SkeletonCommentSection />}>
-            <div className={styles.userComments}>
-              <ErrorBoundary fallback={<ErrorComponent />}>
-                <UserComments comments={comments} />
-              </ErrorBoundary>
-            </div>
-            <div className={styles.leaveComment}>
-              <p className={styles.headerLeaveComment}>Leave a comment</p>
-              <form
-                className={styles.formComment}
-                action="submit"
-                onSubmit={handlePostComment}
-              >
-                <Input label="Name" ref={nameRef} />
-                {errors.name && (
-                  <span className={styles.error}>{errors.name}</span>
-                )}
+        <Suspense fallback={<SkeletonCommentSection />}>
+          <div className={styles.userComments}>
+            <ErrorBoundary fallback={<ErrorComponent />}>
+              <UserComments comments={comments} />
+            </ErrorBoundary>
+          </div>
+          <div className={styles.leaveComment}>
+            <p className={styles.headerLeaveComment}>Leave a comment</p>
+            <form
+              className={styles.formComment}
+              action="submit"
+              onSubmit={handlePostComment}
+            >
+              <Input label="Name" ref={nameRef} />
+              {errors.name && (
+                <span className={styles.error}>{errors.name}</span>
+              )}
 
-                <Input label="Comment" ref={commentRef} />
-                {errors.comment && (
-                  <span className={styles.error}>{errors.comment}</span>
-                )}
-                <Button />
-              </form>
-            </div>
-          </Suspense>
-        </>
+              <Input label="Comment" ref={commentRef} />
+              {errors.comment && (
+                <span className={styles.error}>{errors.comment}</span>
+              )}
+              <Button />
+            </form>
+          </div>
+        </Suspense>
       )}
     </div>
   );

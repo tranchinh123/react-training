@@ -5,9 +5,7 @@ interface MyComponentProps {
   children: ReactNode;
 }
 
-export const ToastContext = createContext<ToastContextType | undefined>(
-  undefined
-);
+export const ToastContext = createContext<ToastContextType | null>(null);
 
 export const ToastProvider = ({ children }: MyComponentProps) => {
   const [toast, setToast] = useState<Toast | null>(null);

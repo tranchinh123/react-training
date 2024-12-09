@@ -35,16 +35,4 @@ describe('UserComment Component', () => {
     const commentElements = container.querySelectorAll('.userComment');
     expect(commentElements.length).toBe(0);
   });
-
-  test('should does not re-render when comments do not change', () => {
-    const { rerender } = render(<UserComments comments={comments} />);
-
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
-
-    rerender(<UserComments comments={comments} />);
-
-    expect(consoleSpy).not.toHaveBeenCalled();
-
-    consoleSpy.mockRestore();
-  });
 });

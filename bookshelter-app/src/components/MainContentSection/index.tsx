@@ -8,16 +8,10 @@ interface MainContentSectionProp {
 const MainContentSection = React.memo(
   ({ cover, description }: MainContentSectionProp) => {
     return (
-      <>
-        <div className={styles.mainContentSection}>
-          <img
-            className={styles.imgBook}
-            src={cover}
-            alt="image of the book "
-          />
-          <p className={styles.description}>{description}</p>
-        </div>
-      </>
+      <div className={styles.mainContentSection}>
+        <img className={styles.imgBook} src={cover} alt="image of the book " />
+        <p className={styles.description}>{description}</p>
+      </div>
     );
   }
 );
