@@ -32,7 +32,7 @@ describe('useToast', () => {
 
     try {
       render(
-        <ToastContext.Provider value={undefined}>
+        <ToastContext.Provider value={null}>
           <TestComponent />
         </ToastContext.Provider>
       );

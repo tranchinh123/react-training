@@ -1,14 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CategoryList from './';
-import { Category } from '../../types';
 import { MemoryRouter } from 'react-router-dom';
-
+import { mockCategories } from '../../__mocks__/fileData';
 // Mock data
-const mockCategories: Category[] = [
-  { id: 1, name: 'Adventure', totalBooks: 100, slug: 'adventure' },
-  { id: 2, name: 'Romance', totalBooks: 80, slug: 'romance' },
-];
 
 describe('CategoryList', () => {
   let setIsMenuOpen: jest.Mock;
